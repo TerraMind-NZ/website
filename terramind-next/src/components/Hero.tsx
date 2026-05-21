@@ -12,15 +12,16 @@ export default function Hero() {
             <div className="eyebrow">
               <span className="dot" />
               <span className="eyebrow-text">
-                Built in Aotearoa &nbsp;·&nbsp; First prototypes · June 10, 2026
+                Designed and built in Aotearoa, New Zealand. Coming soon.
               </span>
             </div>
             <HeroHeadline />
             <p className="lede">
-              TerraMind is an agricultural intelligence platform for the
-              world&rsquo;s horticulture growers: orchards, vineyards, berry
-              farms, and beyond. First prototypes ship June 10, 2026, from
-              Aotearoa New Zealand.
+              TerraMind is a connected agricultural intelligence ecosystem for
+              the world&rsquo;s horticulture growers: orchards, vineyards,
+              berry farms, and beyond. Predictive hardware, probabilistic
+              forecasting, and finance workflows, designed and built in
+              Aotearoa, New Zealand. Coming soon.
             </p>
             <div className="cta-row">
               <a href="#contact" className="btn btn-primary">

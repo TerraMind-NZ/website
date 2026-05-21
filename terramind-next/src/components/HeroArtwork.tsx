@@ -1,7 +1,12 @@
 export default function HeroArtwork() {
   return (
-    <div className="hero-art" data-parallax="0.12" aria-hidden="true">
-      <svg viewBox="0 0 400 400" xmlns="http://www.w3.org/2000/svg">
+    <div className="hero-art" aria-hidden="true">
+      <svg
+        viewBox="0 0 400 400"
+        xmlns="http://www.w3.org/2000/svg"
+        shapeRendering="geometricPrecision"
+        textRendering="geometricPrecision"
+      >
         <defs>
           <linearGradient id="heroCloudGrad" x1="0" y1="0" x2="0" y2="1">
             <stop offset="0%" stopColor="#2D5E3E" stopOpacity="0.4" />

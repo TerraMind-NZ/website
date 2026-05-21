@@ -19,11 +19,10 @@ export default function CTASection() {
           </h2>
           <div ref={metaRef} className="cta-meta reveal">
             <p>
-              We&rsquo;re shipping first prototypes on June 10, 2026, and
-              we&rsquo;re recruiting pilot orchards, vineyards, and growers in
-              Aotearoa right now. If you&rsquo;d like to be one, or you&rsquo;re
-              a grower anywhere who&rsquo;d want one of the next prototypes,
-              please reach out.
+              We&rsquo;re recruiting pilot orchards, vineyards, and growers in
+              Aotearoa right now. If you&rsquo;d like to be part of what comes
+              next, or you&rsquo;re a grower anywhere who wants to hear when
+              the first prototypes are ready, please reach out.
             </p>
             <p>
               <a href="mailto:partners@terramind.co.nz">

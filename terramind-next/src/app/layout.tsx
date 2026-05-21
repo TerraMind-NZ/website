@@ -20,7 +20,7 @@ const manrope = Manrope({
 export const metadata: Metadata = {
   title: "TerraMind: Agricultural intelligence for horticulture",
   description:
-    "An agricultural intelligence platform for the world's horticulture growers. Hardware, probabilistic forecasting, and finance. First prototypes shipping June 10, 2026 from Aotearoa New Zealand.",
+    "A connected agricultural intelligence ecosystem for horticulture growers: predictive hardware, probabilistic forecasting, and finance workflows. Designed and built in Aotearoa, New Zealand. Coming soon.",
 };
 
 export default function RootLayout({

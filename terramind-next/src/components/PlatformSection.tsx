@@ -117,34 +117,34 @@ const FinanceSVG = (
         <rect width="320" height="40" rx="8" fill="rgba(45,94,62,0.08)" stroke="#2D5E3E" strokeWidth="0.6" />
         <circle cx="22" cy="20" r="8" fill="#2D5E3E" />
         <path className="finance-check" d="M 18 20 L 21 23 L 26 17" stroke="#F4F0E6" strokeWidth="1.6" fill="none" strokeLinecap="round" strokeLinejoin="round" />
-        <text x="44" y="18" fontWeight="600">He Waka Eke Noa</text>
-        <text x="44" y="32" opacity="0.6" fontSize="9">Emissions reporting · auto-filed Q3</text>
-        <text x="308" y="25" fill="#2D5E3E" fontWeight="600" fontSize="10" textAnchor="end">DONE</text>
+        <text x="44" y="18" fontWeight="600">Expected harvest revenue</text>
+        <text x="44" y="32" opacity="0.6" fontSize="9">P50 NZ$1.84m · P95 NZ$2.11m</text>
+        <text x="308" y="25" fill="#2D5E3E" fontWeight="600" fontSize="10" textAnchor="end">LIVE</text>
       </g>
       <g className="finance-row finance-row-2" transform="translate(40, 92)">
         <rect width="320" height="40" rx="8" fill="rgba(45,94,62,0.08)" stroke="#2D5E3E" strokeWidth="0.6" />
         <circle cx="22" cy="20" r="8" fill="#2D5E3E" />
         <path className="finance-check" d="M 18 20 L 21 23 L 26 17" stroke="#F4F0E6" strokeWidth="1.6" fill="none" strokeLinecap="round" strokeLinejoin="round" />
-        <text x="44" y="18" fontWeight="600">Xero: Q3 ledger</text>
+        <text x="44" y="18" fontWeight="600">Read-only ledger sync</text>
         <text x="44" y="32" opacity="0.6" fontSize="9">Synced 4 hours ago · 142 transactions</text>
         <text x="308" y="25" fill="#2D5E3E" fontWeight="600" fontSize="10" textAnchor="end">SYNCED</text>
       </g>
       <g className="finance-row finance-row-3" transform="translate(40, 144)">
         <rect width="320" height="40" rx="8" fill="rgba(184,144,96,0.12)" stroke="#B89060" strokeWidth="0.6" />
         <circle cx="22" cy="20" r="8" fill="none" stroke="#B89060" strokeWidth="1.4" />
-        <text x="44" y="18" fontWeight="600">Freshwater Farm Plan</text>
-        <text x="44" y="32" opacity="0.6" fontSize="9">Draft ready · review before May 30</text>
-        <text x="308" y="25" fill="#8A6B45" fontWeight="600" fontSize="10" textAnchor="end">REVIEW</text>
+        <text x="44" y="18" fontWeight="600">Frost protection tonight</text>
+        <text x="44" y="32" opacity="0.6" fontSize="9">Wind machines · net benefit +NZ$22.8k</text>
+        <text x="308" y="25" fill="#8A6B45" fontWeight="600" fontSize="10" textAnchor="end">RECOMMEND</text>
       </g>
       <g className="finance-row finance-row-4" transform="translate(40, 196)">
         <rect width="320" height="40" rx="8" fill="rgba(45,94,62,0.08)" stroke="#2D5E3E" strokeWidth="0.6" />
         <circle cx="22" cy="20" r="8" fill="#2D5E3E" />
         <path className="finance-check" d="M 18 20 L 21 23 L 26 17" stroke="#F4F0E6" strokeWidth="1.6" fill="none" strokeLinecap="round" strokeLinejoin="round" />
-        <text x="44" y="18" fontWeight="600">Toitū carbon report</text>
-        <text x="44" y="32" opacity="0.6" fontSize="9">Generated · ready to share</text>
-        <text x="308" y="25" fill="#2D5E3E" fontWeight="600" fontSize="10" textAnchor="end">READY</text>
+        <text x="44" y="18" fontWeight="600">Orchard rollup</text>
+        <text x="44" y="32" opacity="0.6" fontSize="9">Revenue at risk NZ$86k · 3 blocks exposed</text>
+        <text x="308" y="25" fill="#2D5E3E" fontWeight="600" fontSize="10" textAnchor="end">LIVE</text>
       </g>
-      <text x="40" y="262" opacity="0.5" fontSize="10" fontStyle="italic">Compliance, not chased.</text>
+      <text x="40" y="262" opacity="0.5" fontSize="10" fontStyle="italic">Forecasts translated into dollars and decisions.</text>
     </g>
   </svg>
 );
@@ -181,12 +181,13 @@ const LAYERS: LayerInfo[] = [
   {
     number: "03",
     tag: "Finance Layer",
-    title: "Cashflow and compliance, native to your region.",
+    title: "Revenue, losses, and recommendations from every forecast.",
     body: (
       <>
-        Launching with Xero, He Waka Eke Noa, Toitū, and freshwater farm plans,
-        built for <em>our</em> paperwork, not adapted from someone else&rsquo;s.
-        The same approach, region by region.
+        Turns probabilistic forecast outputs into dollar-denominated revenue,
+        loss, and action views for each block, with explicit recommendations,
+        confidence levels, and transaction-grounded context for the orchard in
+        front of you.
       </>
     ),
     preview: FinanceSVG,
@@ -259,14 +260,15 @@ export default function PlatformSection() {
               The platform
             </div>
             <h2 ref={titleRef} className="section-title reveal-blur">
-              Three layers (hardware, forecast, finance) designed to{" "}
-              <em>work together,</em> but each one stands alone.
+              Three layers (hardware, forecast, finance) designed as one{" "}
+              <em>ecosystem,</em> working together end-to-end.
             </h2>
           </div>
           <p ref={introRef} className="platform-intro reveal">
             The manual work behind every season: sensing block conditions,
-            forecasting yield and risk, and reconciling finance or compliance,
-            handled by focused layers that work together.
+            predictive and probabilistic forecasting for yield and risk, and
+            finance or compliance workflows, connected in one system that moves
+            together.
           </p>
         </div>
 
