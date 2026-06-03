@@ -3,7 +3,6 @@
 import {
   useState,
   type KeyboardEvent,
-  type PointerEvent,
   type ReactNode,
 } from "react";
 import { useReveal } from "@/hooks/useReveal";
@@ -202,11 +201,6 @@ interface LayerCardProps {
 }
 
 function LayerCard({ layer, index, isActive, onActivate }: LayerCardProps) {
-  const handlePointerEnter = (event: PointerEvent<HTMLElement>) => {
-    if (event.pointerType === "touch") return;
-    onActivate(index);
-  };
-
   const handleKeyDown = (event: KeyboardEvent<HTMLElement>) => {
     if (event.key !== "Enter" && event.key !== " ") return;
     event.preventDefault();
@@ -220,7 +214,6 @@ function LayerCard({ layer, index, isActive, onActivate }: LayerCardProps) {
       onClick={() => onActivate(index)}
       onFocus={() => onActivate(index)}
       onKeyDown={handleKeyDown}
-      onPointerEnter={handlePointerEnter}
     >
       <div className="layer-agent-summary">
         <h3 className="layer-agent-name">{layer.tag}</h3>
