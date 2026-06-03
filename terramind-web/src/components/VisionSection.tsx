@@ -26,7 +26,7 @@ export default function VisionSection() {
             <em>built between the rows.</em>
           </h2>
           <p ref={bodyRef} className="vision-body reveal">
-            Most agricultural AI was built for broadacre commodity crops
+            Most agricultural technology was built for broadacre commodity crops
             (corn, wheat, soy) and bent to fit everything else. We&rsquo;re
             going the other way. Horticulture is its own world: trees that take
             years to bear, vines that depend on a single frost-free night, fruit

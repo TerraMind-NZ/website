@@ -170,9 +170,8 @@ const LAYERS: LayerInfo[] = [
     body: (
       <>
         Yield, weather, and risk forecasts that surface confidence as the
-        headline, not the footnote.{" "}
-        <em>&ldquo;88%, drops to 42% if frost hits Tuesday.&rdquo;</em>{" "}
-        Decisions worth the season they&rsquo;re staking.
+        headline, not the footnote. An AI reasoning layer handles unstructured questions;
+        self-consistency keeps high-stakes calls stable.
       </>
     ),
     preview: ForecastSVG,
@@ -184,9 +183,8 @@ const LAYERS: LayerInfo[] = [
     body: (
       <>
         Turns probabilistic forecast outputs into dollar-denominated revenue,
-        loss, and action views for each block, with explicit recommendations,
-        confidence levels, and transaction-grounded context for the orchard in
-        front of you.
+        loss, and action views for each block, with structured prompting for
+        driver attribution.
       </>
     ),
     preview: FinanceSVG,

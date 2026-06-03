@@ -20,8 +20,7 @@ export default function Hero() {
               TerraMind is a connected agricultural intelligence ecosystem for
               the world&rsquo;s horticulture growers: orchards, vineyards,
               berry farms, and beyond. Predictive hardware, probabilistic
-              forecasting, and finance workflows, designed and built in
-              Aotearoa, New Zealand. Coming soon.
+              forecasting, and finance workflows.
             </p>
             <div className="cta-row">
               <a href="#contact" className="btn btn-primary">
