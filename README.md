@@ -1,43 +1,28 @@
-# TerraMind — Marketing site
+# TerraMind Web
 
-Marketing site for TerraMind, an agricultural intelligence platform for horticulture growers.
+Marketing website for TerraMind — agricultural intelligence for horticulture growers.
 
-**Stack:** Next.js 16 · TypeScript · Tailwind v4 · Fraunces + Manrope · Vercel
+## Project
 
----
-
-## Quick start
+All source code lives in [`terramind-web/`](terramind-web/).
 
 ```bash
-cd terramind-next
+cd terramind-web
 npm install
-npm run dev
+npm run dev        # http://localhost:3000
+npm run build      # production build
+npm run lint       # ESLint
+npx tsc --noEmit   # type-check
 ```
 
-Opens at [http://localhost:3000](http://localhost:3000).
+## Stack
 
----
-
-## Structure
-
-```
-terramind-next/     # Active Next.js project
-  src/
-    app/            # layout.tsx, page.tsx, globals.css
-    components/     # Nav, Hero, sections, etc.
-    hooks/          # useScrolled, useReveal, useParallax
-terramind-site/     # Original static HTML (reference only)
-```
-
----
+- Next.js 16 (Turbopack)
+- React 19
+- TypeScript 5
+- Tailwind CSS v4
+- Deployed on Vercel
 
 ## Deploy
 
-Vercel auto-deploys on every push to `main`.
-Set **Root Directory** to `terramind-next` in Vercel project settings.
-
----
-
-## License
-
-All rights reserved · © 2026 TerraMind
+Vercel is linked to the `terramind-web/` subdirectory. Pushes to `main` trigger automatic deploys.
