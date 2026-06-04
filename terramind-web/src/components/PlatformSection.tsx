@@ -218,15 +218,17 @@ function LayerCard({ layer, index, isActive, onActivate }: LayerCardProps) {
         <span className="layer-agent-number">{layer.number}</span>
       </div>
       <div className="layer-agent-details" aria-hidden={!isActive}>
-        <h4 className="layer-agent-title">{layer.title}</h4>
-        <p className="layer-agent-body">{layer.body}</p>
-        <a
-          href="#contact"
-          className="layer-agent-link"
-          onClick={(event) => event.stopPropagation()}
-        >
-          Talk to us <span className="arrow">→</span>
-        </a>
+        <div className="layer-agent-details-inner">
+          <h4 className="layer-agent-title">{layer.title}</h4>
+          <p className="layer-agent-body">{layer.body}</p>
+          <a
+            href="#contact"
+            className="layer-agent-link"
+            onClick={(event) => event.stopPropagation()}
+          >
+            Talk to us <span className="arrow">→</span>
+          </a>
+        </div>
       </div>
       <div className="layer-card-preview" aria-hidden={!isActive}>
         <div className="layer-card-preview-surface">{layer.preview}</div>

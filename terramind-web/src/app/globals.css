@@ -829,18 +829,20 @@ section.sec {
   margin-right: 0.18em;
 }
 .layer-agent-details {
-  max-height: 0;
-  padding: 0 30px;
+  display: grid;
+  grid-template-rows: 0fr;
   opacity: 0;
   overflow: hidden;
   transition:
-    max-height 0.28s ease,
-    padding 0.28s ease,
+    grid-template-rows 0.28s ease,
     opacity 0.2s ease;
 }
-.layer-agent-card.is-active .layer-agent-details {
-  max-height: 620px;
+.layer-agent-details-inner {
+  min-height: 0;
   padding: 0 30px 30px;
+}
+.layer-agent-card.is-active .layer-agent-details {
+  grid-template-rows: 1fr;
   opacity: 1;
 }
 .layer-agent-link {
@@ -1034,7 +1036,7 @@ section.sec {
   .layer-agent-name {
     font-size: 32px;
   }
-  .layer-agent-card.is-active .layer-agent-details {
+  .layer-agent-details-inner {
     padding: 0 28px 28px;
   }
   .layer-card-preview-surface {
@@ -1105,10 +1107,7 @@ section.sec {
     font-size: 14px;
     line-height: 1.62;
   }
-  .layer-agent-details {
-    padding: 0 20px;
-  }
-  .layer-agent-card.is-active .layer-agent-details {
+  .layer-agent-details-inner {
     padding: 0 20px 22px;
   }
   .layer-card-preview-surface {
@@ -1117,9 +1116,6 @@ section.sec {
   }
   .layer-card-preview-surface > svg {
     border-radius: 14px;
-  }
-  .layer-agent-card.is-active .layer-agent-details {
-    max-height: 520px;
   }
 }
 
