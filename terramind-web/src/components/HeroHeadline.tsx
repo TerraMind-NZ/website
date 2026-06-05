@@ -3,7 +3,7 @@
 import { useMemo } from "react";
 
 const RAW_HEADLINE =
-  "Predictive, probabilistic intelligence for {em}horticulture{/em}.";
+  "The Intelligence Ecosystem for {em}Horticulture{/em}.";
 
 export default function HeroHeadline() {
   const nodes = useMemo(() => {
