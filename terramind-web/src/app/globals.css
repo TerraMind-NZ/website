@@ -358,7 +358,7 @@ nav.scrolled {
   display: grid;
   grid-template-columns: 1.1fr 1fr;
   gap: 60px;
-  align-items: start;
+  align-items: center;
   width: 100%;
 }
 .hero-grid > * {
