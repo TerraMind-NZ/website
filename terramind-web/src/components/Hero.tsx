@@ -17,9 +17,9 @@ export default function Hero() {
             </div>
             <HeroHeadline />
             <p className="lede">
-              TerraMind is the intelligence ecosystem for horticulture: sensing,
-              forecasting, and finance workflows that turn uncertainty into
-              decisions &mdash; saving growers time and guesswork.
+              TerraMind is the intelligence ecosystem for horticulture. Hardware,
+              AI-powered probabilistic predictions and finance workflows that
+              turn uncertainty into decisions, saving growers time, money and guesswork.
             </p>
             <div className="cta-row">
               <a href="#contact" className="btn btn-primary">
