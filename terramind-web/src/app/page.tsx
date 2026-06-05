@@ -24,9 +24,7 @@ export default function HomePage() {
         <VisionSection />
         <CTASection />
       </main>
-      <div className="container">
-        <Footer />
-      </div>
+      <Footer />
     </>
   );
 }
