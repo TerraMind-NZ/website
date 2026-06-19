@@ -8,7 +8,7 @@ export default function Hero() {
       <Atmosphere variant="meadow" grain />
       <div className="container">
         <div className="hero-grid">
-          <div>
+          <div className="hero-copy">
             <div className="eyebrow">
               <span className="dot" />
               <span className="eyebrow-text">

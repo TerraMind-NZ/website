@@ -364,11 +364,18 @@ nav.scrolled {
 .hero-grid > * {
   min-width: 0;
 }
+.hero-copy {
+  transform: translateY(clamp(14px, 1.4vw, 24px)) scale(1.025);
+  transform-origin: left center;
+}
 @media (max-width: 900px) {
   .hero {
     align-items: flex-start;
     min-height: auto;
     padding: 64px 0 92px;
+  }
+  .hero-copy {
+    transform: none;
   }
   .hero-grid { grid-template-columns: 1fr; gap: 46px; }
 }
