@@ -130,7 +130,7 @@ nav.scrolled {
 .brand-name {
   font-family: var(--serif);
   font-weight: 500;
-  font-size: 22px;
+  font-size: 23px;
   letter-spacing: -0.01em;
 }
 .nav-links {
@@ -141,7 +141,7 @@ nav.scrolled {
 .nav-links a {
   color: var(--ink-soft);
   text-decoration: none;
-  font-size: 14px;
+  font-size: 15px;
   font-weight: 500;
   transition: color 0.2s ease;
 }
@@ -151,7 +151,7 @@ nav.scrolled {
   color: var(--paper) !important;
   padding: 10px 20px;
   border-radius: 999px;
-  font-size: 13px;
+  font-size: 14px;
   font-weight: 600;
   transition: background 0.25s ease, transform 0.2s ease;
 }
