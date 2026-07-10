@@ -22,9 +22,10 @@ export default function Hero() {
           <br />a <em className="font-serif italic text-accent">dollar decision</em>
         </h1>
         <p className="mx-auto mb-10 max-w-xl text-[17px] leading-relaxed text-white/70">
-          TerraMind converts weather and agronomic predictions into block-level,
-          dollar-denominated recommendations for New Zealand growers — calibrated
-          probabilities, not dashboard noise.
+          TerraMind&apos;s prediction engine turns calibrated weather and
+          agronomic probabilities into block-level, dollar-denominated
+          decisions — with an AI reasoning layer that plans your season,
+          briefs your mornings, and learns every block.
         </p>
         <div className="flex flex-wrap items-center justify-center gap-3.5">
           <button
@@ -39,6 +40,15 @@ export default function Hero() {
           >
             See the platform →
           </a>
+        </div>
+        <div className="mx-auto mt-12 flex max-w-2xl flex-wrap items-center justify-center gap-x-3 gap-y-2 font-mono text-[11px] uppercase tracking-[0.15em] text-white/55">
+          <span>94% frost nights caught</span>
+          <span className="text-white/25">·</span>
+          <span>r = 0.87 irrigation</span>
+          <span className="text-white/25">·</span>
+          <span>±2-day harvest timing</span>
+          <span className="text-white/25">·</span>
+          <span>ECE 0.007 calibration</span>
         </div>
       </div>
     </section>
