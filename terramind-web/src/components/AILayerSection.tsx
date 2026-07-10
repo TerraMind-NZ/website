@@ -1,5 +1,6 @@
 "use client";
 
+import Link from "next/link";
 import { useReveal } from "@/hooks/useReveal";
 
 const FEATURES = [
@@ -17,7 +18,42 @@ const FEATURES = [
   },
   {
     name: "Ask TerraMind",
-    desc: "Ask anything about your operation. Answers grounded in your blocks, your history, your numbers — never a generic chatbot.",
+    desc: "An agentic assistant with retrieval-augmented answers grounded in your blocks, your history, your numbers — never a generic chatbot.",
+  },
+];
+
+const MORE_FEATURES = [
+  {
+    name: "Nightly Insight Scan",
+    desc: "Five deterministic detectors sweep every block at 2:30 am.",
+  },
+  {
+    name: "Decision Wins",
+    desc: "Confirmed calls valued in dollars, banked per block.",
+  },
+  {
+    name: "Risk-Weighted Planning",
+    desc: "Season-scale Monte Carlo, priced into revenue impact.",
+  },
+  {
+    name: "Pre-Decision Checklists",
+    desc: "Before you run the wind machine: check X, Y, Z.",
+  },
+  {
+    name: "Season Reports",
+    desc: "Weekly, pre-season, debrief and agronomist-grade PDFs.",
+  },
+  {
+    name: "Voice Logging",
+    desc: "Hands-free structured logging from the orchard row.",
+  },
+  {
+    name: "Inferred Logging",
+    desc: "Likely actions detected, confirmed with one tap.",
+  },
+  {
+    name: "Staff View",
+    desc: "A plain-language day sheet for the crew, one tap to share.",
   },
 ];
 
@@ -34,17 +70,23 @@ export default function AILayerSection() {
       <div className="grid grid-cols-1 items-start gap-12 md:grid-cols-2 md:gap-20">
         <div>
           <h2 className="mb-4.5 font-serif text-[clamp(28px,3.5vw,46px)] font-semibold leading-[1.1] tracking-tight text-ink">
-            An AI layer that
-            <br />
-            <em className="italic text-leaf">works your season</em>
+            A 14-feature AI reasoning layer —{" "}
+            <em className="italic text-leaf">not a chatbot</em>
           </h2>
-          <p className="text-base leading-relaxed text-ink-mute">
-            TerraMind doesn&apos;t stop at predicting. It plans your season,
-            briefs you each morning, and watches every block overnight —
-            reasoning across weather, agronomy and economics so the right
-            information surfaces at the right moment. Grounded in your own
-            blocks&apos; data, with you making every call.
+          <p className="mb-6 text-base leading-relaxed text-ink-mute">
+            Every AI feature exists because of a TerraMind prediction. The
+            discipline is grounding-before-generation: deterministic engines
+            find the signal, the AI puts it into words, and a structured
+            fallback ships if it can&apos;t. Agentic tool-calling,
+            retrieval-augmented answers, self-consistency ensembles on
+            high-stakes questions — with you making every call.
           </p>
+          <Link
+            href="/intelligence"
+            className="font-mono text-[12px] uppercase tracking-[0.15em] text-leaf transition-colors hover:text-leaf-deep"
+          >
+            Explore the intelligence layer →
+          </Link>
         </div>
         <div className="flex flex-col gap-3">
           {FEATURES.map((f) => (
@@ -59,6 +101,21 @@ export default function AILayerSection() {
             </div>
           ))}
         </div>
+      </div>
+      <div className="mt-12 grid grid-cols-1 gap-3 sm:grid-cols-2 lg:grid-cols-4">
+        {MORE_FEATURES.map((f) => (
+          <div
+            key={f.name}
+            className="rounded-xl border border-line-soft bg-white/40 px-5 py-4"
+          >
+            <div className="mb-0.5 text-[13px] font-semibold text-ink">
+              {f.name}
+            </div>
+            <p className="text-[13px] leading-relaxed text-ink-mute">
+              {f.desc}
+            </p>
+          </div>
+        ))}
       </div>
     </section>
   );
