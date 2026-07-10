@@ -8,9 +8,9 @@
 
   --color-chrome: #1b2a22;
   --color-chrome-deep: #0a0f0c;
-  --color-paper: #f3f6ee;
-  --color-paper-2: #e4eadb;
-  --color-paper-3: #d8e0cc;
+  --color-paper: #e5eedd;
+  --color-paper-2: #dbe6cd;
+  --color-paper-3: #cfdcbe;
   --color-leaf: #0f7a41;
   --color-leaf-deep: #0b5c32;
   --color-accent: #43d585;
@@ -18,7 +18,7 @@
   --color-ink: #0a0f0c;
   --color-ink-soft: #1b2a22;
   --color-ink-mute: #55625a;
-  --color-mint: #eaf3ec;
+  --color-mint: #e2efe0;
   --color-sage: #86998e;
   --color-earth: #b67d2e;
   --color-amber: #ffc06b;
@@ -29,9 +29,9 @@
 :root {
   --chrome: #1b2a22;
   --chrome-deep: #0a0f0c;
-  --paper: #f3f6ee;
-  --paper-2: #e4eadb;
-  --paper-3: #d8e0cc;
+  --paper: #e5eedd;
+  --paper-2: #dbe6cd;
+  --paper-3: #cfdcbe;
   --leaf: #0f7a41;
   --leaf-deep: #0b5c32;
   --accent: #43d585;
@@ -39,7 +39,7 @@
   --ink: #0a0f0c;
   --ink-soft: #1b2a22;
   --ink-mute: #55625a;
-  --mint: #eaf3ec;
+  --mint: #e2efe0;
   --sage: #86998e;
   --line: rgba(10, 15, 12, 0.12);
   --line-soft: rgba(10, 15, 12, 0.06);
@@ -63,7 +63,9 @@ body {
   overflow-x: hidden;
 }
 
-a { color: inherit; text-decoration: none; }
+@layer base {
+  a { color: inherit; text-decoration: none; }
+}
 
 /* ── Film grain overlay ── */
 body::before {

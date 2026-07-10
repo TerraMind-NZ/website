@@ -8,8 +8,15 @@ export default function StatementBand() {
   return (
     <section
       ref={ref}
-      className="reveal relative overflow-hidden bg-chrome px-6 py-28 text-center md:px-10"
+      className="reveal relative overflow-hidden bg-chrome-deep px-6 py-28 text-center md:px-10"
     >
+      <div
+        className="pointer-events-none absolute inset-0"
+        style={{
+          background:
+            "radial-gradient(ellipse 70% 80% at 50% 35%, rgba(15,122,65,0.24) 0%, rgba(15,122,65,0) 60%), linear-gradient(to bottom, rgba(27,42,34,0.6) 0%, rgba(27,42,34,0) 30%, rgba(27,42,34,0) 70%, rgba(27,42,34,0.6) 100%)",
+        }}
+      />
       <div
         className="absolute inset-0 opacity-50"
         style={{

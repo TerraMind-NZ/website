@@ -7,25 +7,21 @@ export default function Hero() {
   const { openModal } = useModal();
 
   return (
-    <section className="relative flex min-h-screen flex-col items-center justify-center overflow-hidden px-6 pb-20 pt-30 text-center md:px-10">
+    <section className="relative flex min-h-screen flex-col items-center justify-center overflow-hidden bg-chrome-deep px-6 pb-20 pt-30 text-center md:px-10">
       <HeroCanvas />
       <div
         className="pointer-events-none absolute inset-0 z-1"
         style={{
           background:
-            "radial-gradient(ellipse 65% 55% at 50% 50%, rgba(243,246,238,0.72) 0%, rgba(243,246,238,0) 100%), linear-gradient(to bottom, rgba(243,246,238,0.6) 0%, rgba(243,246,238,0) 30%, rgba(243,246,238,0) 70%, rgba(243,246,238,0.5) 100%)",
+            "radial-gradient(ellipse 60% 50% at 50% 42%, rgba(4,10,7,0.45) 0%, rgba(4,10,7,0) 100%), linear-gradient(to bottom, rgba(4,10,7,0.55) 0%, rgba(4,10,7,0) 28%, rgba(4,10,7,0) 72%, rgba(4,10,7,0.55) 100%)",
         }}
       />
       <div className="relative z-2 max-w-3xl">
-        <div className="mb-7 inline-flex items-center gap-2 font-mono text-[11px] uppercase tracking-[0.2em] text-ink-mute">
-          <span className="inline-block h-1.5 w-1.5 animate-pulse rounded-full bg-accent" />
-          Probabilistic forecasting · Decision economics
-        </div>
-        <h1 className="mb-6 font-serif text-[clamp(42px,6vw,78px)] font-semibold leading-[1.05] tracking-tight text-ink">
+        <h1 className="mb-6 font-serif text-[clamp(42px,6vw,78px)] font-semibold leading-[1.05] tracking-tight text-white">
           Every forecast
-          <br />a <em className="font-serif italic text-leaf">dollar decision</em>
+          <br />a <em className="font-serif italic text-accent">dollar decision</em>
         </h1>
-        <p className="mx-auto mb-10 max-w-xl text-[17px] leading-relaxed text-ink-mute">
+        <p className="mx-auto mb-10 max-w-xl text-[17px] leading-relaxed text-white/70">
           TerraMind converts weather and agronomic predictions into block-level,
           dollar-denominated recommendations for New Zealand growers — calibrated
           probabilities, not dashboard noise.
@@ -39,7 +35,7 @@ export default function Hero() {
           </button>
           <a
             href="#platform"
-            className="inline-flex items-center gap-2 rounded-full border border-line px-5.5 py-3.5 text-sm text-ink-soft transition-colors hover:border-ink/30 hover:text-ink"
+            className="inline-flex items-center gap-2 rounded-full border border-white/30 px-5.5 py-3.5 text-sm text-white transition-colors hover:border-white/60"
           >
             See the platform →
           </a>
