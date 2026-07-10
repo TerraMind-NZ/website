@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Fraunces, Manrope } from "next/font/google";
+import { Fraunces, Manrope, Space_Mono } from "next/font/google";
 import "./globals.css";
 
 const fraunces = Fraunces({
@@ -17,10 +17,17 @@ const manrope = Manrope({
   display: "swap",
 });
 
+const spaceMono = Space_Mono({
+  subsets: ["latin"],
+  weight: ["400", "700"],
+  variable: "--font-space-mono",
+  display: "swap",
+});
+
 export const metadata: Metadata = {
-  title: "TerraMind",
+  title: "TerraMind — Decision-economics for horticulture",
   description:
-    "A connected agricultural intelligence ecosystem for horticulture growers: predictive hardware, probabilistic forecasting, and finance workflows. Designed and built in Aotearoa, New Zealand. Coming soon.",
+    "TerraMind converts weather and agronomic predictions into block-level, dollar-denominated recommendations for New Zealand growers — calibrated probabilities, not dashboard noise.",
 };
 
 export default function RootLayout({
@@ -29,7 +36,10 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={`${fraunces.variable} ${manrope.variable}`}>
+    <html
+      lang="en"
+      className={`${fraunces.variable} ${manrope.variable} ${spaceMono.variable}`}
+    >
       <body>{children}</body>
     </html>
   );

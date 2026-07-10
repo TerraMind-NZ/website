@@ -6,7 +6,7 @@
       "runtimeExecutable": "npm",
       "runtimeArgs": ["run", "dev"],
       "cwd": "terramind-web",
-      "port": 3000
+      "port": 3002
     }
   ]
 }
