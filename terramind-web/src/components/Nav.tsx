@@ -2,13 +2,14 @@
 
 import { useState } from "react";
 import Image from "next/image";
+import Link from "next/link";
 import { useScrolled } from "@/hooks/useScrolled";
 import { useModal } from "./ModalProvider";
 
 const LINKS = [
-  { href: "#platform", label: "Platform" },
-  { href: "#intelligence", label: "Intelligence" },
-  { href: "#calibration", label: "Calibration" },
+  { href: "/#platform", label: "Platform" },
+  { href: "/intelligence", label: "Intelligence" },
+  { href: "/proof", label: "Proof" },
 ];
 
 export default function Nav() {
@@ -25,7 +26,7 @@ export default function Nav() {
       }`}
     >
       <div className="flex items-center justify-between px-6 py-4 md:px-10 md:py-5">
-        <a href="#" className="flex items-center gap-2.5">
+        <Link href="/" className="flex items-center gap-2.5">
           <Image
             src="/logo-icon.png"
             alt="TerraMind logo"
@@ -37,7 +38,7 @@ export default function Nav() {
           <span className="text-[17px] font-bold tracking-tight text-white">
             TerraMind
           </span>
-        </a>
+        </Link>
 
         <ul className="hidden items-center gap-8 md:flex">
           {LINKS.map((l) => (
