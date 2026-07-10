@@ -3,10 +3,12 @@
   "configurations": [
     {
       "name": "terramind-web",
-      "runtimeExecutable": "npm",
+      "runtimeExecutable": "npx",
       "runtimeArgs": [
-        "run",
-        "dev"
+        "next",
+        "dev",
+        "-p",
+        "3002"
       ],
       "cwd": "terramind-web",
       "port": 3002
