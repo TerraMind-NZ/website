@@ -1,30 +1,26 @@
-"use client";
-
 import Nav from "@/components/Nav";
 import Hero from "@/components/Hero";
-import MarqueeStrip from "@/components/MarqueeStrip";
-import PlatformSection from "@/components/PlatformSection";
-import WhoForSection from "@/components/WhoForSection";
-import VisionSection from "@/components/VisionSection";
-import CTASection from "@/components/CTASection";
+import PlatformRows from "@/components/PlatformRows";
+import StatementBand from "@/components/StatementBand";
+import AILayerSection from "@/components/AILayerSection";
+import MetricsBand from "@/components/MetricsBand";
 import Footer from "@/components/Footer";
-import { useParallax } from "@/hooks/useParallax";
+import RequestAccessModal from "@/components/RequestAccessModal";
+import { ModalProvider } from "@/components/ModalProvider";
 
-export default function HomePage() {
-  useParallax();
-
+export default function Home() {
   return (
-    <>
+    <ModalProvider>
       <Nav />
       <main>
         <Hero />
-        <MarqueeStrip />
-        <PlatformSection />
-        <WhoForSection />
-        <VisionSection />
-        <CTASection />
+        <PlatformRows />
+        <StatementBand />
+        <AILayerSection />
+        <MetricsBand />
+        <Footer />
       </main>
-      <Footer />
-    </>
+      <RequestAccessModal />
+    </ModalProvider>
   );
 }
