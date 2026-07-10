@@ -5,12 +5,12 @@ import { useReveal } from "@/hooks/useReveal";
 const PRODUCTS = [
   {
     name: "Frost",
-    tag: "Flagship · Priced decisions",
+    tag: "Flagship · 94% of frost nights",
     desc: "Catches 94% of frost nights. Block-level frost probability converted to expected-value thresholds — protect or don't, priced against crop-loss risk. Not a temperature chart, a decision engine.",
   },
   {
     name: "Water & Irrigation",
-    tag: "Validated · 6 NZ regions",
+    tag: "r = 0.87 · Validated in 6 NZ regions",
     desc: "FAO-56 evapotranspiration bounded by real S-Map soil data. Deficit trajectory validated across six New Zealand regions (r = 0.87) — irrigation scheduled when your soil actually needs it.",
   },
   {
@@ -20,13 +20,13 @@ const PRODUCTS = [
   },
   {
     name: "Harvest & Phenology",
-    tag: "±2-day timing",
+    tag: "±2-day harvest timing",
     desc: "Growing-degree-day projections anchored to observed heat accumulation. Harvest windows accurate to ±2 days — labour, packhouse slots, and market timing planned from evidence.",
   },
   {
     name: "Pollination & Wind",
-    tag: "Bloom & canopy windows",
-    desc: "Bee-flyable-hour forecasts for bloom and damaging-wind-day warnings for canopy protection — a day's notice to supplement hives or bring a pick forward.",
+    tag: "92% bloom · 97% wind days",
+    desc: "Bee-flyable-hour forecasts (92% accuracy) for bloom and day-ahead warnings that catch 97% of damaging-wind days — notice enough to supplement hives or bring a pick forward.",
   },
   {
     name: "Soil Scouter",
