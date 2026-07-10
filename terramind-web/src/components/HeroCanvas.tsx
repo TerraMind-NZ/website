@@ -6,18 +6,18 @@ const C = {
   sky0: "#dfe9dd",
   sky1: "#ebf1e8",
   sky2: "#f3f6ee",
-  ground: "#c9d8c4",
-  vine1: "#2a5c40",
-  vine2: "#1f6b42",
-  vine3: "#1b2a22",
-  leaf1: "#2e7a4f",
-  leaf2: "#1f6b42",
-  leaf3: "#1b2a22",
-  mist: "rgba(223, 233, 221,",
+  ground: "#cfdec7",
+  vine1: "#4f8a68",
+  vine2: "#2e7a4f",
+  vine3: "#155c38",
+  leaf1: "#5f9a76",
+  leaf2: "#35845a",
+  leaf3: "#1a6b42",
+  mist: "rgba(230, 240, 228,",
   glint: "rgba(31, 157, 87,",
 };
 
-const VP = { xr: 0.5, yr: 0.38 };
+const VP = { xr: 0.5, yr: 0.6 };
 
 export default function HeroCanvas() {
   const canvasRef = useRef<HTMLCanvasElement>(null);
@@ -49,13 +49,13 @@ export default function HeroCanvas() {
       return { x: r, y: s * 0.55, r: 0.4 + q, phase: q * Math.PI * 2 };
     });
 
-    const MIST = Array.from({ length: 60 }, () => ({
+    const MIST = Array.from({ length: 30 }, () => ({
       x: Math.random(),
-      y: 0.55 + Math.random() * 0.45,
+      y: 0.68 + Math.random() * 0.32,
       r: 40 + Math.random() * 120,
       speed: 0.00004 + Math.random() * 0.00008,
       phase: Math.random() * Math.PI * 2,
-      alpha: 0.015 + Math.random() * 0.04,
+      alpha: 0.01 + Math.random() * 0.025,
     }));
 
     const rowY = (row: number, rows: number) => {
@@ -73,7 +73,7 @@ export default function HeroCanvas() {
     ) => {
       const vpx = VP.xr * W;
       const ly = ry * H;
-      const hw = Math.max(0.001, ry - VP.yr) * 0.8 * W;
+      const hw = Math.max(0.001, ry - VP.yr) * 2.6 * W;
       const lx0 = vpx - hw;
       const lx1 = vpx + hw;
 
@@ -86,8 +86,8 @@ export default function HeroCanvas() {
       ctx.lineTo(lx1, ly);
       ctx.stroke();
 
-      for (let p = 0; p <= 9; p++) {
-        const fx = lx0 + (lx1 - lx0) * (p / 9);
+      for (let p = 0; p <= 24; p++) {
+        const fx = lx0 + (lx1 - lx0) * (p / 24);
         const postH = leafSize * 2.5;
         ctx.lineWidth = Math.max(0.5, (ry - VP.yr) * 2);
         ctx.beginPath();
@@ -96,11 +96,11 @@ export default function HeroCanvas() {
         ctx.stroke();
       }
 
-      for (let b = 0; b < 18; b++) {
+      for (let b = 0; b < 80; b++) {
         const sway = Math.sin(b * 0.71 + scroll * 0.4) * leafSize * 0.15;
-        const bx = lx0 + (lx1 - lx0) * ((b + 0.5) / 18) + sway;
-        const by = ly - leafSize * (0.5 + Math.sin(b * 1.3) * 0.2);
-        const br = leafSize * (0.55 + Math.sin(b * 2.1 + 1) * 0.15);
+        const bx = lx0 + (lx1 - lx0) * ((b + 0.5) / 80) + sway;
+        const by = ly - leafSize * (0.45 + Math.sin(b * 1.3) * 0.15);
+        const br = leafSize * (0.6 + Math.sin(b * 2.1 + 1) * 0.12);
         ctx.fillStyle = leafColor;
         ctx.beginPath();
         ctx.ellipse(bx, by, br * 1.4, br * 0.8, 0, 0, Math.PI * 2);
