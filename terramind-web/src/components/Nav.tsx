@@ -1,113 +1,59 @@
 "use client";
 
-import Image from "next/image";
-import { useEffect, useState } from "react";
 import { useScrolled } from "@/hooks/useScrolled";
+import { useModal } from "./ModalProvider";
 
-const NAV_LINKS = [
-  { href: "#what", label: "Platform" },
-  { href: "#who", label: "Who it's for" },
-  { href: "#vision", label: "Vision" },
+const LINKS = [
+  { href: "#platform", label: "Platform" },
+  { href: "#intelligence", label: "Intelligence" },
+  { href: "#calibration", label: "Calibration" },
 ];
 
 export default function Nav() {
-  const scrolled = useScrolled();
-  const [menuOpen, setMenuOpen] = useState(false);
-
-  useEffect(() => {
-    if (!menuOpen) return;
-
-    const onKeyDown = (event: KeyboardEvent) => {
-      if (event.key === "Escape") setMenuOpen(false);
-    };
-
-    window.addEventListener("keydown", onKeyDown);
-    return () => window.removeEventListener("keydown", onKeyDown);
-  }, [menuOpen]);
-
-  useEffect(() => {
-    if (!menuOpen) return;
-
-    const previousOverflow = document.body.style.overflow;
-    document.body.style.overflow = "hidden";
-
-    return () => {
-      document.body.style.overflow = previousOverflow;
-    };
-  }, [menuOpen]);
-
-  useEffect(() => {
-    if (!menuOpen) return;
-
-    const mediaQuery = window.matchMedia("(min-width: 721px)");
-    const closeOnDesktop = (event: MediaQueryListEvent) => {
-      if (event.matches) setMenuOpen(false);
-    };
-
-    mediaQuery.addEventListener("change", closeOnDesktop);
-    return () => mediaQuery.removeEventListener("change", closeOnDesktop);
-  }, [menuOpen]);
-
-  const closeMenu = () => setMenuOpen(false);
+  const scrolled = useScrolled(40);
+  const { openModal } = useModal();
 
   return (
-    <>
-      <nav
-        id="topnav"
-        className={`${scrolled ? "scrolled" : ""}${menuOpen ? " menu-open" : ""}`}
-      >
-        <div className="nav-inner">
-          <button
-            className="mobile-menu-toggle"
-            type="button"
-            aria-label={menuOpen ? "Close navigation menu" : "Open navigation menu"}
-            aria-expanded={menuOpen}
-            aria-controls="mobile-menu"
-            onClick={() => setMenuOpen((open) => !open)}
-          >
-            <span />
-            <span />
-            <span />
-          </button>
-          <a href="#" className="brand" aria-label="TerraMind home" onClick={closeMenu}>
-            <Image
-              src="/logo-icon.png"
-              alt="TerraMind"
-              width={36}
-              height={30}
-              className="brand-mark"
-              priority
-            />
-            <span className="brand-name">TerraMind</span>
-          </a>
-          <div className="nav-links">
-            {NAV_LINKS.map((link) => (
-              <a key={link.href} href={link.href}>
-                {link.label}
-              </a>
-            ))}
-            <a href="#contact" className="nav-cta">
-              Talk to us
-            </a>
-          </div>
-        </div>
-      </nav>
-      <div
-        id="mobile-menu"
-        className={`mobile-menu${menuOpen ? " is-open" : ""}`}
-        aria-hidden={!menuOpen}
-      >
-        <div className="mobile-menu-panel">
-          {NAV_LINKS.map((link) => (
-            <a key={link.href} href={link.href} onClick={closeMenu}>
-              {link.label}
-            </a>
-          ))}
-          <a href="#contact" className="mobile-menu-cta" onClick={closeMenu}>
-            Talk to us
-          </a>
-        </div>
+    <nav
+      className={`fixed top-0 left-0 right-0 z-100 flex items-center justify-between px-6 py-5 transition-all duration-300 md:px-10 md:py-7 ${
+        scrolled
+          ? "border-b border-line-soft bg-paper/95 backdrop-blur-md"
+          : "bg-transparent"
+      }`}
+    >
+      <div className="flex flex-col gap-0.5">
+        <span className="text-[17px] font-bold tracking-tight text-ink">
+          TerraMind
+        </span>
+        <span className="font-mono text-[10px] uppercase tracking-[0.18em] text-ink-mute">
+          Central Otago · NZ
+        </span>
       </div>
-    </>
+
+      <ul className="hidden items-center gap-8 md:flex">
+        {LINKS.map((l) => (
+          <li key={l.href}>
+            <a
+              href={l.href}
+              className="text-[13px] text-ink-soft transition-colors hover:text-ink"
+            >
+              {l.label}
+            </a>
+          </li>
+        ))}
+      </ul>
+
+      <button
+        onClick={openModal}
+        className="group flex cursor-pointer items-center overflow-hidden rounded-full border border-line text-[13px] transition-colors hover:border-ink/30"
+      >
+        <span className="whitespace-nowrap py-2 pl-5 pr-4 text-ink">
+          Request access
+        </span>
+        <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-r-full bg-leaf text-sm text-white transition-colors group-hover:bg-leaf-deep">
+          ↗
+        </span>
+      </button>
+    </nav>
   );
 }
