@@ -1,12 +1,17 @@
 "use client";
 
+import Link from "next/link";
 import { useReveal } from "@/hooks/useReveal";
 
 const METRICS = [
   { value: "94%", label: "Frost nights caught" },
+  { value: "15–18%", label: "Sharper than the public forecast" },
+  { value: "0.007", label: "Expected calibration error" },
   { value: "r = 0.87", label: "Irrigation accuracy · 6 NZ regions" },
-  { value: "7 · 13", label: "Crops · regions, NZ-wide" },
+  { value: "97%", label: "Damaging-wind days caught" },
+  { value: "92%", label: "Pollination-window accuracy" },
   { value: "±2 days", label: "Harvest-timing accuracy" },
+  { value: "1,270", label: "Tests passing · gate green ×18" },
 ];
 
 export default function MetricsBand() {
@@ -26,12 +31,19 @@ export default function MetricsBand() {
             <br />
             Every prediction.
           </h2>
-          <p className="text-base leading-relaxed text-ink-mute">
+          <p className="mb-6 text-base leading-relaxed text-ink-mute">
             When TerraMind says 30%, it happens about 30% of the time — and we
-            publish the reliability data to prove it. Calibrated probabilities
-            are trust infrastructure, not a footnote: the foundation growers,
+            publish the reliability data to prove it. Every surface ships with
+            a measured accuracy stat on real New Zealand data. Calibrated
+            probabilities are trust infrastructure: the foundation growers,
             lenders and insurers can build decisions on.
           </p>
+          <Link
+            href="/proof"
+            className="font-mono text-[12px] uppercase tracking-[0.15em] text-leaf transition-colors hover:text-leaf-deep"
+          >
+            See the full proof →
+          </Link>
         </div>
         <div className="grid grid-cols-2 gap-4">
           {METRICS.map((m) => (
@@ -39,7 +51,7 @@ export default function MetricsBand() {
               key={m.label}
               className="rounded-xl border border-line bg-paper p-6"
             >
-              <div className="mb-1 font-mono text-[28px] font-bold tracking-tight text-ink tabular-nums">
+              <div className="mb-1 font-mono text-[26px] font-bold tracking-tight text-ink tabular-nums">
                 {m.value}
               </div>
               <div className="font-mono text-[11px] uppercase leading-snug tracking-[0.12em] text-ink-mute">
