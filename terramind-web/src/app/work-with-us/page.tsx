@@ -20,7 +20,7 @@ export default function WorkWithUsPage() {
             hero-style landscape reads as a single scene, not tiled bands */}
         <div className="relative overflow-hidden bg-chrome-deep">
         <SectionArt seed={9} />
-        <section className="relative px-6 pb-16 pt-32 text-center md:px-10">
+        <section className="relative px-6 pb-8 pt-32 text-center md:px-10">
           <div
             className="pointer-events-none absolute inset-0"
             style={{
