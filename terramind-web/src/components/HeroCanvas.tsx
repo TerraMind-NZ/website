@@ -37,6 +37,7 @@ export default function HeroCanvas() {
     let H = 0;
     let t = 0;
     let raf = 0;
+    let sky: CanvasGradient;
 
     const reduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
@@ -47,6 +48,10 @@ export default function HeroCanvas() {
       canvas.width = W * dpr;
       canvas.height = H * dpr;
       ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+      sky = ctx.createLinearGradient(0, 0, 0, H);
+      sky.addColorStop(0, C.skyTop);
+      sky.addColorStop(0.55, C.skyMid);
+      sky.addColorStop(1, "#0a1a10");
     };
     window.addEventListener("resize", resize);
     resize();
@@ -157,10 +162,6 @@ export default function HeroCanvas() {
       ctx.clearRect(0, 0, W, H);
 
       // Night sky
-      const sky = ctx.createLinearGradient(0, 0, 0, H);
-      sky.addColorStop(0, C.skyTop);
-      sky.addColorStop(0.55, C.skyMid);
-      sky.addColorStop(1, "#0a1a10");
       ctx.fillStyle = sky;
       ctx.fillRect(0, 0, W, H);
 
@@ -244,12 +245,33 @@ export default function HeroCanvas() {
         ctx.fill();
       });
 
-      if (!reduced) raf = requestAnimationFrame(draw);
+      if (!reduced && running) raf = requestAnimationFrame(draw);
+    };
+
+    // Only animate while the hero is actually on screen.
+    let running = false;
+    const start = () => {
+      if (running) return;
+      running = true;
+      raf = requestAnimationFrame(draw);
+    };
+    const stop = () => {
+      running = false;
+      cancelAnimationFrame(raf);
     };
 
     draw();
 
+    let io: IntersectionObserver | undefined;
+    if (!reduced) {
+      io = new IntersectionObserver(([entry]) =>
+        entry.isIntersecting ? start() : stop()
+      );
+      io.observe(canvas);
+    }
+
     return () => {
+      io?.disconnect();
       cancelAnimationFrame(raf);
       window.removeEventListener("resize", resize);
     };
