@@ -1,6 +1,7 @@
 "use client";
 
 import { useReveal } from "@/hooks/useReveal";
+import ChainSteps from "@/components/ChainSteps";
 
 const STEPS = [
   {
@@ -36,25 +37,10 @@ export default function DecisionPipeline() {
     >
       <div className="eyebrow mb-12">How TerraMind thinks</div>
       <h2 className="mb-14 max-w-2xl font-serif text-[clamp(28px,3.5vw,46px)] font-semibold leading-[1.1] tracking-tight text-ink">
-        From probability to profit,{" "}
-        <em className="italic text-leaf">in four moves</em>
+        From probability{" "}
+        <em className="italic text-leaf">to decision</em>
       </h2>
-      <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-4">
-        {STEPS.map((s) => (
-          <div
-            key={s.n}
-            className="rounded-xl border border-line bg-white/60 p-6 transition-colors hover:border-ink/20 hover:bg-mint"
-          >
-            <div className="mb-4 font-mono text-[11px] tracking-[0.2em] text-leaf">
-              {s.n}
-            </div>
-            <div className="mb-2 text-[19px] font-semibold tracking-tight text-ink">
-              {s.name}
-            </div>
-            <p className="text-sm leading-relaxed text-ink-mute">{s.desc}</p>
-          </div>
-        ))}
-      </div>
+      <ChainSteps steps={STEPS} />
     </section>
   );
 }

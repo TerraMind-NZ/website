@@ -6,12 +6,11 @@
       "runtimeExecutable": "npx",
       "runtimeArgs": [
         "next",
-        "dev",
-        "-p",
-        "3002"
+        "dev"
       ],
       "cwd": "terramind-web",
-      "port": 3002
+      "port": 3002,
+      "autoPort": true
     }
   ]
 }

@@ -4,15 +4,15 @@ import DecisionPipeline from "@/components/DecisionPipeline";
 import PlatformRows from "@/components/PlatformRows";
 import StatementBand from "@/components/StatementBand";
 import AILayerSection from "@/components/AILayerSection";
+import CompoundingSection from "@/components/CompoundingSection";
+import HardwareSection from "@/components/HardwareSection";
 import MetricsBand from "@/components/MetricsBand";
 import EconomicsBand from "@/components/EconomicsBand";
 import Footer from "@/components/Footer";
-import RequestAccessModal from "@/components/RequestAccessModal";
-import { ModalProvider } from "@/components/ModalProvider";
 
 export default function Home() {
   return (
-    <ModalProvider>
+    <>
       <Nav />
       <main>
         <Hero />
@@ -20,11 +20,12 @@ export default function Home() {
         <PlatformRows />
         <StatementBand />
         <AILayerSection />
+        <CompoundingSection />
         <MetricsBand />
+        <HardwareSection />
         <EconomicsBand />
         <Footer />
       </main>
-      <RequestAccessModal />
-    </ModalProvider>
+    </>
   );
 }

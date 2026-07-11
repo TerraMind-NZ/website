@@ -1,7 +1,9 @@
 "use client";
 
+import { CSSProperties } from "react";
 import Link from "next/link";
 import { useReveal } from "@/hooks/useReveal";
+import CountUp from "@/components/CountUp";
 
 const METRICS = [
   { value: "94%", label: "Frost nights caught" },
@@ -40,19 +42,20 @@ export default function MetricsBand() {
           </p>
           <Link
             href="/proof"
-            className="font-mono text-[12px] uppercase tracking-[0.15em] text-leaf transition-colors hover:text-leaf-deep"
+            className="link-arrow font-mono text-[12px] uppercase tracking-[0.15em] text-leaf transition-colors hover:text-leaf-deep"
           >
-            See the full proof →
+            See the full proof <span className="arrow">→</span>
           </Link>
         </div>
-        <div className="grid grid-cols-2 gap-4">
-          {METRICS.map((m) => (
+        <div className="stagger grid grid-cols-2 gap-4">
+          {METRICS.map((m, i) => (
             <div
               key={m.label}
-              className="rounded-xl border border-line bg-paper p-6"
+              style={{ "--d": i } as CSSProperties}
+              className="card-lift rounded-xl border border-line bg-paper p-6"
             >
               <div className="mb-1 font-mono text-[26px] font-bold tracking-tight text-ink tabular-nums">
-                {m.value}
+                <CountUp value={m.value} />
               </div>
               <div className="font-mono text-[11px] uppercase leading-snug tracking-[0.12em] text-ink-mute">
                 {m.label}

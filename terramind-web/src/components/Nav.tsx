@@ -4,7 +4,6 @@ import { useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { useScrolled } from "@/hooks/useScrolled";
-import { useModal } from "./ModalProvider";
 
 const LINKS = [
   { href: "/#platform", label: "Platform" },
@@ -14,7 +13,6 @@ const LINKS = [
 
 export default function Nav() {
   const scrolled = useScrolled(40);
-  const { openModal } = useModal();
   const [menuOpen, setMenuOpen] = useState(false);
 
   return (
@@ -33,7 +31,7 @@ export default function Nav() {
             width={28}
             height={28}
             className="h-7 w-7"
-            priority
+            preload
           />
           <span className="text-[17px] font-bold tracking-tight text-white">
             TerraMind
@@ -45,7 +43,7 @@ export default function Nav() {
             <li key={l.href}>
               <a
                 href={l.href}
-                className="text-[13px] text-white transition-colors hover:text-accent"
+                className="nav-link text-[13px] text-white transition-colors hover:text-accent"
               >
                 {l.label}
               </a>
@@ -54,17 +52,17 @@ export default function Nav() {
         </ul>
 
         <div className="flex items-center gap-3">
-          <button
-            onClick={openModal}
+          <Link
+            href="/work-with-us"
             className="group hidden cursor-pointer items-center overflow-hidden rounded-full border border-white/20 text-[13px] transition-colors hover:border-white/40 sm:flex"
           >
             <span className="whitespace-nowrap py-2 pl-5 pr-4 text-white">
-              Request access
+              Work with us
             </span>
             <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-r-full bg-leaf text-sm text-white transition-colors group-hover:bg-leaf-deep">
               ↗
             </span>
-          </button>
+          </Link>
 
           <button
             onClick={() => setMenuOpen((o) => !o)}
@@ -110,20 +108,18 @@ export default function Nav() {
             </li>
           ))}
           <li className="pt-3 sm:hidden">
-            <button
-              onClick={() => {
-                setMenuOpen(false);
-                openModal();
-              }}
+            <Link
+              href="/work-with-us"
+              onClick={() => setMenuOpen(false)}
               className="group flex cursor-pointer items-center overflow-hidden rounded-full border border-white/20 text-[13px]"
             >
               <span className="whitespace-nowrap py-2 pl-5 pr-4 text-white">
-                Request access
+                Work with us
               </span>
               <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-r-full bg-leaf text-sm text-white">
                 ↗
               </span>
-            </button>
+            </Link>
           </li>
         </ul>
       </div>

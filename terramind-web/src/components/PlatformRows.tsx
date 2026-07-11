@@ -1,5 +1,6 @@
 "use client";
 
+import { CSSProperties } from "react";
 import { useReveal } from "@/hooks/useReveal";
 
 const PRODUCTS = [
@@ -42,32 +43,69 @@ export default function PlatformRows() {
     <section
       id="platform"
       ref={ref}
-      className="reveal mx-auto max-w-[1100px] px-6 py-24 md:px-10"
+      className="reveal border-y border-line bg-paper-2 px-6 py-24 md:px-10"
     >
-      <div className="eyebrow mb-12">The platform</div>
-      {PRODUCTS.map((p, i) => (
-        <div
-          key={p.name}
-          className={`grid cursor-default grid-cols-1 items-start gap-4 border-t border-line py-10 transition-colors hover:bg-leaf/4 md:grid-cols-2 md:gap-0 ${
-            i === PRODUCTS.length - 1 ? "border-b" : ""
-          }`}
-        >
-          <div className="flex items-start gap-5 md:pr-15">
-            <span className="mt-2 h-2 w-2 shrink-0 rounded-full bg-accent-strong" />
-            <div>
-              <div className="mb-1.5 text-[22px] font-semibold tracking-tight text-ink">
-                {p.name}
+      <div className="mx-auto max-w-[1100px]">
+        <div className="eyebrow mb-12">The platform</div>
+        <div className="relative pl-7 md:pl-9">
+          <span aria-hidden className="scan-beam" />
+          <span aria-hidden className="spine-rail" />
+          <div className="stagger">
+          {PRODUCTS.map((p, i) => (
+            <div
+              key={p.name}
+              style={{ "--d": i, "--i": i } as CSSProperties}
+              className="group relative grid cursor-default grid-cols-1 items-start gap-4 py-9 md:grid-cols-[88px_1fr_1.15fr] md:gap-8"
+            >
+              {/* Spine node — flares as the scan beam passes */}
+              <span
+                aria-hidden
+                className="spine-node top-[46px] -left-7 md:-left-9"
+              />
+              {/* Hairline draws itself in on reveal */}
+              <span
+                aria-hidden
+                className="row-hairline absolute inset-x-0 top-0 h-px bg-line"
+              />
+              {i === PRODUCTS.length - 1 && (
+                <span
+                  aria-hidden
+                  className="row-hairline absolute inset-x-0 bottom-0 h-px bg-line"
+                />
+              )}
+              {/* Mint wash sweeps in from the left on hover */}
+              <span
+                aria-hidden
+                className="pointer-events-none absolute -inset-x-4 inset-y-2 origin-left scale-x-0 rounded-2xl bg-leaf/6 transition-transform duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:scale-x-100 md:-inset-x-6"
+              />
+              {/* Ghost index numeral */}
+              <div
+                aria-hidden
+                className="pointer-events-none relative hidden select-none font-serif text-[64px] font-semibold leading-none text-leaf/12 transition-colors duration-500 group-hover:text-leaf/25 md:block"
+              >
+                {String(i + 1).padStart(2, "0")}
               </div>
-              <div className="font-mono text-[11px] uppercase tracking-[0.15em] text-leaf">
-                {p.tag}
+              <div className="relative">
+                <div className="transition-transform duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:translate-x-1.5">
+                  <div
+                    style={{ "--i": i } as CSSProperties}
+                    className="row-title mask-reveal mb-1.5 font-serif text-[30px] font-semibold leading-tight tracking-tight text-ink"
+                  >
+                    <span>{p.name}</span>
+                  </div>
+                  <div className="font-mono text-[11px] uppercase tracking-[0.15em] text-leaf">
+                    {p.tag}
+                  </div>
+                </div>
               </div>
+              <p className="relative text-[15px] leading-relaxed text-ink-mute transition-colors duration-300 group-hover:text-ink-soft">
+                {p.desc}
+              </p>
             </div>
+          ))}
           </div>
-          <p className="pl-7 text-[15px] leading-relaxed text-ink-mute">
-            {p.desc}
-          </p>
         </div>
-      ))}
+      </div>
     </section>
   );
 }

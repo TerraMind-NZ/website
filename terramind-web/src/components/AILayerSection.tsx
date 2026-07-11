@@ -1,7 +1,9 @@
 "use client";
 
 import Link from "next/link";
+import { CSSProperties } from "react";
 import { useReveal } from "@/hooks/useReveal";
+import FeaturePills from "@/components/FeaturePills";
 
 const FEATURES = [
   {
@@ -18,7 +20,7 @@ const FEATURES = [
   },
   {
     name: "Ask TerraMind",
-    desc: "An agentic assistant with retrieval-augmented answers grounded in your blocks, your history, your numbers — never a generic chatbot.",
+    desc: "An agentic assistant with retrieval-augmented answers grounded in your blocks, your history, your numbers — built for horticulture.",
   },
 ];
 
@@ -67,12 +69,12 @@ export default function AILayerSection() {
       className="reveal mx-auto max-w-[1100px] px-6 py-24 md:px-10"
     >
       <div className="eyebrow mb-12">TerraMind Intelligence</div>
-      <div className="grid grid-cols-1 items-start gap-12 md:grid-cols-2 md:gap-20">
+      <div className="mb-14 grid grid-cols-1 items-end gap-8 md:grid-cols-2 md:gap-20">
+        <h2 className="font-serif text-[clamp(28px,3.5vw,46px)] font-semibold leading-[1.1] tracking-tight text-ink">
+          A 14-feature AI reasoning layer —{" "}
+          <em className="shimmer-text on-light italic">built for horticulture</em>
+        </h2>
         <div>
-          <h2 className="mb-4.5 font-serif text-[clamp(28px,3.5vw,46px)] font-semibold leading-[1.1] tracking-tight text-ink">
-            A 14-feature AI reasoning layer —{" "}
-            <em className="italic text-leaf">not a chatbot</em>
-          </h2>
           <p className="mb-6 text-base leading-relaxed text-ink-mute">
             Every AI feature exists because of a TerraMind prediction. The
             discipline is grounding-before-generation: deterministic engines
@@ -83,39 +85,31 @@ export default function AILayerSection() {
           </p>
           <Link
             href="/intelligence"
-            className="font-mono text-[12px] uppercase tracking-[0.15em] text-leaf transition-colors hover:text-leaf-deep"
+            className="link-arrow font-mono text-[12px] uppercase tracking-[0.15em] text-leaf transition-colors hover:text-leaf-deep"
           >
-            Explore the intelligence layer →
+            Explore the intelligence layer <span className="arrow">→</span>
           </Link>
         </div>
-        <div className="flex flex-col gap-3">
-          {FEATURES.map((f) => (
-            <div
-              key={f.name}
-              className="rounded-xl border border-line bg-white/60 px-6 py-5 transition-colors hover:border-ink/20 hover:bg-mint"
-            >
-              <div className="mb-1 text-[15px] font-semibold text-ink">
-                {f.name}
-              </div>
-              <p className="text-sm leading-relaxed text-ink-mute">{f.desc}</p>
-            </div>
-          ))}
-        </div>
       </div>
-      <div className="mt-12 grid grid-cols-1 gap-3 sm:grid-cols-2 lg:grid-cols-4">
-        {MORE_FEATURES.map((f) => (
+      <div className="stagger grid grid-cols-1 gap-4 sm:grid-cols-2">
+        {FEATURES.map((f, i) => (
           <div
             key={f.name}
-            className="rounded-xl border border-line-soft bg-white/40 px-5 py-4"
+            style={{ "--d": i } as CSSProperties}
+            className="card-lift rounded-xl border border-line bg-white/60 px-6 py-5"
           >
-            <div className="mb-0.5 text-[13px] font-semibold text-ink">
+            <div className="mb-1 text-[15px] font-semibold text-ink">
               {f.name}
             </div>
-            <p className="text-[13px] leading-relaxed text-ink-mute">
-              {f.desc}
-            </p>
+            <p className="text-sm leading-relaxed text-ink-mute">{f.desc}</p>
           </div>
         ))}
+        <div
+          style={{ "--d": FEATURES.length } as CSSProperties}
+          className="sm:col-span-2"
+        >
+          <FeaturePills label="The rest of the layer" items={MORE_FEATURES} />
+        </div>
       </div>
     </section>
   );

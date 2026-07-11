@@ -1,6 +1,10 @@
 "use client";
 
+import { CSSProperties } from "react";
 import { useReveal } from "@/hooks/useReveal";
+import CountUp from "@/components/CountUp";
+import SectionArt from "@/components/SectionArt";
+import SurfaceBrowser from "@/components/SurfaceBrowser";
 
 const SURFACES = [
   {
@@ -96,6 +100,7 @@ export default function ProofSections() {
         ref={heroRef}
         className="reveal relative overflow-hidden bg-chrome-deep px-6 pb-24 pt-44 md:px-10"
       >
+        <SectionArt seed={7} />
         <div
           className="pointer-events-none absolute inset-0"
           style={{
@@ -104,13 +109,13 @@ export default function ProofSections() {
           }}
         />
         <div className="relative z-1 mx-auto max-w-[1100px]">
-          <div className="mb-8 font-mono text-[11px] uppercase tracking-[0.2em] text-white/50">
+          <div className="mb-8 font-mono text-[11px] uppercase tracking-[0.2em] text-white/60">
             Proof
           </div>
           <h1 className="mb-6 max-w-3xl font-serif text-[clamp(36px,5vw,64px)] font-semibold leading-[1.05] tracking-tight text-white">
             Proof, <em className="italic text-accent">not promises</em>
           </h1>
-          <p className="max-w-2xl text-[17px] leading-relaxed text-white/70">
+          <p className="max-w-2xl text-[17px] leading-relaxed text-white/80">
             Every TerraMind surface ships with a measured accuracy stat on real
             New Zealand data — benchmarked July 2026, provenance documented,
             caveats stated up front. This page is our technical brief, in the
@@ -124,56 +129,37 @@ export default function ProofSections() {
         className="reveal mx-auto max-w-[1100px] px-6 py-24 md:px-10"
       >
         <div className="eyebrow mb-12">Impact + accuracy, per surface</div>
-        <div className="grid grid-cols-1 gap-4 md:grid-cols-2">
-          {SURFACES.map((s) => (
-            <div
-              key={s.name}
-              className="rounded-xl border border-line bg-white/60 p-7"
-            >
-              <div className="mb-5 flex items-baseline justify-between gap-4">
-                <div className="text-[19px] font-semibold tracking-tight text-ink">
-                  {s.name}
-                </div>
-                <div className="text-right">
-                  <div className="font-mono text-[24px] font-bold tracking-tight text-leaf tabular-nums">
-                    {s.stat}
-                  </div>
-                  <div className="font-mono text-[10px] uppercase tracking-[0.12em] text-ink-mute">
-                    {s.statLabel}
-                  </div>
-                </div>
-              </div>
-              <p className="mb-3 text-sm leading-relaxed text-ink-mute">
-                <span className="font-semibold text-ink">
-                  Why it matters —{" "}
-                </span>
-                {s.impact}
-              </p>
-              <p className="text-sm leading-relaxed text-ink-mute">
-                <span className="font-semibold text-ink">Measured — </span>
-                {s.accuracy}
-              </p>
-            </div>
-          ))}
-        </div>
+        <SurfaceBrowser surfaces={SURFACES} />
       </section>
 
       <section
         ref={engineRef}
-        className="reveal border-y border-line bg-paper-2 px-6 py-24 md:px-10"
+        className="reveal relative overflow-hidden bg-chrome-deep px-6 py-24 md:px-10"
       >
-        <div className="mx-auto max-w-[1100px]">
-          <div className="eyebrow mb-12">The engine underneath</div>
-          <div className="grid grid-cols-2 gap-4 sm:grid-cols-3 lg:grid-cols-6">
-            {ENGINE.map((e) => (
+        <SectionArt seed={10} />
+        <div
+          className="glow-breathe pointer-events-none absolute inset-0"
+          style={{
+            background:
+              "radial-gradient(ellipse 70% 80% at 50% 25%, rgba(15,122,65,0.2) 0%, rgba(15,122,65,0) 60%)",
+          }}
+        />
+        <div className="relative z-1 mx-auto max-w-[1100px]">
+          <div className="mb-12 flex items-center gap-2.5 font-mono text-[11px] uppercase tracking-[0.2em] text-accent">
+            <span className="pulse-dot h-1.5 w-1.5 rounded-full bg-accent" />
+            The engine underneath
+          </div>
+          <div className="stagger grid grid-cols-2 gap-4 sm:grid-cols-3 lg:grid-cols-6">
+            {ENGINE.map((e, i) => (
               <div
                 key={e.label}
-                className="rounded-xl border border-line bg-paper p-5"
+                style={{ "--d": i } as CSSProperties}
+                className="card-lift-dark rounded-xl border border-white/12 bg-white/4 p-5"
               >
-                <div className="mb-1 font-mono text-[20px] font-bold tracking-tight text-ink tabular-nums">
-                  {e.value}
+                <div className="mb-1 font-mono text-[20px] font-bold tracking-tight text-white tabular-nums">
+                  <CountUp value={e.value} />
                 </div>
-                <div className="font-mono text-[10px] uppercase leading-snug tracking-[0.12em] text-ink-mute">
+                <div className="font-mono text-[10px] uppercase leading-snug tracking-[0.12em] text-white/60">
                   {e.label}
                 </div>
               </div>
@@ -187,29 +173,35 @@ export default function ProofSections() {
         className="reveal mx-auto max-w-[1100px] px-6 py-24 md:px-10"
       >
         <div className="eyebrow mb-12">What we don&apos;t claim (yet)</div>
-        <div className="grid grid-cols-1 items-start gap-12 md:grid-cols-2 md:gap-20">
-          <div>
-            <h2 className="mb-4.5 font-serif text-[clamp(28px,3.5vw,46px)] font-semibold leading-[1.1] tracking-tight text-ink">
-              Numbers you can trust exist only where a company says{" "}
-              <em className="italic text-leaf">what it can&apos;t claim</em>
-            </h2>
-            <p className="text-base leading-relaxed text-ink-mute">
-              Everything above is measured against real, independent data. A
-              few things aren&apos;t provable yet — and rather than blur the
-              line, we publish it. This discipline is the product.
-            </p>
-          </div>
-          <ul className="flex flex-col gap-3">
-            {NOT_CLAIMED.map((item) => (
-              <li
-                key={item}
-                className="rounded-xl border border-line bg-white/60 px-6 py-5 text-sm leading-relaxed text-ink-mute"
-              >
-                {item}
-              </li>
-            ))}
-          </ul>
-        </div>
+        <h2 className="mb-4.5 max-w-3xl font-serif text-[clamp(28px,3.5vw,46px)] font-semibold leading-[1.1] tracking-tight text-ink">
+          Numbers you can trust exist only where a company says{" "}
+          <em className="italic text-leaf">what it can&apos;t claim</em>
+        </h2>
+        <p className="mb-14 max-w-2xl text-base leading-relaxed text-ink-mute">
+          Everything above is measured against real, independent data. A few
+          things aren&apos;t provable yet — and rather than blur the line, we
+          publish it. This discipline is the product.
+        </p>
+        <ul className="stagger grid grid-cols-1 gap-4 md:grid-cols-2">
+          {NOT_CLAIMED.map((item, i) => (
+            <li
+              key={item}
+              style={{ "--d": i } as CSSProperties}
+              className="claim-item card-lift rounded-xl border border-line bg-white/60 px-6 py-5"
+            >
+              <div className="mb-2.5 flex items-center gap-3">
+                <span className="font-mono text-[10px] tracking-[0.2em] text-leaf">
+                  {String(i + 1).padStart(2, "0")}
+                </span>
+                <span
+                  className="row-hairline h-px flex-1 bg-line"
+                  style={{ "--d": i } as CSSProperties}
+                />
+              </div>
+              <p className="text-sm leading-relaxed text-ink-mute">{item}</p>
+            </li>
+          ))}
+        </ul>
       </section>
     </>
   );

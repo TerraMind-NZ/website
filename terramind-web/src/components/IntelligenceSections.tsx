@@ -1,13 +1,17 @@
 "use client";
 
+import { CSSProperties } from "react";
+import Link from "next/link";
 import { useReveal } from "@/hooks/useReveal";
-import { useModal } from "./ModalProvider";
+import ChainSteps from "@/components/ChainSteps";
+import AskHub from "@/components/AskHub";
+import SectionArt from "@/components/SectionArt";
 
 const PIPELINE = [
   {
     n: "01",
     name: "Query",
-    desc: "Every relevant prediction, observation and dollar figure is retrieved from your blocks' database first.",
+    desc: "Every relevant prediction, observation and dollar figure — including actual costs synced read-only from Xero — is retrieved from your blocks' database first.",
   },
   {
     n: "02",
@@ -77,13 +81,32 @@ const ASK = [
   },
 ];
 
+const COMPOUNDING = [
+  {
+    name: "Microclimate corrections",
+    desc: "Observed temperature and humidity are compared to the regional forecast under each synoptic pattern — clear nights, advection fog, nor'west flow — and the block's systematic deviation becomes a correction the frost model applies.",
+  },
+  {
+    name: "Disease pressure antecedents",
+    desc: "Which lagged weather conditions precede elevated Psa pressure on this block — learned per block, because aspect and shelter change leaf wetness independently of the region.",
+  },
+  {
+    name: "Yield-weather response",
+    desc: "How this block's yield responds to weather at each phenological stage, calibrated against your confirmed harvests. It needs two seasons of confirmed yields — the regional model carries it until then.",
+  },
+  {
+    name: "Irrigation response",
+    desc: "The actual soil-moisture evolution of this block under rain and evapotranspiration — correcting FAO-56 for soil properties and drainage the map can't see.",
+  },
+];
+
 export default function IntelligenceSections() {
   const heroRef = useReveal<HTMLElement>();
   const pipelineRef = useReveal<HTMLElement>();
   const scanRef = useReveal<HTMLElement>();
   const askRef = useReveal<HTMLElement>();
+  const compoundRef = useReveal<HTMLElement>();
   const closeRef = useReveal<HTMLElement>();
-  const { openModal } = useModal();
 
   return (
     <>
@@ -91,6 +114,7 @@ export default function IntelligenceSections() {
         ref={heroRef}
         className="reveal relative overflow-hidden bg-chrome-deep px-6 pb-24 pt-44 md:px-10"
       >
+        <SectionArt seed={5} />
         <div
           className="pointer-events-none absolute inset-0"
           style={{
@@ -99,14 +123,14 @@ export default function IntelligenceSections() {
           }}
         />
         <div className="relative z-1 mx-auto max-w-[1100px]">
-          <div className="mb-8 font-mono text-[11px] uppercase tracking-[0.2em] text-white/50">
+          <div className="mb-8 font-mono text-[11px] uppercase tracking-[0.2em] text-white/60">
             TerraMind Intelligence
           </div>
           <h1 className="mb-6 max-w-3xl font-serif text-[clamp(36px,5vw,64px)] font-semibold leading-[1.05] tracking-tight text-white">
             A decision-intelligence layer,{" "}
-            <em className="italic text-accent">not a chatbot</em>
+            <em className="italic text-accent">built for horticulture</em>
           </h1>
-          <p className="max-w-2xl text-[17px] leading-relaxed text-white/70">
+          <p className="max-w-2xl text-[17px] leading-relaxed text-white/80">
             Fourteen AI features, and every one exists because of a TerraMind
             prediction. The findings are deterministic — the AI puts them into
             words. Grounded, auditable, and always yours to confirm.
@@ -128,24 +152,7 @@ export default function IntelligenceSections() {
           five-step discipline. Hallucinated figures aren&apos;t rare —
           they&apos;re architecturally impossible.
         </p>
-        <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-5">
-          {PIPELINE.map((s) => (
-            <div
-              key={s.n}
-              className="rounded-xl border border-line bg-white/60 p-5"
-            >
-              <div className="mb-3 font-mono text-[11px] tracking-[0.2em] text-leaf">
-                {s.n}
-              </div>
-              <div className="mb-1.5 text-[15px] font-semibold text-ink">
-                {s.name}
-              </div>
-              <p className="text-[13px] leading-relaxed text-ink-mute">
-                {s.desc}
-              </p>
-            </div>
-          ))}
-        </div>
+        <ChainSteps steps={PIPELINE} />
       </section>
 
       <section
@@ -172,20 +179,31 @@ export default function IntelligenceSections() {
               round out the record.
             </p>
           </div>
-          <div className="flex flex-col gap-3">
-            {DETECTORS.map((d) => (
-              <div
-                key={d.name}
-                className="rounded-xl border border-line bg-paper px-6 py-4"
-              >
-                <div className="mb-0.5 text-[14px] font-semibold text-ink">
-                  {d.name}
+          <div className="relative">
+            <div className="scan-beam z-1" />
+            <div className="stagger flex flex-col gap-3">
+              {DETECTORS.map((d, i) => (
+                <div
+                  key={d.name}
+                  style={{ "--d": i, "--i": i } as CSSProperties}
+                  className="card-lift rounded-xl border border-line bg-paper py-4 pl-9 pr-6"
+                >
+                  <span
+                    className="spine-node"
+                    style={{ left: 16, top: 22, width: 6, height: 6 }}
+                  />
+                  <div
+                    className="row-title mb-0.5 text-[14px] font-semibold text-ink"
+                    style={{ "--i": i } as CSSProperties}
+                  >
+                    {d.name}
+                  </div>
+                  <p className="text-[13px] leading-relaxed text-ink-mute">
+                    {d.desc}
+                  </p>
                 </div>
-                <p className="text-[13px] leading-relaxed text-ink-mute">
-                  {d.desc}
-                </p>
-              </div>
-            ))}
+              ))}
+            </div>
           </div>
         </div>
       </section>
@@ -197,26 +215,63 @@ export default function IntelligenceSections() {
         <div className="eyebrow mb-12">The showpiece</div>
         <h2 className="mb-5 max-w-2xl font-serif text-[clamp(28px,3.5vw,46px)] font-semibold leading-[1.1] tracking-tight text-ink">
           Ask TerraMind —{" "}
-          <em className="italic text-leaf">an agent that knows your orchard</em>
+          <em className="italic text-leaf">
+            an agent that knows your growing operation
+          </em>
         </h2>
         <p className="mb-14 max-w-2xl text-base leading-relaxed text-ink-mute">
           Ask anything about your operation and get an answer grounded in your
-          blocks, your history, your numbers. Under the hood it&apos;s a
+          blocks, your history, your numbers — right down to actual costs
+          synced read-only from Xero. Under the hood it&apos;s a
           bounded agentic loop — powerful enough to run what-if scenarios,
           disciplined enough to never act without you.
         </p>
-        <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
-          {ASK.map((f) => (
-            <div
-              key={f.name}
-              className="rounded-xl border border-line bg-white/60 p-6 transition-colors hover:border-ink/20 hover:bg-mint"
-            >
-              <div className="mb-1.5 text-[15px] font-semibold text-ink">
-                {f.name}
+        <AskHub items={ASK} />
+      </section>
+
+      <section
+        ref={compoundRef}
+        className="reveal border-y border-line bg-paper-2 px-6 py-24 md:px-10"
+      >
+        <div className="mx-auto max-w-[1100px]">
+          <div className="eyebrow mb-8">Season over season</div>
+          <h2 className="mb-4.5 max-w-2xl font-serif text-[clamp(28px,3.5vw,46px)] font-semibold leading-[1.1] tracking-tight text-ink">
+            Intelligence that compounds,{" "}
+            <em className="italic text-leaf">block by block</em>
+          </h2>
+          <p className="mb-14 max-w-2xl text-base leading-relaxed text-ink-mute">
+            Every season you grow with TerraMind, four learned models deepen
+            for each block. Each carries an explicit insufficient-data status —
+            nothing is fabricated on a young block. What they learn flows back
+            through the whole engine: forecast corrections, expectation bands,
+            risk thresholds and briefings, all tuned to how each block actually
+            behaves — predictions that keep getting sharper, built on a track
+            record no competitor can replicate without watching your blocks
+            through the same seasons.
+          </p>
+          <div className="stagger grid grid-cols-1 gap-4 sm:grid-cols-2">
+            {COMPOUNDING.map((c, i) => (
+              <div
+                key={c.name}
+                style={{ "--d": i, "--i": i } as CSSProperties}
+                className="card-lift relative overflow-hidden rounded-xl border border-line bg-paper p-6"
+              >
+                <div
+                  className="row-title mb-1.5 text-[15px] font-semibold text-ink"
+                  style={{ "--i": i } as CSSProperties}
+                >
+                  {c.name}
+                </div>
+                <p className="text-sm leading-relaxed text-ink-mute">
+                  {c.desc}
+                </p>
+                <div
+                  className="learn-bar absolute inset-x-0 bottom-0 h-[2px]"
+                  style={{ "--i": i } as CSSProperties}
+                />
               </div>
-              <p className="text-sm leading-relaxed text-ink-mute">{f.desc}</p>
-            </div>
-          ))}
+            ))}
+          </div>
         </div>
       </section>
 
@@ -224,6 +279,7 @@ export default function IntelligenceSections() {
         ref={closeRef}
         className="reveal relative overflow-hidden bg-chrome-deep px-6 py-28 text-center md:px-10"
       >
+        <SectionArt seed={6} />
         <div
           className="pointer-events-none absolute inset-0"
           style={{
@@ -237,17 +293,17 @@ export default function IntelligenceSections() {
             <br />
             <em className="italic text-accent">You decide.</em>
           </h2>
-          <p className="mx-auto mb-10 max-w-xl text-[17px] leading-relaxed text-white/65">
+          <p className="mx-auto mb-10 max-w-xl text-[17px] leading-relaxed text-white/80">
             TerraMind&apos;s AI suggests, schedules, and generates — but nothing
             writes to your operation without your explicit confirmation. Human
             judgment stays exactly where it belongs.
           </p>
-          <button
-            onClick={openModal}
-            className="inline-flex cursor-pointer items-center gap-2 rounded-full bg-leaf px-6.5 py-3.5 text-sm font-semibold text-white transition-all hover:-translate-y-px hover:bg-leaf-deep"
+          <Link
+            href="/work-with-us"
+            className="link-arrow inline-flex cursor-pointer items-center gap-2 rounded-full bg-leaf px-6.5 py-3.5 text-sm font-semibold text-white transition-all hover:-translate-y-px hover:bg-leaf-deep hover:shadow-[0_14px_36px_-12px_rgba(67,213,133,0.55)]"
           >
-            Get early access ↗
-          </button>
+            Work with us <span className="arrow">↗</span>
+          </Link>
         </div>
       </section>
     </>

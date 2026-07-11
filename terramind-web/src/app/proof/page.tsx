@@ -2,8 +2,6 @@ import type { Metadata } from "next";
 import Nav from "@/components/Nav";
 import Footer from "@/components/Footer";
 import ProofSections from "@/components/ProofSections";
-import RequestAccessModal from "@/components/RequestAccessModal";
-import { ModalProvider } from "@/components/ModalProvider";
 
 export const metadata: Metadata = {
   title: "TerraMind Proof — Measured accuracy, every surface",
@@ -13,13 +11,12 @@ export const metadata: Metadata = {
 
 export default function ProofPage() {
   return (
-    <ModalProvider>
+    <>
       <Nav />
       <main>
         <ProofSections />
         <Footer />
       </main>
-      <RequestAccessModal />
-    </ModalProvider>
+    </>
   );
 }
