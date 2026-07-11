@@ -64,9 +64,7 @@ export default function WorkWithUsPage() {
                 Book a call
               </h2>
               <p className="mx-auto max-w-xl text-[15px] leading-relaxed text-white/75">
-                Thirty minutes with the people building it. We&apos;ll walk
-                your blocks, your risks, and what the pilot would look like on
-                your operation. No deck, no pressure — pick a time below.
+                We&apos;ll discuss your blocks.
               </p>
             </div>
             <CalEmbed />
