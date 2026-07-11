@@ -1,110 +1,30 @@
 @import "tailwindcss";
+@import "./base.css";
+@import "./animations.css";
+@import "./legal.css";
 
-/* ── Design tokens — matched to the TerraMind app ── */
+/* ── Tailwind theme — utilities reference the design tokens in base.css ── */
 @theme inline {
-  --font-serif: var(--font-fraunces), 'Times New Roman', serif;
-  --font-sans: var(--font-manrope), system-ui, sans-serif;
-  --font-mono: var(--font-space-mono), "Menlo", monospace;
+  --font-serif: var(--serif);
+  --font-sans: var(--sans);
+  --font-mono: var(--mono);
 
-  --color-chrome: #1b2a22;
-  --color-chrome-deep: #0a0f0c;
-  --color-paper: #e5eedd;
-  --color-paper-2: #dbe6cd;
-  --color-paper-3: #cfdcbe;
-  --color-leaf: #0f7a41;
-  --color-leaf-deep: #0b5c32;
-  --color-accent: #43d585;
-  --color-accent-strong: #1f9d57;
-  --color-ink: #0a0f0c;
-  --color-ink-soft: #1b2a22;
-  --color-ink-mute: #55625a;
-  --color-mint: #e2efe0;
-  --color-sage: #86998e;
-  --color-earth: #b67d2e;
-  --color-amber: #ffc06b;
-  --color-line: rgba(10, 15, 12, 0.12);
-  --color-line-soft: rgba(10, 15, 12, 0.06);
-}
-
-:root {
-  --chrome: #1b2a22;
-  --chrome-deep: #0a0f0c;
-  --paper: #e5eedd;
-  --paper-2: #dbe6cd;
-  --paper-3: #cfdcbe;
-  --leaf: #0f7a41;
-  --leaf-deep: #0b5c32;
-  --accent: #43d585;
-  --accent-strong: #1f9d57;
-  --ink: #0a0f0c;
-  --ink-soft: #1b2a22;
-  --ink-mute: #55625a;
-  --mint: #e2efe0;
-  --sage: #86998e;
-  --line: rgba(10, 15, 12, 0.12);
-  --line-soft: rgba(10, 15, 12, 0.06);
-  --serif: var(--font-fraunces), 'Times New Roman', serif;
-  --sans: var(--font-manrope), system-ui, sans-serif;
-  --mono: var(--font-space-mono), "Menlo", monospace;
-}
-
-html {
-  scroll-behavior: smooth;
-  scroll-padding-top: 86px;
-}
-
-body {
-  background: var(--paper);
-  color: var(--ink);
-  font-family: var(--sans);
-  font-size: 16px;
-  line-height: 1.55;
-  -webkit-font-smoothing: antialiased;
-  overflow-x: hidden;
-}
-
-@layer base {
-  a { color: inherit; text-decoration: none; }
-}
-
-/* ── Film grain overlay ── */
-body::before {
-  content: '';
-  position: fixed;
-  inset: 0;
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='300' height='300' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E");
-  pointer-events: none;
-  z-index: 9999;
-  opacity: 0.3;
-}
-
-/* ── Scroll reveal (pairs with useReveal hook adding .in) ── */
-.reveal {
-  opacity: 0;
-  transform: translateY(18px);
-  transition: opacity 0.7s ease, transform 0.7s ease;
-}
-.reveal.in { opacity: 1; transform: none; }
-
-@media (prefers-reduced-motion: reduce) {
-  html { scroll-behavior: auto; }
-  .reveal { opacity: 1; transform: none; transition: none; }
-}
-
-/* ── Shared section primitives ── */
-.eyebrow {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-  font-family: var(--mono);
-  font-size: 11px;
-  letter-spacing: 0.2em;
-  text-transform: uppercase;
-  color: var(--ink-mute);
-}
-.eyebrow::after {
-  content: '';
-  flex: 1;
-  height: 1px;
-  background: var(--line);
+  --color-chrome: var(--chrome);
+  --color-chrome-deep: var(--chrome-deep);
+  --color-paper: var(--paper);
+  --color-paper-2: var(--paper-2);
+  --color-paper-3: var(--paper-3);
+  --color-leaf: var(--leaf);
+  --color-leaf-deep: var(--leaf-deep);
+  --color-accent: var(--accent);
+  --color-accent-strong: var(--accent-strong);
+  --color-ink: var(--ink);
+  --color-ink-soft: var(--ink-soft);
+  --color-ink-mute: var(--ink-mute);
+  --color-mint: var(--mint);
+  --color-sage: var(--sage);
+  --color-earth: var(--earth);
+  --color-amber: var(--amber);
+  --color-line: var(--line);
+  --color-line-soft: var(--line-soft);
 }

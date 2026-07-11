@@ -1,0 +1,400 @@
+/* ── Motion & effect classes — every animated primitive on the site ── */
+
+/* ── Scroll reveal (pairs with useReveal hook adding .in) ── */
+.reveal {
+  opacity: 0;
+  transform: translateY(18px);
+  transition: opacity 0.7s ease, transform 0.7s ease;
+}
+.reveal.in { opacity: 1; transform: none; }
+
+/* ── Staggered child reveal (pairs with .reveal.in on an ancestor) ── */
+@keyframes rise {
+  from { opacity: 0; transform: translateY(18px); }
+  to { opacity: 1; transform: none; }
+}
+.stagger > * { opacity: 0; }
+.reveal.in .stagger > * {
+  animation: rise 0.7s cubic-bezier(0.22, 1, 0.36, 1) both;
+  animation-delay: calc(var(--d, 0) * 70ms);
+}
+
+/* ── Card sheen — light streak sweeps across on hover ── */
+.card-lift, .card-lift-dark { position: relative; }
+.card-lift::before, .card-lift-dark::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  overflow: hidden;
+  pointer-events: none;
+  background: linear-gradient(
+    105deg,
+    transparent 38%,
+    rgba(255, 255, 255, 0.5) 50%,
+    transparent 62%
+  );
+  background-size: 260% 100%;
+  background-position: 130% 0;
+  opacity: 0;
+  transition: opacity 0.2s ease;
+}
+.card-lift-dark::before {
+  background-image: linear-gradient(
+    105deg,
+    transparent 38%,
+    rgba(67, 213, 133, 0.16) 50%,
+    transparent 62%
+  );
+}
+.card-lift:hover::before, .card-lift-dark:hover::before {
+  opacity: 1;
+  animation: sheen-sweep 0.9s cubic-bezier(0.4, 0, 0.2, 1) both;
+}
+@keyframes sheen-sweep {
+  from { background-position: 130% 0; }
+  to { background-position: -30% 0; }
+}
+
+/* ── Card hover — lift, tint, shadow ── */
+.card-lift {
+  transition:
+    transform 0.35s cubic-bezier(0.22, 1, 0.36, 1),
+    border-color 0.35s ease,
+    background-color 0.35s ease,
+    box-shadow 0.35s ease;
+}
+.card-lift:hover {
+  transform: translateY(-4px);
+  border-color: rgba(15, 122, 65, 0.35);
+  background-color: var(--mint);
+  box-shadow: 0 16px 40px -18px rgba(10, 15, 12, 0.28);
+}
+.card-lift-dark {
+  transition:
+    transform 0.35s cubic-bezier(0.22, 1, 0.36, 1),
+    border-color 0.35s ease,
+    background-color 0.35s ease,
+    box-shadow 0.35s ease;
+}
+.card-lift-dark:hover {
+  transform: translateY(-4px);
+  border-color: rgba(67, 213, 133, 0.4);
+  background-color: rgba(255, 255, 255, 0.08);
+  box-shadow: 0 16px 40px -18px rgba(0, 0, 0, 0.5);
+}
+
+/* ── Chain / connector animation ── */
+@keyframes dashflow { to { stroke-dashoffset: -16; } }
+.flow-line {
+  stroke-dasharray: 5 9;
+  animation: dashflow 1.1s linear infinite;
+}
+@keyframes pulse-dot {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.4; transform: scale(0.7); }
+}
+.pulse-dot {
+  transform-origin: center;
+  animation: pulse-dot 2.2s ease-in-out infinite;
+}
+
+/* ── Pipeline console ──
+   One dark panel; columns ignite in sequence while a progress line fills
+   along the bottom. Everything shares one clock: steps × step-duration. */
+.pipe {
+  --pipe-step: 1.7s;
+  --pipe-cycle: calc(var(--steps, 4) * var(--pipe-step));
+}
+.reveal.in .pipe-col {
+  animation: pipe-col var(--pipe-cycle) ease-in-out infinite;
+  animation-delay: calc(var(--i) * var(--pipe-step));
+}
+@keyframes pipe-col {
+  0% { background-color: transparent; }
+  5%, 18% { background-color: rgba(15, 122, 65, 0.06); }
+  26%, 100% { background-color: transparent; }
+}
+.reveal.in .pipe-dot {
+  animation: pipe-dot var(--pipe-cycle) ease-in-out infinite;
+  animation-delay: calc(var(--i) * var(--pipe-step));
+}
+@keyframes pipe-dot {
+  0% { transform: scale(1); box-shadow: 0 0 0 0 rgba(31, 157, 87, 0); background-color: var(--accent-strong); }
+  5%, 18% { transform: scale(1.7); box-shadow: 0 0 14px 2px rgba(31, 157, 87, 0.6); background-color: var(--accent-strong); }
+  26%, 100% { transform: scale(1); box-shadow: 0 0 0 0 rgba(31, 157, 87, 0); background-color: var(--accent-strong); }
+}
+.reveal.in .pipe-title {
+  animation: pipe-title var(--pipe-cycle) ease-in-out infinite;
+  animation-delay: calc(var(--i) * var(--pipe-step));
+}
+@keyframes pipe-title {
+  0% { color: var(--ink); }
+  5%, 18% { color: var(--leaf); }
+  26%, 100% { color: var(--ink); }
+}
+.pipe-progress {
+  background: linear-gradient(to right, var(--leaf), var(--accent));
+  transform-origin: left;
+  transform: scaleX(0);
+}
+.reveal.in .pipe-progress {
+  animation: fillbar var(--pipe-cycle) linear infinite;
+}
+
+/* ── Panel content swap ── */
+.swap-in { animation: rise 0.45s cubic-bezier(0.22, 1, 0.36, 1) both; }
+
+/* ── Autoplay progress fill ── */
+@keyframes fillbar { from { transform: scaleX(0); } to { transform: scaleX(1); } }
+.fillbar { transform-origin: left; animation: fillbar linear both; }
+
+/* ── Blinking terminal caret ── */
+@keyframes caret-blink { 0%, 55% { opacity: 1; } 56%, 100% { opacity: 0; } }
+.caret { animation: caret-blink 1.1s step-end infinite; }
+
+/* ── Gentle levitation for hero objects ── */
+@keyframes float-y {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-7px); }
+}
+.float-slow { animation: float-y 7s ease-in-out infinite; }
+
+/* ── Nav link underline draw ── */
+.nav-link { position: relative; }
+.nav-link::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: -5px;
+  height: 1px;
+  background: var(--accent);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.35s cubic-bezier(0.22, 1, 0.36, 1);
+}
+.nav-link:hover::after { transform: scaleX(1); }
+
+/* ── Hero entrance on load ── */
+@keyframes hero-in {
+  from { opacity: 0; transform: translateY(26px); }
+  to { opacity: 1; transform: none; }
+}
+.hero-in {
+  opacity: 0;
+  animation: hero-in 0.95s cubic-bezier(0.22, 1, 0.36, 1) both;
+  animation-delay: var(--hd, 0s);
+}
+
+/* ── Eyebrow rule draws itself on reveal ── */
+.reveal .eyebrow::after {
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 1s cubic-bezier(0.22, 1, 0.36, 1) 0.2s;
+}
+.reveal.in .eyebrow::after { transform: scaleX(1); }
+
+/* ── Shimmer text — slow gradient slide across accent phrases ── */
+.shimmer-text {
+  background: linear-gradient(
+    100deg,
+    var(--accent) 0%,
+    var(--accent) 38%,
+    #eafff3 50%,
+    var(--accent) 62%,
+    var(--accent) 100%
+  );
+  background-size: 240% 100%;
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  animation: shimmer-slide 5.5s ease-in-out infinite;
+}
+.shimmer-text.on-light {
+  background-image: linear-gradient(
+    100deg,
+    var(--leaf) 0%,
+    var(--leaf) 38%,
+    var(--accent) 50%,
+    var(--leaf) 62%,
+    var(--leaf) 100%
+  );
+}
+@keyframes shimmer-slide {
+  0%, 25% { background-position: 130% 0; }
+  75%, 100% { background-position: -30% 0; }
+}
+
+/* ── Breathing glow for dark-band radials ── */
+@keyframes glow-breathe {
+  0%, 100% { opacity: 0.75; transform: scale(1); }
+  50% { opacity: 1; transform: scale(1.07); }
+}
+.glow-breathe { animation: glow-breathe 9s ease-in-out infinite; }
+
+/* ── Arrow link — arrow nudges right on hover ── */
+.link-arrow .arrow {
+  display: inline-block;
+  transition: transform 0.3s cubic-bezier(0.22, 1, 0.36, 1);
+}
+.link-arrow:hover .arrow { transform: translateX(5px); }
+
+/* ── 3D tilt — cursor-tracking perspective + glare (pairs with TiltCard) ── */
+.tilt {
+  transform: perspective(900px) rotateX(var(--rx, 0deg)) rotateY(var(--ry, 0deg));
+  transition: transform 0.18s ease-out;
+  position: relative;
+}
+.tilt::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  pointer-events: none;
+  background: radial-gradient(
+    260px circle at var(--gx, 50%) var(--gy, 50%),
+    rgba(255, 255, 255, 0.45) 0%,
+    transparent 65%
+  );
+  opacity: var(--glare, 0);
+  transition: opacity 0.25s ease;
+}
+
+/* ── Index rows — hairlines draw in, mint wash sweeps on hover ── */
+.row-hairline {
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 1.1s cubic-bezier(0.22, 1, 0.36, 1) calc(var(--d, 0) * 110ms);
+}
+.reveal.in .row-hairline { transform: scaleX(1); }
+
+/* ── Masked text reveal — line rises out of a clipped box ── */
+.mask-reveal { display: block; overflow: hidden; }
+.mask-reveal > span {
+  display: inline-block;
+  transform: translateY(115%);
+  transition: transform 0.95s cubic-bezier(0.22, 1, 0.36, 1)
+    calc(var(--d, 0) * 110ms + 0.15s);
+}
+.reveal.in .mask-reveal > span { transform: none; }
+
+/* ── Radar scan — a soft beam sweeps down the platform index ── */
+.scan-beam {
+  position: absolute;
+  left: -24px;
+  right: -24px;
+  height: 140px;
+  pointer-events: none;
+  background: linear-gradient(
+    to bottom,
+    transparent,
+    rgba(67, 213, 133, 0.07) 30%,
+    rgba(67, 213, 133, 0.16) 50%,
+    rgba(67, 213, 133, 0.07) 70%,
+    transparent
+  );
+  animation: scan-y 7.5s linear infinite;
+}
+.scan-beam::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: linear-gradient(to right, transparent, rgba(31, 157, 87, 0.5), transparent);
+}
+@keyframes scan-y {
+  0% { top: -140px; opacity: 0; }
+  12% { opacity: 1; }
+  88% { opacity: 1; }
+  100% { top: 100%; opacity: 0; }
+}
+
+/* ── Platform node spine — beam and node flares share one 7.5s clock ── */
+.spine-rail {
+  position: absolute;
+  left: 3.5px;
+  top: 40px;
+  bottom: 40px;
+  width: 1px;
+  background: linear-gradient(to bottom, transparent, var(--line) 8%, var(--line) 92%, transparent);
+}
+.spine-node {
+  position: absolute;
+  width: 8px;
+  height: 8px;
+  border-radius: 9999px;
+  background: var(--accent-strong);
+}
+.reveal.in .spine-node {
+  animation: node-flare 7.5s ease-in-out infinite;
+  animation-delay: calc(var(--i) * 1.1s + 0.6s);
+}
+@keyframes node-flare {
+  0% { transform: scale(1); box-shadow: 0 0 0 0 rgba(31, 157, 87, 0); }
+  4%, 9% {
+    transform: scale(1.8);
+    box-shadow: 0 0 16px 2px rgba(31, 157, 87, 0.7);
+  }
+  16%, 100% { transform: scale(1); box-shadow: 0 0 0 0 rgba(31, 157, 87, 0); }
+}
+.row-title { transition: color 0.3s ease; }
+.reveal.in .row-title {
+  animation: title-flare 7.5s ease-in-out infinite;
+  animation-delay: calc(var(--i) * 1.1s + 0.6s);
+}
+@keyframes title-flare {
+  0% { color: var(--ink); }
+  4%, 9% { color: var(--leaf); }
+  16%, 100% { color: var(--ink); }
+}
+
+/* ── Feature marquee ── */
+@keyframes marquee-l { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+@keyframes marquee-r { from { transform: translateX(-50%); } to { transform: translateX(0); } }
+.marquee-track {
+  display: flex;
+  width: max-content;
+  animation: marquee-l var(--marquee-dur, 40s) linear infinite;
+}
+.marquee-track.rev { animation-name: marquee-r; }
+.marquee-row:hover .marquee-track { animation-play-state: paused; }
+.marquee-mask {
+  mask-image: linear-gradient(to right, transparent, black 8%, black 92%, transparent);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  body::after { animation: none !important; }
+  .card-lift::before, .card-lift-dark::before { display: none; }
+  .shimmer-text {
+    animation: none !important;
+    background: none;
+    color: var(--accent);
+  }
+  .shimmer-text.on-light { color: var(--leaf); }
+  .glow-breathe { animation: none !important; }
+  .tilt { transform: none !important; transition: none; }
+  .tilt::after { display: none; }
+  .row-hairline { transform: scaleX(1); transition: none; }
+  .mask-reveal > span { transform: none; transition: none; }
+  .scan-beam { display: none; }
+  .spine-node, .row-title { animation: none !important; }
+  .link-arrow .arrow { transition: none; }
+  .marquee-track { animation: none !important; }
+  .marquee-mask { mask-image: none; }
+  .marquee-row { overflow-x: auto; }
+  .reveal { opacity: 1; transform: none; transition: none; }
+  .stagger > * { opacity: 1; animation: none !important; }
+  .flow-line, .pulse-dot { animation: none !important; }
+  .pipe-col, .pipe-dot, .pipe-title { animation: none !important; }
+  .pipe-progress { animation: none !important; transform: scaleX(1); }
+  .swap-in { animation: none; }
+  .fillbar, .caret, .float-slow { animation: none !important; }
+  .hero-in { opacity: 1; animation: none !important; }
+  .nav-link::after { transition: none; }
+  .reveal .eyebrow::after { transform: none; transition: none; }
+  .card-lift:hover, .card-lift-dark:hover { transform: none; }
+}

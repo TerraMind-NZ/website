@@ -1,0 +1,84 @@
+/* ── Legal document typography ── */
+.legal-body p {
+  margin: 0 0 1.1em;
+  font-size: 15px;
+  line-height: 1.7;
+  color: var(--ink-soft);
+}
+.legal-body h2 {
+  font-family: var(--serif);
+  font-size: 26px;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+  line-height: 1.2;
+  margin: 0 0 0.7em;
+  color: var(--ink);
+}
+.legal-body h3 {
+  font-size: 16px;
+  font-weight: 600;
+  margin: 1.7em 0 0.5em;
+  color: var(--ink);
+}
+.legal-body ul {
+  list-style: disc;
+  margin: 0 0 1.2em;
+  padding-left: 1.3em;
+}
+.legal-body li {
+  font-size: 15px;
+  line-height: 1.65;
+  color: var(--ink-soft);
+  margin-bottom: 0.4em;
+}
+.legal-body li::marker {
+  color: var(--leaf);
+}
+.legal-body a {
+  color: var(--leaf);
+  text-decoration: underline;
+  text-decoration-color: rgba(15, 122, 65, 0.35);
+  text-underline-offset: 3px;
+  transition: color 0.15s ease;
+}
+.legal-body a:hover {
+  color: var(--leaf-deep);
+}
+.legal-body strong {
+  font-weight: 600;
+  color: var(--ink);
+}
+.legal-body hr {
+  border: none;
+  height: 1px;
+  background: var(--line);
+  margin: 2.4em 0;
+}
+.legal-body table {
+  display: block;
+  width: 100%;
+  overflow-x: auto;
+  border-collapse: collapse;
+  margin: 0.4em 0 1.6em;
+}
+.legal-body th {
+  text-align: left;
+  font-family: var(--mono);
+  font-size: 11px;
+  font-weight: 400;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--ink-mute);
+  padding: 10px 16px 10px 0;
+  border-bottom: 1px solid var(--line);
+  white-space: nowrap;
+}
+.legal-body td {
+  font-size: 13.5px;
+  line-height: 1.55;
+  color: var(--ink-soft);
+  padding: 10px 16px 10px 0;
+  border-bottom: 1px solid var(--line-soft);
+  vertical-align: top;
+  min-width: 140px;
+}
