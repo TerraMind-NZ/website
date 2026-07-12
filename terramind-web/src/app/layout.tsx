@@ -25,10 +25,27 @@ const spaceMono = Space_Mono({
   display: "swap",
 });
 
+const DESCRIPTION =
+  "TerraMind converts weather and agronomic predictions into block-level, dollar-denominated recommendations for New Zealand growers — calibrated probabilities, not dashboard noise.";
+
 export const metadata: Metadata = {
+  metadataBase: new URL("https://terramind.co.nz"),
   title: "TerraMind",
-  description:
-    "TerraMind converts weather and agronomic predictions into block-level, dollar-denominated recommendations for New Zealand growers — calibrated probabilities, not dashboard noise.",
+  description: DESCRIPTION,
+  openGraph: {
+    type: "website",
+    siteName: "TerraMind",
+    title: "TerraMind",
+    description: DESCRIPTION,
+    url: "/",
+    images: [{ url: "/logo.png", width: 2000, height: 2000 }],
+  },
+  twitter: {
+    card: "summary",
+    title: "TerraMind",
+    description: DESCRIPTION,
+    images: ["/logo.png"],
+  },
 };
 
 export default function RootLayout({
