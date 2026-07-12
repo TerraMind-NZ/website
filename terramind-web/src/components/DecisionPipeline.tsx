@@ -12,17 +12,17 @@ const STEPS = [
   {
     n: "02",
     name: "Price",
-    desc: "The finance layer converts each probability into expected value — dollars per block, per decision — in the language growers, lenders and insurers actually use.",
+    desc: "The AI-powered finance layer converts each probability into expected value — dollars per block, per decision — in the language growers, lenders and insurers actually use.",
   },
   {
     n: "03",
     name: "Decide",
-    desc: "Expected-value thresholds and three-tier decision confidence turn priced risk into a clear call: protect or don't, irrigate or wait — reasoning shown, drivers attributed.",
+    desc: "Expected-value thresholds and three-tier decision confidence turn priced risk into a clear call: protect or don't, irrigate or wait — AI reasoning shown, drivers attributed.",
   },
   {
     n: "04",
     name: "Learn",
-    desc: "Every confirmed outcome banks a dollar-valued decision win, builds the block's track record, and retrains the models. Intelligence that compounds, season over season.",
+    desc: "Every confirmed outcome banks a dollar-valued decision win, builds the block's track record, and retrains the prediction engine and AI models. Intelligence that compounds, season over season.",
   },
 ];
 

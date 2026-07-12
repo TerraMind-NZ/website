@@ -384,6 +384,24 @@
   22%, 100% { border-color: var(--line); background-color: rgba(255, 255, 255, 0.6); }
 }
 
+/* ── Setup flow — orchard panel layers build as the steps advance ── */
+.sf-poly {
+  stroke-dashoffset: 1;
+  fill-opacity: 0;
+  transition:
+    stroke-dashoffset 1s cubic-bezier(0.22, 1, 0.36, 1) calc(var(--sd, 0) * 0.25s),
+    fill-opacity 0.6s ease calc(var(--sd, 0) * 0.25s + 0.55s);
+}
+.sf-poly.on { stroke-dashoffset: 0; fill-opacity: 1; }
+.sf-layer {
+  opacity: 0;
+  transform: translateY(6px);
+  transition:
+    opacity 0.5s ease calc(var(--sd, 0) * 0.18s),
+    transform 0.5s cubic-bezier(0.22, 1, 0.36, 1) calc(var(--sd, 0) * 0.18s);
+}
+.sf-layer.on { opacity: 1; transform: none; }
+
 /* ── Feature marquee ── */
 @keyframes marquee-l { from { transform: translateX(0); } to { transform: translateX(-50%); } }
 @keyframes marquee-r { from { transform: translateX(-50%); } to { transform: translateX(0); } }
@@ -424,6 +442,7 @@
   .reveal { opacity: 1; transform: none; transition: none; }
   .stagger > * { opacity: 1; animation: none !important; }
   .flow-line, .pulse-dot { animation: none !important; }
+  .sf-poly, .sf-layer { transition: none; }
   .pipe-col, .pipe-dot, .pipe-title { animation: none !important; }
   .pipe-progress { animation: none !important; transform: scaleX(1); }
   .swap-in { animation: none; }

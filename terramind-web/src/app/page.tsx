@@ -1,5 +1,6 @@
 import Nav from "@/components/Nav";
 import Hero from "@/components/Hero";
+import SetupFlow from "@/components/SetupFlow";
 import DecisionPipeline from "@/components/DecisionPipeline";
 import PlatformRows from "@/components/PlatformRows";
 import StatementBand from "@/components/StatementBand";
@@ -16,6 +17,11 @@ export default function Home() {
       <Nav />
       <main>
         <Hero />
+        <section className="border-y border-line bg-paper-2 px-6 py-24 md:px-10">
+          <div className="mx-auto max-w-[1100px]">
+            <SetupFlow />
+          </div>
+        </section>
         <DecisionPipeline />
         <PlatformRows />
         <StatementBand />

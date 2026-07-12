@@ -48,7 +48,8 @@ export default function WorkWithUsPage() {
             <p className="mx-auto max-w-2xl text-[17px] leading-relaxed text-white/80">
               For growers tired of making six-figure calls without the tools to
               back them up. For an industry ready to move from signal to
-              decision.
+              decision — choose TerraMind, configured to the way your orchard
+              already works.
             </p>
           </div>
         </section>

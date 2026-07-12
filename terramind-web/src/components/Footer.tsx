@@ -24,7 +24,7 @@ export default function Footer() {
             Christchurch · New Zealand
           </div>
           <p className="mt-5 max-w-60 text-sm leading-relaxed text-white/75">
-            Calibrated forecasts, priced into decisions for New Zealand growers.
+            Horticulture&apos;s weather-exposed economics, finally met with calibrated intelligence.
           </p>
         </div>
         <div>
