@@ -8,7 +8,7 @@ const ease = (t: number) => 1 - Math.pow(1 - t, 3);
 /**
  * Animates every numeric run inside `value` from 0 when scrolled into view,
  * preserving surrounding text, decimal places and thousands separators.
- * e.g. "15–18%" counts both numbers; "r = 0.87" counts the 0.87.
+ * e.g. "15–18%" counts both numbers; "r = 0.81" counts the 0.81.
  *
  * The server-rendered markup always contains the final value so crawlers,
  * link previews and no-JS clients never see zeroes; the count-up is a

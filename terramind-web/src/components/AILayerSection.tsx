@@ -11,8 +11,8 @@ const FEATURES = [
     desc: "A prediction-driven calendar. Spray, irrigation, frost and harvest events scheduled — and rescheduled — as forecasts change.",
   },
   {
-    name: "Daily Briefing",
-    desc: "Each morning's decisions, ranked by economic impact. The five things worth your attention today, and why.",
+    name: "Decision Optimisation",
+    desc: "Ask for the best play and it searches your controllable levers — frost protection, irrigation, harvest timing — ranking each by dollar outcome. Scenario search, never dressed up as a forecast.",
   },
   {
     name: "Insights Feed",
@@ -25,6 +25,10 @@ const FEATURES = [
 ];
 
 const MORE_FEATURES = [
+  {
+    name: "Daily Briefing",
+    desc: "Each morning's decisions, ranked by economic impact.",
+  },
   {
     name: "Nightly Insight Scan",
     desc: "Five deterministic detectors sweep every block at 2:30 am.",
@@ -57,6 +61,38 @@ const MORE_FEATURES = [
     name: "Staff View",
     desc: "A plain-language day sheet for the crew, one tap to share.",
   },
+  {
+    name: "Analysis Carousel",
+    desc: "Nightly critical, watch and good items drive the dashboard's Today's Priority banner.",
+  },
+  {
+    name: "Ledger Analysis",
+    desc: "Ask reads your synced Xero ledger — summaries, P&L and period comparisons, orchard-scoped.",
+  },
+  {
+    name: "Account Mapping",
+    desc: "Suggests fixes for unmapped Xero codes so cost overlays ground on real spend.",
+  },
+  {
+    name: "Conversation Memory",
+    desc: "Ask remembers your operation across sessions — “as you mentioned last week.”",
+  },
+  {
+    name: "Grower-Learning Synthesis",
+    desc: "Proposes durable profile facts from the day's activity, always yours to confirm.",
+  },
+  {
+    name: "Chart Readings",
+    desc: "Expand any chart for a grounded, cached read of what it shows and why.",
+  },
+  {
+    name: "Season-State Summary",
+    desc: "A weekly on-screen read of where each block sits in its season.",
+  },
+  {
+    name: "SMS & WhatsApp",
+    desc: "The full agent, reachable from any phone — identity-gated and keyword-routed.",
+  },
 ];
 
 export default function AILayerSection() {
@@ -71,7 +107,7 @@ export default function AILayerSection() {
       <div className="eyebrow mb-12">TerraMind Intelligence</div>
       <div className="mb-14 grid grid-cols-1 items-end gap-8 md:grid-cols-2 md:gap-20">
         <h2 className="font-serif text-[clamp(28px,3.5vw,46px)] font-semibold leading-[1.1] tracking-tight text-ink">
-          A 14-feature AI reasoning layer —{" "}
+          A 22-feature AI reasoning layer —{" "}
           <em className="shimmer-text on-light italic">built for horticulture</em>
         </h2>
         <div>

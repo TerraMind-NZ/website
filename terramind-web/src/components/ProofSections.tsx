@@ -27,12 +27,12 @@ const SURFACES = [
   },
   {
     name: "Irrigation",
-    stat: "r = 0.87",
-    statLabel: "deficit trajectory · 6 regions",
+    stat: "r = 0.81",
+    statLabel: "vs ERA5-Land · 6 regions",
     impact:
       "Water is the next-biggest input cost after frost protection — and over- or under-watering both cost real money.",
     accuracy:
-      "Soil-water deficit trajectory validated against independent ERA5-Land reanalysis across six NZ regions: r = 0.87 (0.77–0.94), direction right on 85% of meaningful days, bounded by real S-Map soil data.",
+      "The production two-layer FAO-56 balance tracks independent ERA5-Land reanalysis at root-zone r = 0.805 and topsoil r = 0.872 across six NZ regions × five summers, direction right on 74% of meaningful days, bounded by real S-Map soil data.",
   },
   {
     name: "Pollination",
@@ -50,7 +50,16 @@ const SURFACES = [
     impact:
       "Damaging gusts drop and scar fruit — roughly 58 damaging-gust days a season for kiwifruit, with peaks over 100 km/h.",
     accuracy:
-      "Day-ahead forecasts catch 97% of damaging-wind days at a 50 km/h watch trigger; gust forecast RMSE 10.4 km/h. A day's warning to deploy protection or bring a pick forward.",
+      "Day-ahead forecasts catch 97% of damaging-wind days at a 50 km/h watch trigger; gust forecast RMSE 10.4 km/h. A day's warning to deploy protection or bring a pick forward. Gusts are spiky, so hour-exact recall is 50% — but damage is a day-level event, and at the day level a watch trigger catches 97%.",
+  },
+  {
+    name: "Spray window",
+    stat: "96.7%",
+    statLabel: "of promised windows stay rain-free",
+    impact:
+      "A mistimed spray is wasted product, a re-spray cost, and — for agrichemicals — a compliance and residue risk. The value of the surface is the reliability of its promise that a window stays sprayable.",
+    accuracy:
+      "Of 335 windows the production model promised across 6 NZ regions × 2 spring seasons, 100% still met the wind, gust and temperature rules in truth and 96.7% stayed genuinely rain-free — the ~3% gap is honest 1-day rain-forecast uncertainty, not model error. It is also highly selective: 335 windows from 13,576 naive dry-daylight hours (2.5%).",
   },
   {
     name: "Harvest & phenology",
@@ -59,7 +68,7 @@ const SURFACES = [
     impact:
       "A wrong harvest date mis-books labour, packhouse slots and market windows — costs that land whether or not the fruit is perfect.",
     accuracy:
-      "Growing-degree-day projections from forecast temperature hit days-to-harvest targets within ±2 days, with 7.1% cumulative-season error.",
+      "Growing-degree-day projections from forecast temperature track days-to-target within ±2 days (7.1% cumulative-season error). A separate leave-one-year-out backtest over 6 regions × 10 seasons lands within a 3.5-day median error at 30 days out, with 95% interval coverage.",
   },
   {
     name: "Psa risk",
@@ -76,14 +85,17 @@ const ENGINE = [
   { value: "1,000", label: "Monte Carlo samples per prediction" },
   { value: "~1.5 ms", label: "Per full simulation" },
   { value: "Bit-identical", label: "Same seed, same result — auditable" },
-  { value: "1,270", label: "Tests passing" },
+  { value: "OOD-guarded", label: "Refuses to extrapolate beyond NZ" },
+  { value: "1.075 °C", label: "Forecast meta-model MAE · 13 regions" },
+  { value: "24,217", label: "Frost nights benchmarked · 20 NZ sites" },
+  { value: "1,721", label: "Tests passing" },
   { value: "×18", label: "Surfaces green on the calibration gate" },
   { value: "7 · 13", label: "Crops · NZ regions, equal depth" },
 ];
 
 const NOT_CLAIMED = [
   "Our disease classifiers (AUC 0.91–0.98) faithfully reproduce published agronomic risk formulas — that is reproduction fidelity, not field-validated infection prediction. Real validation lands as grower-confirmed outcomes accumulate.",
-  "Yield-from-satellite (NDVI) is not field-validated for any crop yet. Five of seven crop models are flagged as self-referential in their own metadata — in capitals.",
+  "Yield-from-satellite (NDVI) is not field-validated for any crop yet. Five of seven crop models are flagged as self-referential in their own metadata — in capitals. Tested honestly against 658 real Sentinel-2 observations, the trajectory lands at climatology (MAE 0.066 vs 0.068) — no added skill yet on two blocks.",
   "A runoff model scoring a 92% improvement sits unshipped in our codebase, held at deployable:false — it learned to mimic physics labels, so the score isn't real-world skill. We'd rather hold it back than dress it up.",
   "No named-competitor benchmark yet. When we publish one, it will be run the same way as everything on this page: real data, stated provenance.",
 ];
@@ -149,17 +161,17 @@ export default function ProofSections() {
             <span className="pulse-dot h-1.5 w-1.5 rounded-full bg-accent" />
             The engine underneath
           </div>
-          <div className="stagger grid grid-cols-2 gap-4 sm:grid-cols-3 lg:grid-cols-6">
+          <div className="stagger grid grid-cols-3 gap-4">
             {ENGINE.map((e, i) => (
               <div
                 key={e.label}
                 style={{ "--d": i } as CSSProperties}
-                className="card-lift-dark rounded-xl border border-white/12 bg-white/4 p-5"
+                className="card-lift-dark rounded-xl border border-white/12 bg-white/4 p-3.5 sm:p-5"
               >
-                <div className="mb-1 font-mono text-[20px] font-bold tracking-tight text-white tabular-nums">
+                <div className="mb-1 break-words font-mono text-[14px] font-bold tracking-tight text-white tabular-nums sm:text-[20px]">
                   <CountUp value={e.value} />
                 </div>
-                <div className="font-mono text-[10px] uppercase leading-snug tracking-[0.12em] text-white/60">
+                <div className="break-words font-mono text-[9px] uppercase leading-snug tracking-normal text-white/60 sm:text-[10px] sm:tracking-[0.12em]">
                   {e.label}
                 </div>
               </div>

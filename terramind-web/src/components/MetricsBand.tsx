@@ -9,11 +9,11 @@ const METRICS = [
   { value: "94%", label: "Frost nights caught" },
   { value: "15–18%", label: "Sharper than the public forecast" },
   { value: "0.007", label: "Expected calibration error" },
-  { value: "r = 0.87", label: "Irrigation accuracy · 6 NZ regions" },
+  { value: "r = 0.81", label: "Irrigation vs ERA5-Land · 6 regions" },
   { value: "97%", label: "Damaging-wind days caught" },
   { value: "92%", label: "Pollination-window accuracy" },
   { value: "±2 days", label: "Harvest-timing accuracy" },
-  { value: "1,270", label: "Tests passing · gate green ×18" },
+  { value: "1,721", label: "Tests passing · gate green ×18" },
 ];
 
 export default function MetricsBand() {

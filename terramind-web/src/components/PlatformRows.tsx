@@ -11,8 +11,8 @@ const PRODUCTS = [
   },
   {
     name: "Water & Irrigation",
-    tag: "r = 0.87 · Validated in 6 NZ regions",
-    desc: "FAO-56 evapotranspiration bounded by real S-Map soil data. Deficit trajectory validated across six New Zealand regions (r = 0.87) — irrigation scheduled when your soil actually needs it.",
+    tag: "r = 0.81 · ERA5-Land, 6 NZ regions",
+    desc: "FAO-56 evapotranspiration bounded by real S-Map soil data. Deficit trajectory tracks independent ERA5-Land reanalysis across six New Zealand regions (root-zone r = 0.805) — irrigation scheduled when your soil actually needs it.",
   },
   {
     name: "Disease Risk",
@@ -28,6 +28,11 @@ const PRODUCTS = [
     name: "Pollination & Wind",
     tag: "92% bloom · 97% wind days",
     desc: "Bee-flyable-hour forecasts (92% accuracy) for bloom and day-ahead warnings that catch 97% of damaging-wind days — notice enough to supplement hives or bring a pick forward.",
+  },
+  {
+    name: "Spray Window",
+    tag: "96.7% rain-free · dry-guarantee",
+    desc: "Finds windows that hold: wind, gust, temperature and a dry margin before and after, checked on the 1-day forecast. Of 335 promised windows across 6 NZ regions, 96.7% stayed genuinely rain-free — a defensible go/no-go on product, labour and compliance.",
   },
   {
     name: "Soil Scouter",

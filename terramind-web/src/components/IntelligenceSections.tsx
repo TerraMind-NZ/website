@@ -131,7 +131,7 @@ export default function IntelligenceSections() {
             <em className="italic text-accent">built for horticulture</em>
           </h1>
           <p className="max-w-2xl text-[17px] leading-relaxed text-white/80">
-            Fourteen AI features, and every one exists because of a TerraMind
+            Twenty-two AI features, and every one exists because of a TerraMind
             prediction. The findings are deterministic — the AI puts them into
             words. Grounded, auditable, and always yours to confirm.
           </p>

@@ -4,7 +4,7 @@ import Footer from "@/components/Footer";
 import IntelligenceSections from "@/components/IntelligenceSections";
 
 export const metadata: Metadata = {
-  title: "TerraMind Intelligence — A 14-feature AI reasoning layer",
+  title: "TerraMind Intelligence — A 22-feature AI reasoning layer",
   description:
     "Grounding-before-generation, nightly insight scans, an agentic assistant with retrieval-augmented answers — every AI feature exists because of a TerraMind prediction.",
 };
