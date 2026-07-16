@@ -32,7 +32,7 @@ const SURFACES = [
     impact:
       "Water is the next-biggest input cost after frost protection — and over- or under-watering both cost real money.",
     accuracy:
-      "The production two-layer FAO-56 balance tracks independent ERA5-Land reanalysis at root-zone r = 0.805 and topsoil r = 0.872 across six NZ regions × five summers, direction right on 74% of meaningful days, bounded by real S-Map soil data.",
+      "The production two-layer FAO-56 balance tracks independent ERA5-Land reanalysis at root-zone r = 0.805 and topsoil r = 0.872 across 6 NZ regions × 5 summers, direction right on 74% of meaningful days, bounded by real S-Map soil data.",
   },
   {
     name: "Pollination",
@@ -90,7 +90,7 @@ const ENGINE = [
   { value: "24,217", label: "Frost nights benchmarked · 20 NZ sites" },
   { value: "1,721", label: "Tests passing" },
   { value: "×18", label: "Surfaces green on the calibration gate" },
-  { value: "7 · 13", label: "Crops · NZ regions, equal depth" },
+  { value: "7 · 13", label: "Crops · NZ regions modelled at equal depth" },
 ];
 
 const NOT_CLAIMED = [

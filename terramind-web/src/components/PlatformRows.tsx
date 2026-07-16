@@ -12,7 +12,7 @@ const PRODUCTS = [
   {
     name: "Water & Irrigation",
     tag: "r = 0.81 · ERA5-Land, 6 NZ regions",
-    desc: "FAO-56 evapotranspiration bounded by real S-Map soil data. Deficit trajectory tracks independent ERA5-Land reanalysis across six New Zealand regions (root-zone r = 0.805) — irrigation scheduled when your soil actually needs it.",
+    desc: "FAO-56 evapotranspiration bounded by real S-Map soil data. Deficit trajectory tracks independent ERA5-Land reanalysis across 6 NZ regions (root-zone r = 0.805) — irrigation scheduled when your soil actually needs it.",
   },
   {
     name: "Disease Risk",
