@@ -69,7 +69,7 @@ const ASK = [
   },
   {
     name: "Self-consistency",
-    desc: "High-stakes questions run a three-temperature ensemble; when the answers disagree, the disagreement is surfaced as an explicit limitation.",
+    desc: "High-stakes questions are answered three times independently and you get the consensus; if the runs disagree, that disagreement is flagged to you rather than hidden.",
   },
   {
     name: "Voice",
@@ -78,6 +78,25 @@ const ASK = [
   {
     name: "Partner MCP",
     desc: "External agents can read and propose through a consent-gated endpoint. They can never execute a write.",
+  },
+];
+
+const HARDENING = [
+  {
+    name: "Injection-safe by design",
+    desc: "Facts the model reads from a chat, an image or a retrieved document never auto-write to your profile — they queue as confirm/reject suggestions, so a hidden instruction can't quietly poison every future answer.",
+  },
+  {
+    name: "Honest when it can't finish",
+    desc: "A truncated or malformed generation says so and degrades cleanly, instead of stopping mid-sentence or masquerading as an outage.",
+  },
+  {
+    name: "Consensus on the big calls",
+    desc: "High-stakes answers are generated multiple times and the response you see is the one the runs agree on — judged by what the answers mean, not how they're worded.",
+  },
+  {
+    name: "Budgeted and bounded",
+    desc: "A rolling per-orchard cost budget covers even the agent stream and block ask; context and tool results are capped, with an explicit “trimmed” note rather than a silent drop.",
   },
 ];
 
@@ -105,6 +124,7 @@ export default function IntelligenceSections() {
   const pipelineRef = useReveal<HTMLElement>();
   const scanRef = useReveal<HTMLElement>();
   const askRef = useReveal<HTMLElement>();
+  const hardenRef = useReveal<HTMLElement>();
   const compoundRef = useReveal<HTMLElement>();
   const closeRef = useReveal<HTMLElement>();
 
@@ -227,6 +247,61 @@ export default function IntelligenceSections() {
           disciplined enough to never act without you.
         </p>
         <AskHub items={ASK} />
+      </section>
+
+      <section
+        ref={hardenRef}
+        className="reveal relative overflow-hidden bg-chrome-deep px-6 py-24 md:px-10"
+      >
+        <SectionArt seed={7} />
+        <div
+          className="glow-breathe pointer-events-none absolute inset-0"
+          style={{
+            background:
+              "radial-gradient(ellipse 70% 80% at 50% 25%, rgba(15,122,65,0.2) 0%, rgba(15,122,65,0) 60%)",
+          }}
+        />
+        <div className="relative z-1 mx-auto max-w-[1100px]">
+          <div className="mb-12 flex items-center gap-2.5 font-mono text-[11px] uppercase tracking-[0.2em] text-accent">
+            <span className="pulse-dot h-1.5 w-1.5 rounded-full bg-accent" />
+            Hardened for the field
+          </div>
+          <h2 className="mb-5 max-w-2xl font-serif text-[clamp(28px,3.5vw,46px)] font-semibold leading-[1.1] tracking-tight text-white">
+            A reliability layer{" "}
+            <em className="italic text-accent">under all 22 features</em>
+          </h2>
+          <p className="mb-14 max-w-2xl text-base leading-relaxed text-white/75">
+            An end-to-end adversarial audit hardened every reliability edge of
+            the AI layer — the part that keeps it trustworthy under load, bad
+            input and provider failure. Each item below shipped with tests, and
+            the model-facing ones with a passing evaluation.
+          </p>
+          <div className="stagger grid grid-cols-1 gap-4 sm:grid-cols-2">
+            {HARDENING.map((h, i) => (
+              <div
+                key={h.name}
+                style={{ "--d": i } as CSSProperties}
+                className="card-lift-dark rounded-xl border border-white/12 bg-white/4 px-6 py-5"
+              >
+                <div className="mb-2.5 flex items-center gap-3">
+                  <span className="font-mono text-[10px] tracking-[0.2em] text-accent">
+                    {String(i + 1).padStart(2, "0")}
+                  </span>
+                  <span
+                    className="row-hairline h-px flex-1 bg-white/15"
+                    style={{ "--d": i } as CSSProperties}
+                  />
+                </div>
+                <div className="mb-1 text-[15px] font-semibold text-white">
+                  {h.name}
+                </div>
+                <p className="text-sm leading-relaxed text-white/65">
+                  {h.desc}
+                </p>
+              </div>
+            ))}
+          </div>
+        </div>
       </section>
 
       <section

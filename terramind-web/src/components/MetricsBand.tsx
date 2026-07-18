@@ -13,7 +13,7 @@ const METRICS = [
   { value: "97%", label: "Damaging-wind days caught" },
   { value: "92%", label: "Pollination-window accuracy" },
   { value: "±2 days", label: "Harvest-timing accuracy" },
-  { value: "1,721", label: "Tests passing · gate green ×18" },
+  { value: "1,818", label: "Tests passing · gate green ×18" },
 ];
 
 export default function MetricsBand() {

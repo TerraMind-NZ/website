@@ -81,6 +81,72 @@ const SURFACES = [
   },
 ];
 
+const HAZARD_SURFACES = [
+  {
+    name: "Hail",
+    stat: "~25×",
+    statLabel: "better than chance at flagging hail days",
+    impact:
+      "Hail can wipe out a season's fruit in minutes — and no forecast anywhere can call it block by block. Knowing when the atmosphere is primed is the edge that matters.",
+    accuracy:
+      "Machine-learned models read the convective environment (CAPE, lifted index) up to 7 days out, beating the raw forecast at every lead across a 58,526-row corpus spanning 13 regions. On the days it flags, real convective events occur ~25× more often than chance — with fully calibrated probabilities (Brier 0.0095, ECE 0.008).",
+  },
+  {
+    name: "Sunburn",
+    stat: "37%",
+    statLabel: "sharper heat forecast than raw",
+    impact:
+      "Radiative heat scalds fruit surfaces on clear, still, high-sun days — a quality downgrade waiting at the packhouse.",
+    accuracy:
+      "A fruit-surface-temperature model — air temperature plus radiation, attenuated by wind — predicted up to 7 days out. Beats the raw forecast at every lead (1.66 vs 2.62 °C at 24 h) with calibrated probabilities (Brier 0.0103), so a high-risk day is flagged days before the sun does the damage.",
+  },
+  {
+    name: "Splitting rain",
+    stat: "40%",
+    statLabel: "sharper than climatology",
+    impact:
+      "Rain on ripe fruit splits it — a direct loss landing in the narrow pre-harvest window when the crop's value is highest.",
+    accuracy:
+      "Probability of a ≥5 mm rain day, targeted to each crop's ripeness window and built on rain-specific statistics rather than one-size-fits-all assumptions. Trained on a 58,591-row corpus with probabilities 40% sharper than climatology (Brier 0.098 vs 0.165) and the full catch/false-alarm curve published — and it's the second surface with decision economics: rain covers, calcium spray and helicopter drying are priced against the revenue actually at risk, so your own costs pick the operating point.",
+  },
+  {
+    name: "Fire weather",
+    stat: "31%",
+    statLabel: "sharper index than raw forecast",
+    impact:
+      "Severe fire-weather days threaten shelterbelts, structures and crews — and govern when hot work can safely happen.",
+    accuracy:
+      "The Fosberg fire-weather index, bias-corrected per lead and tuned to what actually counts as severe in New Zealand's maritime climate. Beats the raw forecast at every lead (RMSE 4.2 vs 6.1 at 24 h) and climatology on calibration (Brier 0.0269 vs 0.0316).",
+  },
+  {
+    name: "Crew heat safety",
+    stat: "90%",
+    statLabel: "heat-stress days caught",
+    impact:
+      "Heat stress is a worker-safety risk with real liability — and a missed heat day costs far more than a cautious one.",
+    accuracy:
+      "A wet-bulb-globe heat-stress index, bias-corrected per lead and alarmed at the same economic operating point as frost — because a missed day risks a worker. Catches 90% of heat-stress days at a 5.8% false-alarm rate, calibrated to ECE 0.0035.",
+  },
+  {
+    name: "Seasonal dryness",
+    stat: "41 yrs",
+    statLabel: "of rainfall history behind every read",
+    impact:
+      "Whether the season ahead tilts wet or dry shapes water budgets, storage decisions and cashflow — months before any daily forecast can help.",
+    accuracy:
+      "41 years of rainfall history, cut by El Niño / La Niña state, gives every region its own season-ahead tilt. The current El Niño reads the classic east/west split — Hawke's Bay tilting dry, the West Coast wet — clearly presented as historical odds, so it informs planning without pretending to be a daily forecast.",
+  },
+  {
+    name: "Field access",
+    stat: "5-day",
+    statLabel: "soil-memory trafficability model",
+    impact:
+      "Can machinery get on the block without bogging or rutting? A go/no-go that governs spraying, mowing and harvest logistics.",
+    accuracy:
+      "A transparent agronomic model: five days of decaying rain accumulation weighed against the block's own soil drainage class from S-Map, with Monte Carlo over measured rain-forecast error. Every input is inspectable — a grower can see exactly why the model says wait.",
+  },
+];
+
 const ENGINE = [
   { value: "1,000", label: "Monte Carlo samples per prediction" },
   { value: "~1.5 ms", label: "Per full simulation" },
@@ -88,7 +154,7 @@ const ENGINE = [
   { value: "OOD-guarded", label: "Refuses to extrapolate beyond NZ" },
   { value: "1.075 °C", label: "Forecast meta-model MAE · 13 regions" },
   { value: "24,217", label: "Frost nights benchmarked · 20 NZ sites" },
-  { value: "1,721", label: "Tests passing" },
+  { value: "1,818", label: "Tests passing" },
   { value: "×18", label: "Surfaces green on the calibration gate" },
   { value: "7 · 13", label: "Crops · NZ regions modelled at equal depth" },
 ];
@@ -103,6 +169,7 @@ const NOT_CLAIMED = [
 export default function ProofSections() {
   const heroRef = useReveal<HTMLElement>();
   const surfacesRef = useReveal<HTMLElement>();
+  const hazardRef = useReveal<HTMLElement>();
   const engineRef = useReveal<HTMLElement>();
   const honestyRef = useReveal<HTMLElement>();
 
@@ -142,6 +209,29 @@ export default function ProofSections() {
       >
         <div className="eyebrow mb-12">Impact + accuracy, per surface</div>
         <SurfaceBrowser surfaces={SURFACES} />
+      </section>
+
+      <section
+        ref={hazardRef}
+        className="reveal border-t border-line bg-paper-2 px-6 py-24 md:px-10"
+      >
+        <div className="mx-auto max-w-[1100px]">
+          <div className="eyebrow mb-5">Hazard &amp; summer-risk pack</div>
+          <h2 className="mb-4.5 max-w-3xl font-serif text-[clamp(26px,3.2vw,40px)] font-semibold leading-[1.1] tracking-tight text-ink">
+            Seven more surfaces,{" "}
+            <em className="italic text-leaf">
+              covering the risks summer brings
+            </em>
+          </h2>
+          <p className="mb-12 max-w-2xl text-base leading-relaxed text-ink-mute">
+            Hail, sunburn, splitting rain, fire weather, crew heat safety,
+            seasonal dryness and field access — the perils that arrive with
+            heat, ripe fruit and harvest machinery. Each one beats the raw
+            forecast or climatology on held-out data, and each card states
+            exactly what was measured.
+          </p>
+          <SurfaceBrowser surfaces={HAZARD_SURFACES} />
+        </div>
       </section>
 
       <section

@@ -93,6 +93,10 @@ const MORE_FEATURES = [
     name: "SMS & WhatsApp",
     desc: "The full agent, reachable from any phone — identity-gated and keyword-routed.",
   },
+  {
+    name: "Reliability Hardening",
+    desc: "An audited layer beneath all 22 features — every answer budgeted, validated and safe against bad input.",
+  },
 ];
 
 export default function AILayerSection() {
@@ -116,8 +120,9 @@ export default function AILayerSection() {
             discipline is grounding-before-generation: deterministic engines
             find the signal, the AI puts it into words, and a structured
             fallback ships if it can&apos;t. Agentic tool-calling,
-            retrieval-augmented answers, self-consistency ensembles on
-            high-stakes questions — with you making every call.
+            retrieval-augmented answers, cross-checked responses on
+            high-stakes questions — all sitting on an audited
+            reliability layer, with you making every call.
           </p>
           <Link
             href="/intelligence"
