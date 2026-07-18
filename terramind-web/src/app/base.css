@@ -86,6 +86,78 @@ body::after {
   transform: scaleX(var(--sp, 0));
 }
 
+/* Keep the work-with-us narrative, cards, and booking area on one axis. */
+.work-with-us-shell {
+  position: relative;
+  width: min(1100px, calc(100vw - 48px));
+  margin-inline: auto;
+}
+.work-with-us-stage {
+  display: grid;
+  min-height: 100svh;
+  place-items: center;
+  padding-top: 96px;
+  padding-bottom: 28px;
+}
+.work-with-us-booking-row {
+  display: flex;
+  justify-content: center;
+  margin: 28px 0 34px;
+  transform: translateY(-10px);
+}
+.work-with-us-copy {
+  transform: translateY(-32px);
+}
+.work-with-us-cards {
+  transform: translateY(18px);
+}
+@media (min-width: 768px) {
+  .work-with-us-shell {
+    width: min(1100px, calc(100vw - 80px));
+  }
+}
+@media (min-width: 1200px) {
+  .work-with-us-shell {
+    transform: translate(-4px, -4px);
+  }
+}
+@media (min-width: 1024px) and (max-height: 900px) {
+  .work-with-us-stage {
+    padding-top: 74px;
+    padding-bottom: 12px;
+  }
+  .work-with-us-booking-row {
+    margin: 14px 0 16px;
+  }
+  .work-with-us-cards .card-lift-dark {
+    padding-top: 18px;
+    padding-bottom: 18px;
+  }
+  .work-with-us-cards .card-lift-dark > div:first-child {
+    margin-bottom: 10px;
+  }
+  .work-with-us-cards .card-lift-dark > div:nth-child(2) {
+    margin-bottom: 7px;
+  }
+  .work-with-us-copy h1 {
+    margin-bottom: 14px;
+    font-size: clamp(42px, 5vw, 60px);
+  }
+  .work-with-us-copy p {
+    font-size: 16px;
+    line-height: 1.55;
+  }
+}
+@media (min-width: 1024px) and (max-height: 760px) {
+  .work-with-us-stage {
+    padding-top: 66px;
+    padding-bottom: 8px;
+  }
+  .work-with-us-cards .card-lift-dark {
+    padding-top: 14px;
+    padding-bottom: 14px;
+  }
+}
 /* ── Shared section primitives ── */
 .eyebrow {
   display: flex;

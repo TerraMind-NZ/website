@@ -354,7 +354,7 @@ export default function TermsPage() {
       <ul>
         <li>
           <strong>Email:</strong>{" "}
-          <a href="mailto:support@terramind.co.nz">support@terramind.co.nz</a>
+          <a href="mailto:legal@terramind.co.nz">legal@terramind.co.nz</a>
         </li>
         <li>
           <strong>Mail:</strong> TerraMind Limited, 368 Blockhouse Bay Rd, Auckland 0600

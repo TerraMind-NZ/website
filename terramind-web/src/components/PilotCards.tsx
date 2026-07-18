@@ -26,14 +26,14 @@ export default function PilotCards() {
       ref={ref}
       className="reveal mx-auto max-w-[1100px]"
     >
-      <div className="stagger grid grid-cols-1 gap-4 sm:grid-cols-3">
+      <div className="stagger grid grid-cols-1 gap-4 lg:grid-cols-3">
         {CARDS.map((c, i) => (
           <div
             key={c.title}
             style={{ "--d": i } as CSSProperties}
-            className="card-lift-dark group rounded-xl border border-white/12 bg-white/4 p-7 text-left"
+            className="card-lift-dark group h-full rounded-xl border border-white/12 bg-white/4 p-7 text-center"
           >
-            <div className="mb-4 h-px w-6 bg-accent/40 transition-all duration-300 group-hover:w-12 group-hover:bg-accent/80" />
+            <div className="mx-auto mb-4 h-px w-6 bg-accent/40 transition-all duration-300 group-hover:w-12 group-hover:bg-accent/80" />
             <div className="mb-3 font-serif text-xl font-semibold tracking-tight text-white">
               {c.title}
             </div>

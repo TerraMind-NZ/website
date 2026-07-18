@@ -1,9 +1,7 @@
 "use client";
 
 import { useEffect, useRef } from "react";
-
-export const CAL_LINK = "terramind-bahrjw/terramind";
-const NAMESPACE = "book-a-call";
+import { CAL_LINK, CAL_NAMESPACE } from "./calConfig";
 
 /* Official Cal.com embed loader — queues calls until embed.js arrives. */
 /* eslint-disable @typescript-eslint/no-explicit-any */
@@ -44,32 +42,48 @@ function getCal(): any {
   return w.Cal;
 }
 
+function configureCalendar() {
+  const Cal = getCal();
+
+  if (!Cal.ns?.[CAL_NAMESPACE]) {
+    Cal("init", CAL_NAMESPACE, { origin: "https://app.cal.com" });
+  }
+  Cal.ns[CAL_NAMESPACE]("ui", {
+    theme: "dark",
+    hideEventTypeDetails: true,
+    showTimezoneWhenEventDetailsHidden: true,
+    layout: "month_view",
+  });
+
+  return Cal;
+}
+
 export default function CalEmbed() {
   const containerRef = useRef<HTMLDivElement>(null);
+  const initializedRef = useRef(false);
 
   useEffect(() => {
-    if (!containerRef.current || containerRef.current.childElementCount > 0)
-      return;
-    const Cal = getCal();
-    Cal("init", NAMESPACE, { origin: "https://app.cal.com" });
-    Cal.ns[NAMESPACE]("inline", {
-      elementOrSelector: containerRef.current,
+    if (!containerRef.current || initializedRef.current) return;
+
+    initializedRef.current = true;
+    const container = containerRef.current;
+    const Cal = configureCalendar();
+    Cal.ns[CAL_NAMESPACE]("inline", {
+      elementOrSelector: container,
       calLink: CAL_LINK,
       config: { layout: "month_view", theme: "dark" },
     });
-    Cal.ns[NAMESPACE]("ui", {
-      theme: "dark",
-      hideEventTypeDetails: false,
-      layout: "month_view",
-    });
+    return () => {
+      container.replaceChildren();
+    };
   }, []);
 
   return (
-    <div className="overflow-hidden">
-      {/* Negative margin crops the Cal.com branding strip at the iframe's bottom */}
+    <div className="cal-embed-crop overflow-hidden">
+      {/* Oversize the iframe so the lower brand strip stays outside the crop. */}
       <div
         ref={containerRef}
-        className="min-h-[560px] w-full [&_iframe]:!-mb-[92px]"
+        className="h-full w-full [&_iframe]:origin-top [&_iframe]:scale-[0.96] [&_iframe]:w-[104.167%] [&_iframe]:!-mb-[64px] [&_iframe]:!h-[calc(100%+64px)]"
       />
     </div>
   );
