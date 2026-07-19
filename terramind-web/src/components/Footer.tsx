@@ -33,24 +33,24 @@ export default function Footer() {
           </div>
           <ul className="flex flex-col gap-2.5 text-[13px]">
             <li>
-              <a href="#platform" className="text-white/75 transition-colors hover:text-white">
+              <Link href="/#platform" className="text-white/75 transition-colors hover:text-white">
                 Frost
-              </a>
+              </Link>
             </li>
             <li>
-              <a href="#platform" className="text-white/75 transition-colors hover:text-white">
+              <Link href="/#platform" className="text-white/75 transition-colors hover:text-white">
                 Water &amp; Irrigation
-              </a>
+              </Link>
             </li>
             <li>
-              <a href="#platform" className="text-white/75 transition-colors hover:text-white">
+              <Link href="/#platform" className="text-white/75 transition-colors hover:text-white">
                 Disease Risk
-              </a>
+              </Link>
             </li>
             <li>
-              <a href="#platform" className="text-white/75 transition-colors hover:text-white">
+              <Link href="/#platform" className="text-white/75 transition-colors hover:text-white">
                 Soil Scouter
-              </a>
+              </Link>
             </li>
           </ul>
         </div>
@@ -60,14 +60,14 @@ export default function Footer() {
           </div>
           <ul className="flex flex-col gap-2.5 text-[13px]">
             <li>
-              <a href="#intelligence" className="text-white/75 transition-colors hover:text-white">
+              <Link href="/#intelligence" className="text-white/75 transition-colors hover:text-white">
                 Intelligence
-              </a>
+              </Link>
             </li>
             <li>
-              <a href="#calibration" className="text-white/75 transition-colors hover:text-white">
+              <Link href="/#calibration" className="text-white/75 transition-colors hover:text-white">
                 Calibration
-              </a>
+              </Link>
             </li>
             <li>
               <Link

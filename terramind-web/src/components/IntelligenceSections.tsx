@@ -151,7 +151,7 @@ export default function IntelligenceSections() {
             <em className="italic text-accent">built for horticulture</em>
           </h1>
           <p className="max-w-2xl text-[17px] leading-relaxed text-white/80">
-            Twenty-two AI features, and every one exists because of a TerraMind
+            Twenty-three AI features, and every one exists because of a TerraMind
             prediction. The findings are deterministic — the AI puts them into
             words. Grounded, auditable, and always yours to confirm.
           </p>
@@ -268,7 +268,7 @@ export default function IntelligenceSections() {
           </div>
           <h2 className="mb-5 max-w-2xl font-serif text-[clamp(28px,3.5vw,46px)] font-semibold leading-[1.1] tracking-tight text-white">
             A reliability layer{" "}
-            <em className="italic text-accent">under all 22 features</em>
+            <em className="italic text-accent">under all 23 features</em>
           </h2>
           <p className="mb-14 max-w-2xl text-base leading-relaxed text-white/75">
             An end-to-end adversarial audit hardened every reliability edge of

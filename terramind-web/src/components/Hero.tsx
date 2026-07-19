@@ -16,6 +16,15 @@ export default function Hero() {
         }}
       />
       <div className="relative z-2 max-w-3xl">
+        <div
+          className="hero-in mb-7 flex justify-center"
+          style={{ "--hd": "0s" } as CSSProperties}
+        >
+          <span className="inline-flex items-center gap-2.5 rounded-full border border-accent/30 bg-accent/10 px-4 py-1.5 font-mono text-[11px] uppercase tracking-[0.18em] text-accent backdrop-blur-sm">
+            <span className="pulse-dot h-1.5 w-1.5 rounded-full bg-accent" />
+            Launching soon · Recruiting pilot growers
+          </span>
+        </div>
         <h1
           className="hero-in mb-6 font-serif text-[clamp(42px,6vw,78px)] font-semibold leading-[1.05] tracking-tight text-white"
           style={{ "--hd": "0.1s" } as CSSProperties}
