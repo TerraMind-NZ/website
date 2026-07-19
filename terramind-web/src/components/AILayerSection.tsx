@@ -8,7 +8,7 @@ import FeaturePills from "@/components/FeaturePills";
 const FEATURES = [
   {
     name: "AI Season Planner",
-    desc: "A prediction-driven calendar. Spray, irrigation, frost, harvest and more — scheduled, then rescheduled the moment the forecast shifts.",
+    desc: "A prediction-driven calendar. Spray, irrigation, frost, harvest and more, planned ahead — and kept current as each new forecast sharpens the picture.",
   },
   {
     name: "Insights Feed",
@@ -16,7 +16,7 @@ const FEATURES = [
   },
   {
     name: "AI Alerts",
-    desc: "The urgent calls, pushed to your phone. When the reasoning layer flags something critical, it reaches you by SMS and email — no thresholds to configure, deduped and rate-limited so one threat never pages you twice.",
+    desc: "The urgent calls, pushed to your phone. The reasoning layer decides what's critical and sends it by SMS and email — AI-driven out of the box, with manual thresholds still there if you want them. Deduped so one threat never pages you twice.",
   },
   {
     name: "Ask TerraMind",
