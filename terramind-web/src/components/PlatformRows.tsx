@@ -25,6 +25,16 @@ const PRODUCTS = [
     desc: "Growing-degree-day projections anchored to observed heat accumulation. Harvest windows accurate to ±2 days — labour, packhouse slots, and market timing planned from evidence.",
   },
   {
+    name: "Annual Crop Intelligence",
+    tag: "Potato · Open-field tomato",
+    desc: "First-class crop-cycle intelligence for potato and open-field tomato. An active crop cycle anchors GDD stage, harvest readiness, irrigation context, disease windows and block economics, with four seven-day blight surfaces running the same 1,000-sample probabilistic contract as the wider platform.",
+  },
+  {
+    name: "Insect Phenology",
+    tag: "Codling moth · Tuber moth · Psyllid",
+    desc: "Codling moth, potato tuber moth and tomato-potato psyllid lifecycle timing from crop-specific degree-day models, with uncertainty over biofix, thermal thresholds and forecast weather. Block traps and scouting sharpen the regional signal.",
+  },
+  {
     name: "Pollination & Wind",
     tag: "92% bloom · 97% wind days",
     desc: "Bee-flyable-hour forecasts (92% accuracy) for bloom and day-ahead warnings that catch 97% of damaging-wind days — notice enough to supplement hives or bring a pick forward.",

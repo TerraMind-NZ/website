@@ -147,6 +147,36 @@ const HAZARD_SURFACES = [
   },
 ];
 
+const ANNUAL_CROP_SURFACES = [
+  {
+    name: "Late blight",
+    stat: "7 days",
+    statLabel: "probabilistic crop-cycle outlook",
+    impact:
+      "Potato and open-field tomato now carry crop-cycle-aware late-blight intelligence through the same national prediction, finance and UI paths as the established crop families.",
+    accuracy:
+      "A 1,000-sample surface blending 60% formula with a 40% guarded classifier when the packaged artifact schema and hash match. The engineering corpus contains 6,510 generated feature rows across the four annual blight models.",
+  },
+  {
+    name: "Early blight",
+    stat: "4 models",
+    statLabel: "potato + open-field tomato blight stack",
+    impact:
+      "Active crop cycles align disease windows with planting, emergence, production class, crop age and GDD stage rather than treating an annual block as seasonless.",
+    accuracy:
+      "Potato and tomato each carry early- and late-blight models. ML participation is schema/hash-gated; the published formula remains available inside the serving contract when an artifact cannot participate.",
+  },
+  {
+    name: "Insect phenology",
+    stat: "3 stacks",
+    statLabel: "crop-specific lifecycle models",
+    impact:
+      "Codling moth, potato tuber moth and tomato-potato psyllid timing helps growers place monitoring and scouting effort where each lifecycle is expected to be.",
+    accuracy:
+      "Bounded degree-day thresholds run with Monte Carlo uncertainty over biofix, thermal thresholds and forecast weather. Evidence priority is block trap, then block scouting, then regional context.",
+  },
+];
+
 const ENGINE = [
   { value: "1,000", label: "Monte Carlo samples per prediction" },
   { value: "~1.5 ms", label: "Per full simulation" },
@@ -154,14 +184,17 @@ const ENGINE = [
   { value: "OOD-guarded", label: "Refuses to extrapolate beyond NZ" },
   { value: "1.075 °C", label: "Forecast meta-model MAE · 13 regions" },
   { value: "24,217", label: "Frost nights benchmarked · 20 NZ sites" },
-  { value: "1,818", label: "Tests passing" },
+  { value: "2,103", label: "Python tests passing · 87 optional skips" },
+  { value: "486", label: "Web tests passing" },
+  { value: "35", label: "Packaged ML artifacts" },
+  { value: "38", label: "Versioned metadata records" },
   { value: "×18", label: "Surfaces green on the calibration gate" },
-  { value: "7 · 13", label: "Crops · NZ regions modelled at equal depth" },
+  { value: "9 · 13", label: "Crops · NZ regions modelled at equal depth" },
 ];
 
 const NOT_CLAIMED = [
   "Our disease classifiers (AUC 0.91–0.98) faithfully reproduce published agronomic risk formulas — that is reproduction fidelity, not field-validated infection prediction. Real validation lands as grower-confirmed outcomes accumulate.",
-  "Yield-from-satellite (NDVI) is not field-validated for any crop yet. Five of seven crop models are flagged as self-referential in their own metadata — in capitals. Tested honestly against 658 real Sentinel-2 observations, the trajectory lands at climatology (MAE 0.066 vs 0.068) — no added skill yet on two blocks.",
+  "Yield-from-satellite (NDVI) is not field-validated for any crop yet. Five of nine crop models are flagged as self-referential in their own metadata — in capitals. Tested honestly against 658 real Sentinel-2 observations, the trajectory lands at climatology (MAE 0.066 vs 0.068) — no added skill yet on two blocks.",
   "A runoff model scoring a 92% improvement sits unshipped in our codebase, held at deployable:false — it learned to mimic physics labels, so the score isn't real-world skill. We'd rather hold it back than dress it up.",
   "No named-competitor benchmark yet. When we publish one, it will be run the same way as everything on this page: real data, stated provenance.",
 ];
@@ -170,6 +203,7 @@ export default function ProofSections() {
   const heroRef = useReveal<HTMLElement>();
   const surfacesRef = useReveal<HTMLElement>();
   const hazardRef = useReveal<HTMLElement>();
+  const annualCropRef = useReveal<HTMLElement>();
   const engineRef = useReveal<HTMLElement>();
   const honestyRef = useReveal<HTMLElement>();
 
@@ -209,6 +243,26 @@ export default function ProofSections() {
       >
         <div className="eyebrow mb-12">Impact + accuracy, per surface</div>
         <SurfaceBrowser surfaces={SURFACES} />
+      </section>
+
+      <section
+        ref={annualCropRef}
+        className="reveal border-t border-line px-6 py-24 md:px-10"
+      >
+        <div className="mx-auto max-w-[1100px]">
+          <div className="eyebrow mb-5">Annual-crop intelligence</div>
+          <h2 className="mb-4.5 max-w-3xl font-serif text-[clamp(26px,3.2vw,40px)] font-semibold leading-[1.1] tracking-tight text-ink">
+            Potato and open-field tomato,{" "}
+            <em className="italic text-leaf">modelled at full platform depth</em>
+          </h2>
+          <p className="mb-12 max-w-2xl text-base leading-relaxed text-ink-mute">
+            Crop-cycle context now flows through phenology, irrigation, disease,
+            harvest readiness and economics. Four guarded blight models and
+            three insect lifecycle stacks extend the same probabilistic serving
+            contract across all 9 supported crop families and 13 NZ regions.
+          </p>
+          <SurfaceBrowser surfaces={ANNUAL_CROP_SURFACES} />
+        </div>
       </section>
 
       <section

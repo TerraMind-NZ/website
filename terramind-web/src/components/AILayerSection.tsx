@@ -16,7 +16,7 @@ const FEATURES = [
   },
   {
     name: "AI Alerts",
-    desc: "The urgent calls, pushed to your phone. The reasoning layer decides what's critical and sends it by SMS and email — AI-driven out of the box, with manual thresholds still there if you want them. Deduped so one threat never pages you twice.",
+    desc: "The urgent calls, pushed to your phone. The reasoning layer decides what's critical and sends it by SMS and email — AI-driven out of the box, with manual thresholds still there if you want them. Deduped, intelligently bundled and paced around quiet hours and action windows.",
   },
   {
     name: "Ask TerraMind",
@@ -99,7 +99,7 @@ const MORE_FEATURES = [
   },
   {
     name: "Reliability Hardening",
-    desc: "An audited layer beneath all 23 features — every answer budgeted, validated and safe against bad input.",
+    desc: "An audited layer beneath all 24 features — every answer budgeted, validated and safe against bad input.",
   },
 ];
 
@@ -115,7 +115,7 @@ export default function AILayerSection() {
       <div className="eyebrow mb-12">TerraMind Intelligence</div>
       <div className="mb-14 grid grid-cols-1 items-end gap-8 md:grid-cols-2 md:gap-20">
         <h2 className="font-serif text-[clamp(28px,3.5vw,46px)] font-semibold leading-[1.1] tracking-tight text-ink">
-          A 23-feature AI reasoning layer —{" "}
+          A 24-feature AI reasoning layer —{" "}
           <em className="shimmer-text on-light italic">built for horticulture</em>
         </h2>
         <div>

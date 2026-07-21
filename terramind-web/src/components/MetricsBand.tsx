@@ -13,7 +13,9 @@ const METRICS = [
   { value: "97%", label: "Damaging-wind days caught" },
   { value: "92%", label: "Pollination-window accuracy" },
   { value: "±2 days", label: "Harvest-timing accuracy" },
-  { value: "1,818", label: "Tests passing · gate green ×18" },
+  { value: "2,103", label: "Python tests passing · 87 optional skips" },
+  { value: "486", label: "Web tests passing" },
+  { value: "9 · 13", label: "Crop families · NZ regions" },
 ];
 
 export default function MetricsBand() {

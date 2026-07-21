@@ -60,6 +60,10 @@ const DETECTORS = [
 
 const ASK = [
   {
+    name: "Current evidence",
+    desc: "Every critical answer carries typed prediction identity, model version and a validity window. Related calendar evidence is reconciled as current, superseded, expired or unresolved before the agent responds.",
+  },
+  {
     name: "Agentic tool-calling",
     desc: "A bounded agent loop over read tools, a scenario runner and tiered action tools — hard budgets, one repair retry, deterministic fallback.",
   },
@@ -81,6 +85,25 @@ const ASK = [
   },
 ];
 
+const ALERT_DIGESTS = [
+  {
+    name: "Analysis-backed",
+    desc: "Every digest starts with a real critical or watch item from the same analysis layer that drives Today's Priority.",
+  },
+  {
+    name: "One threat, one thread",
+    desc: "Fingerprint deduplication prevents reworded repeats, while a watch escalating to critical supersedes the pending alert instead of double-paging.",
+  },
+  {
+    name: "Quiet by default",
+    desc: "Alerts are bundled and rate-limited per recipient, with quiet hours holding delivery unless waiting would miss the action window.",
+  },
+  {
+    name: "SMS + mirrored email",
+    desc: "Both channels carry the same digest at the same moment, from one delivery clock and one source of truth.",
+  },
+];
+
 const HARDENING = [
   {
     name: "Injection-safe by design",
@@ -97,6 +120,10 @@ const HARDENING = [
   {
     name: "Budgeted and bounded",
     desc: "A rolling per-orchard cost budget covers even the agent stream and block ask; context and tool results are capped, with an explicit “trimmed” note rather than a silent drop.",
+  },
+  {
+    name: "Truthful operational status",
+    desc: "Provider retries preserve useful coverage, partial recovery stays visible as recovering, and optional unconfigured services are kept distinct from genuine degradation.",
   },
 ];
 
@@ -123,6 +150,7 @@ export default function IntelligenceSections() {
   const heroRef = useReveal<HTMLElement>();
   const pipelineRef = useReveal<HTMLElement>();
   const scanRef = useReveal<HTMLElement>();
+  const alertsRef = useReveal<HTMLElement>();
   const askRef = useReveal<HTMLElement>();
   const hardenRef = useReveal<HTMLElement>();
   const compoundRef = useReveal<HTMLElement>();
@@ -151,7 +179,7 @@ export default function IntelligenceSections() {
             <em className="italic text-accent">built for horticulture</em>
           </h1>
           <p className="max-w-2xl text-[17px] leading-relaxed text-white/80">
-            Twenty-three AI features, and every one exists because of a TerraMind
+            Twenty-four AI features, and every one exists because of a TerraMind
             prediction. The findings are deterministic — the AI puts them into
             words. Grounded, auditable, and always yours to confirm.
           </p>
@@ -229,24 +257,66 @@ export default function IntelligenceSections() {
       </section>
 
       <section
-        ref={askRef}
+        ref={alertsRef}
         className="reveal mx-auto max-w-[1100px] px-6 py-24 md:px-10"
       >
-        <div className="eyebrow mb-12">The showpiece</div>
-        <h2 className="mb-5 max-w-2xl font-serif text-[clamp(28px,3.5vw,46px)] font-semibold leading-[1.1] tracking-tight text-ink">
-          Ask TerraMind —{" "}
-          <em className="italic text-leaf">
-            an agent that knows your growing operation
-          </em>
+        <div className="eyebrow mb-8">AI Alert Digests</div>
+        <h2 className="mb-4.5 max-w-2xl font-serif text-[clamp(28px,3.5vw,46px)] font-semibold leading-[1.1] tracking-tight text-ink">
+          The urgent calls, delivered once —{" "}
+          <em className="italic text-leaf">while there is time to act</em>
         </h2>
-        <p className="mb-14 max-w-2xl text-base leading-relaxed text-ink-mute">
-          Ask anything about your operation and get an answer grounded in your
-          blocks, your history, your numbers — right down to actual costs
-          synced read-only from Xero. Under the hood it&apos;s a
-          bounded agentic loop — powerful enough to run what-if scenarios,
-          disciplined enough to never act without you.
+        <p className="mb-12 max-w-2xl text-base leading-relaxed text-ink-mute">
+          Critical and watch findings are bundled into one coordinated SMS and
+          email digest. TerraMind suppresses repeats, carries escalation
+          forward, respects quiet hours and only breaks the hold when waiting
+          would close the action window.
         </p>
-        <AskHub items={ASK} />
+        <div className="stagger grid grid-cols-1 gap-4 sm:grid-cols-2">
+          {ALERT_DIGESTS.map((item, i) => (
+            <div
+              key={item.name}
+              style={{ "--d": i } as CSSProperties}
+              className="card-lift rounded-xl border border-line bg-white/60 px-6 py-5"
+            >
+              <div className="mb-1 text-[15px] font-semibold text-ink">
+                {item.name}
+              </div>
+              <p className="text-sm leading-relaxed text-ink-mute">
+                {item.desc}
+              </p>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      <section
+        ref={askRef}
+        className="reveal border-y border-line bg-paper-2 px-6 py-24 md:px-10"
+      >
+        <div className="mx-auto max-w-[1100px]">
+          <div className="eyebrow mb-12">The showpiece</div>
+          <h2 className="mb-5 max-w-2xl font-serif text-[clamp(28px,3.5vw,46px)] font-semibold leading-[1.1] tracking-tight text-ink">
+            Ask TerraMind —{" "}
+            <em className="italic text-leaf">
+              an agent that knows your growing operation
+            </em>
+          </h2>
+          <p className="mb-5 max-w-2xl text-base leading-relaxed text-ink-mute">
+            Ask anything about your operation and get an answer grounded in your
+            blocks, your history, your numbers — right down to actual costs
+            synced read-only from Xero. Under the hood it&apos;s a
+            bounded agentic loop — powerful enough to run what-if scenarios,
+            disciplined enough to never act without you.
+          </p>
+          <p className="mb-14 max-w-2xl text-sm leading-relaxed text-ink-mute">
+            Operation bundle v3 reconciles every relevant prediction and calendar
+            item by provenance. Prediction identity and validity window travel
+            with the evidence; current, superseded, expired or unresolved states
+            are resolved before an answer is trusted, and claim-level grounding
+            shows exactly which parts of the response are supported.
+          </p>
+          <AskHub items={ASK} />
+        </div>
       </section>
 
       <section
@@ -268,7 +338,7 @@ export default function IntelligenceSections() {
           </div>
           <h2 className="mb-5 max-w-2xl font-serif text-[clamp(28px,3.5vw,46px)] font-semibold leading-[1.1] tracking-tight text-white">
             A reliability layer{" "}
-            <em className="italic text-accent">under all 23 features</em>
+            <em className="italic text-accent">under all 24 features</em>
           </h2>
           <p className="mb-14 max-w-2xl text-base leading-relaxed text-white/75">
             An end-to-end adversarial audit hardened every reliability edge of

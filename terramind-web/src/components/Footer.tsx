@@ -49,7 +49,7 @@ export default function Footer() {
             </li>
             <li>
               <Link href="/#platform" className="text-white/75 transition-colors hover:text-white">
-                Soil Scouter
+                Annual Crops
               </Link>
             </li>
           </ul>
