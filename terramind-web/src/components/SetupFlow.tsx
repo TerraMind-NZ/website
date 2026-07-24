@@ -3,6 +3,7 @@
 import {
   CSSProperties,
   useEffect,
+  useRef,
   useState,
   useSyncExternalStore,
 } from "react";
@@ -48,7 +49,9 @@ export default function SetupFlow() {
   const ref = useReveal<HTMLDivElement>();
   const [active, setActive] = useState(0);
   const [userDriven, setUserDriven] = useState(false);
-  const [paused, setPaused] = useState(false);
+  const railRef = useRef<HTMLDivElement>(null);
+  const stepRefs = useRef<(HTMLButtonElement | null)[]>([]);
+  const resumeTimeoutRef = useRef<ReturnType<typeof setTimeout> | null>(null);
   const reducedMotion = useSyncExternalStore(
     subscribeReducedMotion,
     () => window.matchMedia(REDUCED_MOTION_QUERY).matches,
@@ -56,19 +59,45 @@ export default function SetupFlow() {
   );
   const auto = !userDriven && !reducedMotion;
 
+  // Advances on a fixed clock, independent of hover/touch — pausing on
+  // interaction restarted the full duration on resume, which read as a
+  // random multi-second freeze. A manual tap (below) is the only thing
+  // that stops it.
   useEffect(() => {
-    if (!auto || paused) return;
+    if (!auto) return;
     const id = setTimeout(
       () => setActive((a) => (a + 1) % STEPS.length),
       STEPS[active].ms
     );
     return () => clearTimeout(id);
-  }, [auto, paused, active]);
+  }, [auto, active]);
+
+  // Keep the active step in view on the horizontal rail, without ever
+  // scrolling the page itself.
+  useEffect(() => {
+    const rail = railRef.current;
+    const step = stepRefs.current[active];
+    if (!rail || !step) return;
+    rail.scrollTo({
+      left: step.offsetLeft - (rail.clientWidth - step.clientWidth) / 2,
+      behavior: "smooth",
+    });
+  }, [active]);
 
   const select = (i: number) => {
     setActive(i);
     setUserDriven(true); // the visitor is driving now
+
+    // Hand control back to auto-advance after 30s of no further taps.
+    if (resumeTimeoutRef.current) clearTimeout(resumeTimeoutRef.current);
+    resumeTimeoutRef.current = setTimeout(() => setUserDriven(false), 20000);
   };
+
+  useEffect(() => {
+    return () => {
+      if (resumeTimeoutRef.current) clearTimeout(resumeTimeoutRef.current);
+    };
+  }, []);
 
   // Layers are cumulative: everything up to the active step stays on screen.
   const on = (layer: number) => reducedMotion || active >= layer;
@@ -89,24 +118,24 @@ export default function SetupFlow() {
         </p>
       </div>
 
-      <div
-        className="grid grid-cols-1 gap-6 lg:grid-cols-[340px_1fr] lg:gap-10"
-        onMouseEnter={() => setPaused(true)}
-        onMouseLeave={() => setPaused(false)}
-      >
+      <div className="grid grid-cols-1 gap-6 lg:grid-cols-[340px_1fr] lg:gap-10">
         {/* Step rail — horizontal scroll on mobile, column on desktop */}
         <div
-          className="-mx-6 flex gap-2 overflow-x-auto px-6 pb-2 lg:mx-0 lg:flex-col lg:overflow-visible lg:px-0 lg:pb-0"
+          ref={railRef}
+          className="-mx-6 flex snap-x snap-mandatory gap-2 overflow-x-auto px-6 pb-2 [mask-image:linear-gradient(to_right,black_calc(100%-24px),transparent)] lg:mx-0 lg:flex-col lg:overflow-visible lg:px-0 lg:pb-0 lg:[mask-image:none]"
           role="tablist"
           aria-label="Onboarding steps"
         >
           {STEPS.map((s, i) => (
             <button
               key={s.title}
+              ref={(el) => {
+                stepRefs.current[i] = el;
+              }}
               role="tab"
               aria-selected={i === active}
               onClick={() => select(i)}
-              className={`relative w-[240px] shrink-0 cursor-pointer overflow-hidden rounded-lg border px-4 py-3.5 text-left transition-all duration-300 lg:w-auto lg:shrink ${
+              className={`relative w-[240px] shrink-0 snap-start cursor-pointer overflow-hidden rounded-lg border px-4 py-3.5 text-left transition-all duration-300 lg:w-auto lg:shrink ${
                 i === active
                   ? "border-leaf/35 bg-white/70 shadow-[0_8px_24px_-14px_rgba(10,15,12,0.25)]"
                   : "border-transparent hover:border-line hover:bg-white/40"

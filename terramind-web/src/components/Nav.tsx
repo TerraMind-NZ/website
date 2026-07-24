@@ -111,7 +111,7 @@ export default function Nav() {
             <Link
               href="/work-with-us"
               onClick={() => setMenuOpen(false)}
-              className="group flex cursor-pointer items-center overflow-hidden rounded-full border border-white/20 text-[13px]"
+              className="group inline-flex w-fit cursor-pointer items-center overflow-hidden rounded-full border border-white/20 text-[13px]"
             >
               <span className="whitespace-nowrap py-2 pl-5 pr-4 text-white">
                 Work with us
