@@ -26,7 +26,7 @@ const spaceMono = Space_Mono({
 });
 
 const DESCRIPTION =
-  "TerraMind converts weather and agronomic predictions into block-level, dollar-denominated recommendations for New Zealand growers — calibrated probabilities, not dashboard noise.";
+  "Horticulture's weather-exposed economics, finally met with calibrated intelligence.";
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://terramind.co.nz"),
