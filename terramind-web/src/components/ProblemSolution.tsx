@@ -95,7 +95,7 @@ export default function ProblemSolution() {
         <div className="mt-14 rounded-2xl border border-line bg-paper-3/60 p-5 md:mt-18 md:p-8">
           <div className="mb-5 flex flex-wrap items-baseline justify-between gap-x-6 gap-y-2 font-mono text-[10.5px] uppercase tracking-[0.16em] text-ink-mute">
             <span>1,000 simulated futures · one block · one night</span>
-            <span className="text-ink-mute/70">Distribution →</span>
+            <span className="text-ink-mute/70">End-state distribution ↓</span>
           </div>
 
           <div className="relative">
