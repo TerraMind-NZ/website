@@ -78,7 +78,7 @@ export default function ProblemSolution() {
               A thousand futures.
               <br />
               <em className="shimmer-text on-light italic">
-                A call you can trust.
+                One call you can trust.
               </em>
             </h2>
             <p className="max-w-xl text-[16px] leading-relaxed text-ink-mute">
