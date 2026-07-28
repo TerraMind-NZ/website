@@ -6,7 +6,7 @@ import Link from "next/link";
 import { useScrolled } from "@/hooks/useScrolled";
 
 const LINKS = [
-  { href: "/#platform", label: "Platform" },
+  { href: "/", label: "Overview" },
   { href: "/intelligence", label: "Intelligence" },
   { href: "/proof", label: "Proof" },
 ];

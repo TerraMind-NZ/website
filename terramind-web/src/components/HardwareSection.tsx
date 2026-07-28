@@ -63,6 +63,7 @@ export default function HardwareSection() {
 
   return (
     <section
+      id="soil-scouter"
       ref={ref}
       className="reveal mx-auto max-w-[1100px] px-6 py-24 md:px-10"
     >

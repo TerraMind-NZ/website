@@ -21,6 +21,7 @@ export default function EconomicsBand() {
 
   return (
     <section
+      id="economics"
       ref={ref}
       className="reveal relative overflow-hidden bg-chrome-deep px-6 py-28 md:px-10"
     >

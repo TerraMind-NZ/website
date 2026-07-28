@@ -346,12 +346,14 @@ export default function IntelligenceSections() {
             input and provider failure. Each item below shipped with tests, and
             the model-facing ones with a passing evaluation.
           </p>
-          <div className="stagger grid grid-cols-1 gap-4 sm:grid-cols-2">
+          <div className="stagger grid grid-cols-1 gap-4 sm:grid-cols-4">
             {HARDENING.map((h, i) => (
               <div
                 key={h.name}
                 style={{ "--d": i } as CSSProperties}
-                className="card-lift-dark rounded-xl border border-white/12 bg-white/4 px-6 py-5"
+                className={`card-lift-dark rounded-xl border border-white/12 bg-white/4 px-6 py-5 sm:col-span-2 ${
+                  i === HARDENING.length - 1 ? "sm:col-start-2" : ""
+                }`}
               >
                 <div className="mb-2.5 flex items-center gap-3">
                   <span className="font-mono text-[10px] tracking-[0.2em] text-accent">

@@ -11,7 +11,6 @@ const aiLayer = read("src/components/AILayerSection.tsx");
 const intelligence = read("src/components/IntelligenceSections.tsx");
 const intelligenceMetadata = read("src/app/intelligence/page.tsx");
 const proof = read("src/components/ProofSections.tsx");
-const footer = read("src/components/Footer.tsx");
 
 test("homepage presents the two new annual crops and insect phenology", () => {
   assert.match(platform, /Annual Crop Intelligence/);
@@ -75,8 +74,4 @@ test("proof includes v21 annual-crop capability without changing rejected sectio
   assert.match(proof, /Every TerraMind surface ships with a measured accuracy stat on real\s+New Zealand data/);
   assert.match(proof, /Each one beats the raw\s+forecast or climatology/);
   assert.match(proof, /No named-competitor benchmark yet/);
-});
-
-test("footer exposes annual-crop coverage", () => {
-  assert.match(footer, /Annual Crops/);
 });

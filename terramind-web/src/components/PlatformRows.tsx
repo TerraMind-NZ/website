@@ -56,12 +56,13 @@ export default function PlatformRows() {
 
   return (
     <section
-      id="platform"
+      id="predictions"
       ref={ref}
       className="reveal border-y border-line bg-paper-2 px-6 py-24 md:px-10"
     >
+      <span id="platform" aria-hidden className="block h-0" />
       <div className="mx-auto max-w-[1100px]">
-        <div className="eyebrow mb-12">The platform</div>
+        <div className="eyebrow mb-12">Prediction areas</div>
         <div className="relative pl-7 md:pl-9">
           <span aria-hidden className="scan-beam" />
           <span aria-hidden className="spine-rail" />

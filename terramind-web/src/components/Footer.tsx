@@ -29,27 +29,39 @@ export default function Footer() {
         </div>
         <div>
           <div className="mb-4 font-mono text-[11px] uppercase tracking-[0.15em] text-white/55">
-            Platform
+            Overview
           </div>
           <ul className="flex flex-col gap-2.5 text-[13px]">
             <li>
-              <Link href="/#platform" className="text-white/75 transition-colors hover:text-white">
-                Frost
+              <Link
+                href="/#problem"
+                className="text-white/75 transition-colors hover:text-white"
+              >
+                How it works
               </Link>
             </li>
             <li>
-              <Link href="/#platform" className="text-white/75 transition-colors hover:text-white">
-                Water &amp; Irrigation
+              <Link
+                href="/#predictions"
+                className="text-white/75 transition-colors hover:text-white"
+              >
+                Prediction areas
               </Link>
             </li>
             <li>
-              <Link href="/#platform" className="text-white/75 transition-colors hover:text-white">
-                Disease Risk
+              <Link
+                href="/#economics"
+                className="text-white/75 transition-colors hover:text-white"
+              >
+                Decision economics
               </Link>
             </li>
             <li>
-              <Link href="/#platform" className="text-white/75 transition-colors hover:text-white">
-                Annual Crops
+              <Link
+                href="/#soil-scouter"
+                className="text-white/75 transition-colors hover:text-white"
+              >
+                Soil Scouter
               </Link>
             </li>
           </ul>
