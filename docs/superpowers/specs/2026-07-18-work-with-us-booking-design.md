@@ -10,11 +10,11 @@ Hero copy, pilot cards, and booking content use one viewport-anchored shell. The
 
 ## Booking interaction
 
-An animated glass-and-green “Book a call” control appears directly after the hero copy, within the opening viewport. Its glow and directional motion signal interactivity without copy telling the visitor to scroll. Clicking it opens a TerraMind-styled modal containing the booking context and the existing Cal.com calendar together. The duplicate lower booking section is removed, and the partner email appears below the CTA.
+An animated glass-and-green “Book a call” control appears directly after the hero copy, within the opening viewport. Its glow and directional motion signal interactivity without copy telling the visitor to scroll. Clicking it opens a Harvora-styled modal containing the booking context and the existing Cal.com calendar together. The duplicate lower booking section is removed, and the partner email appears below the CTA.
 
 ## Motion and accessibility
 
-The CTA uses a restrained halo, sheen, and arrow movement consistent with TerraMind’s current motion language. It remains a semantic button with an explicit accessible label. Motion is disabled under `prefers-reduced-motion`.
+The CTA uses a restrained halo, sheen, and arrow movement consistent with Harvora’s current motion language. It remains a semantic button with an explicit accessible label. Motion is disabled under `prefers-reduced-motion`.
 
 ## Verification
 

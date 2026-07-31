@@ -1,14 +1,14 @@
-# TerraMind Marketing Site Rehaul — Design Spec
+# Harvora Marketing Site Rehaul — Design Spec
 
 Date: 2026-07-11
 Status: Approved by Hasan (brainstorming session)
-Scope: `terramind-web/` (public marketing site only — the product app is untouched)
+Scope: `harvora-web/` (public marketing site only — the product app is untouched)
 
 ## 1. Goal
 
-Full visual and content rehaul of the TerraMind marketing site. Structure inspired by
+Full visual and content rehaul of the Harvora marketing site. Structure inspired by
 micro1.ai (sticky nav, hero, product showcase, statement band, metrics, multi-column
-footer) as interpreted through Hasan's reference HTML (`~/Downloads/terramind.html`),
+footer) as interpreted through Hasan's reference HTML (`~/Downloads/harvora.html`),
 restyled to match the **product app's actual design system** so marketing site and app
 read as one brand. Content rewritten around the current product story (Technical Brief
 v11 + AI PRD v2): probabilistic predictions, decision economics, and the AI layer.
@@ -18,7 +18,7 @@ form-submission backend (modal shows success state only, endpoint wired later).
 
 ## 2. Design system
 
-Tokens copied from the app (`~/terramind/web/app/globals.css`), defined as Tailwind v4
+Tokens copied from the app (`~/harvora/web/app/globals.css`), defined as Tailwind v4
 `@theme` variables in `src/app/globals.css`:
 
 | Token | Value | Use |
@@ -52,7 +52,7 @@ Footer, plus RequestAccessModal rendered at page level.
 
 ### 3.1 Nav (`Nav.tsx`)
 Fixed. Transparent over hero → cream blur + hairline border after 40px scroll
-(existing `useScrolled` hook). Left: TerraMind wordmark + "Central Otago · NZ"
+(existing `useScrolled` hook). Left: Harvora wordmark + "Central Otago · NZ"
 sub-line. Center: anchor links — Platform, Intelligence, Calibration. Right:
 "Request access" pill (opens modal). Mobile: links hidden, wordmark + pill remain
 (no hamburger in v1).
@@ -91,7 +91,7 @@ app. A *decision-economics* platform." One supporting line: predictions are cali
 probability distributions with a finance layer that prices them into action.
 
 ### 3.5 AILayerSection (`AILayerSection.tsx`, `#intelligence`)
-Eyebrow: "TerraMind Intelligence". Two-column: left, narrative (an AI layer that
+Eyebrow: "Harvora Intelligence". Two-column: left, narrative (an AI layer that
 plans your season, briefs you each morning, and watches every block overnight —
 grounded in your own blocks' data, never a generic chatbot). Right, stacked feature
 cards (4):
@@ -99,7 +99,7 @@ cards (4):
   harvest events scheduled and rescheduled as forecasts change
 - **Daily Briefing** — the morning's decisions ranked by economic impact
 - **Insights Feed** — overnight scan surfaces patterns no single alert would catch
-- **Ask TerraMind** — ask anything about your operation; answers grounded in your
+- **Ask Harvora** — ask anything about your operation; answers grounded in your
   blocks, your history, your numbers
 
 No internal implementation detail (no model names, pipelines, fallback language).
@@ -116,7 +116,7 @@ calibrated probabilities as trust infrastructure. Right — 2×2 metric cards:
 ### 3.7 Footer (`Footer.tsx`)
 Chrome background. Four columns: brand (wordmark + "Christchurch · New Zealand"),
 Platform links (anchor), Company (Intelligence, Calibration, Contact→modal),
-Contact (hello@terramind.co.nz, terramind.co.nz). Bottom rule: © 2026 TerraMind Ltd ·
+Contact (hello@harvora.co.nz, harvora.co.nz). Bottom rule: © 2026 Harvora Ltd ·
 Central Otago pilot season. Legal links (Privacy, Terms, Grower Data Sovereignty,
 Financial Disclaimer) folded into a footer column.
 

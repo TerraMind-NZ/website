@@ -2,9 +2,9 @@
 
 > **For agentic workers:** REQUIRED SUB-SKILL: Use superpowers:executing-plans to implement this plan task-by-task. Steps use checkbox (`- [ ]`) syntax for tracking.
 
-**Goal:** Make the TerraMind marketing site fast and keep every source file under 500 lines, with zero visual changes.
+**Goal:** Make the Harvora marketing site fast and keep every source file under 500 lines, with zero visual changes.
 
-**Architecture:** Next.js 16 App Router site in `terramind-web/`. All changes are surgical: shrink oversized image assets, stop the hero canvas animation loop when it isn't visible, cache per-frame allocations, and split the one >500-line file (`globals.css`) into focused imports. No markup, copy, or style *values* change.
+**Architecture:** Next.js 16 App Router site in `harvora-web/`. All changes are surgical: shrink oversized image assets, stop the hero canvas animation loop when it isn't visible, cache per-frame allocations, and split the one >500-line file (`globals.css`) into focused imports. No markup, copy, or style *values* change.
 
 **Tech Stack:** Next.js 16, React 19, Tailwind CSS v4, TypeScript 5.
 
@@ -24,13 +24,13 @@
 ### Task 1: Shrink image assets
 
 **Files:**
-- Modify: `terramind-web/src/app/icon.png` (resample to 96 px wide)
-- Modify: `terramind-web/public/logo-icon.png` (resample to 168 px wide = 28 px × 6, covers 3× displays with headroom)
+- Modify: `harvora-web/src/app/icon.png` (resample to 96 px wide)
+- Modify: `harvora-web/public/logo-icon.png` (resample to 168 px wide = 28 px × 6, covers 3× displays with headroom)
 
 - [ ] **Step 1: Resample both PNGs with sips**
 
 ```bash
-cd terramind-web
+cd harvora-web
 sips -Z 96 src/app/icon.png
 sips -Z 168 public/logo-icon.png
 du -h src/app/icon.png public/logo-icon.png
@@ -47,7 +47,7 @@ git commit -m "perf: shrink 908KB favicon and nav logo sources"
 ### Task 2: Pause HeroCanvas when off-screen; hoist per-frame gradient allocations
 
 **Files:**
-- Modify: `terramind-web/src/components/HeroCanvas.tsx`
+- Modify: `harvora-web/src/components/HeroCanvas.tsx`
 
 - [ ] **Step 1: Cache the sky gradient (rebuild only on resize), and gate the rAF loop behind an IntersectionObserver**
 
@@ -88,9 +88,9 @@ git commit -m "perf: pause hero canvas when off-screen, cache sky gradient"
 ### Task 3: Split globals.css under 500 lines and DRY the tokens
 
 **Files:**
-- Modify: `terramind-web/src/app/globals.css` (keep tokens, base, shared primitives)
-- Create: `terramind-web/src/app/animations.css` (all motion/effect classes + reduced-motion block)
-- Create: `terramind-web/src/app/legal.css` (`.legal-body` typography)
+- Modify: `harvora-web/src/app/globals.css` (keep tokens, base, shared primitives)
+- Create: `harvora-web/src/app/animations.css` (all motion/effect classes + reduced-motion block)
+- Create: `harvora-web/src/app/legal.css` (`.legal-body` typography)
 
 - [ ] **Step 1: Move rules verbatim** — `@import "./animations.css"; @import "./legal.css";` at the top of globals.css after the tailwind import. No rule text changes. Make `@theme inline` reference the `:root` vars (`--color-chrome: var(--chrome);` etc.) instead of duplicating hex values.
 

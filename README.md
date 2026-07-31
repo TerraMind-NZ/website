@@ -1,13 +1,13 @@
-# TerraMind Web
+# Harvora Web
 
-Marketing website for TerraMind — agricultural intelligence for horticulture growers.
+Marketing website for Harvora — agricultural intelligence for horticulture growers.
 
 ## Project
 
-All source code lives in [`terramind-web/`](terramind-web/).
+All source code lives in [`harvora-web/`](harvora-web/).
 
 ```bash
-cd terramind-web
+cd harvora-web
 npm install
 npm run dev        # http://localhost:3000
 npm run build      # production build
@@ -25,4 +25,4 @@ npx tsc --noEmit   # type-check
 
 ## Deploy
 
-Vercel is linked to the `terramind-web/` subdirectory. Pushes to `main` trigger automatic deploys.
+Vercel is linked to the `harvora-web/` subdirectory. Pushes to `main` trigger automatic deploys.

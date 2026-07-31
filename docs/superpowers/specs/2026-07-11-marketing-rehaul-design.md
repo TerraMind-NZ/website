@@ -1,12 +1,12 @@
-# TerraMind Marketing Site Rehaul — Design
+# Harvora Marketing Site Rehaul — Design
 
 **Date:** 2026-07-11
 **Status:** Approved by Hasan
-**Sources of truth:** `docs/TerraMind-Technical-Brief-v11.docx` (stats + claim boundaries), `docs/TerraMind-AI-PRD-v2.md` (AI feature set), existing components in `terramind-web/src/components/`.
+**Sources of truth:** `docs/Harvora-Technical-Brief-v11.docx` (stats + claim boundaries), `docs/Harvora-AI-PRD-v2.md` (AI feature set), existing components in `harvora-web/src/components/`.
 
 ## Goal
 
-Evolve the current landing page into the strongest possible TerraMind marketing site by leaning into three things:
+Evolve the current landing page into the strongest possible Harvora marketing site by leaning into three things:
 
 1. **The narrative arc: Predict → Price → Decide → Learn.** Predictions become dollar-denominated financial outcomes, which become AI-reasoned decisions, which are confirmed by growers and feed back into the models.
 2. **AI-forward language** — real terms from the technical brief used with marketing energy: agentic tool-calling, retrieval-augmented answers, self-consistency ensembles, grounding-before-generation, deterministic fallbacks, Monte Carlo engine.
@@ -37,12 +37,12 @@ Landing-page upgrade **plus two new routes**: `/intelligence` and `/proof`. Nav 
 
 The AI layer in depth. Sections:
 
-- **Hero statement** — "A decision-intelligence layer, not a chatbot." All 14 features exist because of a TerraMind prediction.
+- **Hero statement** — "A decision-intelligence layer, not a chatbot." All 14 features exist because of a Harvora prediction.
 - **Grounding-before-generation pipeline** — the five-step discipline (query DB → structured context bundle → LLM narration → schema validation → render, with structured fallback on failure). The findings are deterministic; the LLM only puts them into words.
 - **Nightly Insight Scan** — the five deterministic detectors (trajectory change, cross-prediction correlation, historical anomaly, accumulating risk, unexplained deviation), 02:30 NZT.
 - **AI Season Planner** — prediction-driven calendar on the 6-hour forecast cadence; two-tier conflict resolution (AI events updated in place with a change log; human events get accept/dismiss suggestions).
 - **Daily Briefing / Pre-Decision Checklist / Reports** — expected-value-ranked mornings, "before you run the wind machine" checklists, four report types.
-- **Ask TerraMind (showpiece)** — bounded agentic tool-calling (8 read tools + scenario runner + tiered action tools), hybrid RAG over the grower's own records (full-text + vector, rank-fused, orchard-isolated), 3-temperature self-consistency ensemble on high-stakes questions with agreement surfaced, voice mode, partner MCP endpoint (external agents can propose, never execute).
+- **Ask Harvora (showpiece)** — bounded agentic tool-calling (8 read tools + scenario runner + tiered action tools), hybrid RAG over the grower's own records (full-text + vector, rank-fused, orchard-isolated), 3-temperature self-consistency ensemble on high-stakes questions with agreement surfaced, voice mode, partner MCP endpoint (external agents can propose, never execute).
 - **Closing principle** — human confirmation before action: the AI drafts, suggests, schedules and generates; the grower makes every call.
 
 ## `/proof` (new route + components)

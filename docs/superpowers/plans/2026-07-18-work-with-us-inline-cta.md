@@ -13,8 +13,8 @@
 ### Task 1: Lock the intended composition with failing tests
 
 **Files:**
-- Modify: `terramind-web/test/work-with-us-layout.test.mjs`
-- Test: `terramind-web/test/work-with-us-layout.test.mjs`
+- Modify: `harvora-web/test/work-with-us-layout.test.mjs`
+- Test: `harvora-web/test/work-with-us-layout.test.mjs`
 
 - [ ] **Step 1: Replace the existing page-composition assertions**
 
@@ -38,7 +38,7 @@ assert.doesNotMatch(animationsSource, /\.booking-cta-wrap\s*\{[\s\S]{0,180}posit
 Run:
 
 ```bash
-cd /Users/hasansheikh/dev/TerraMind-Web/terramind-web
+cd /Users/hasansheikh/dev/Harvora-Web/harvora-web
 node --test test/work-with-us-layout.test.mjs
 ```
 
@@ -47,11 +47,11 @@ Expected: the composition test fails because the eyebrow exists, `BookingCTA` fo
 ### Task 2: Implement the inline viewport-fit composition
 
 **Files:**
-- Modify: `terramind-web/src/app/work-with-us/page.tsx`
-- Modify: `terramind-web/src/components/BookingCTA.tsx`
-- Modify: `terramind-web/src/app/animations.css`
-- Modify: `terramind-web/src/app/base.css`
-- Test: `terramind-web/test/work-with-us-layout.test.mjs`
+- Modify: `harvora-web/src/app/work-with-us/page.tsx`
+- Modify: `harvora-web/src/components/BookingCTA.tsx`
+- Modify: `harvora-web/src/app/animations.css`
+- Modify: `harvora-web/src/app/base.css`
+- Test: `harvora-web/test/work-with-us-layout.test.mjs`
 
 - [ ] **Step 1: Change the CTA wrapper to an inline-only class**
 
@@ -77,10 +77,10 @@ Remove the eyebrow and render the inline CTA after the second paragraph but befo
         <em className="font-serif italic text-accent">horticulture</em>
       </h1>
       <p className="mx-auto mb-4 max-w-2xl text-[17px] leading-relaxed text-white/80">
-        TerraMind is a fundamental reimagining of how horticultural decisions get made — the AI-powered platform growers have been waiting for: one that saves time, prevents losses, and puts the economics of every decision in plain sight, with the confidence interval attached.
+        Harvora is a fundamental reimagining of how horticultural decisions get made — the AI-powered platform growers have been waiting for: one that saves time, prevents losses, and puts the economics of every decision in plain sight, with the confidence interval attached.
       </p>
       <p className="mx-auto max-w-2xl text-[17px] leading-relaxed text-white/80">
-        For growers tired of making six-figure calls without the tools to back them up. For an industry ready to move from signal to decision — choose TerraMind, configured to the way your orchard already works.
+        For growers tired of making six-figure calls without the tools to back them up. For an industry ready to move from signal to decision — choose Harvora, configured to the way your orchard already works.
       </p>
     </div>
     <div className="work-with-us-booking-row">
@@ -144,10 +144,10 @@ Expected: all Work With Us layout tests pass.
 ### Task 3: Verify behavior and production readiness
 
 **Files:**
-- Verify: `terramind-web/src/app/work-with-us/page.tsx`
-- Verify: `terramind-web/src/components/BookingCTA.tsx`
-- Verify: `terramind-web/src/app/animations.css`
-- Verify: `terramind-web/src/app/base.css`
+- Verify: `harvora-web/src/app/work-with-us/page.tsx`
+- Verify: `harvora-web/src/components/BookingCTA.tsx`
+- Verify: `harvora-web/src/app/animations.css`
+- Verify: `harvora-web/src/app/base.css`
 
 - [ ] **Step 1: Run static verification**
 
@@ -179,10 +179,10 @@ At the target desktop viewport, confirm the navigation, headline, both paragraph
 - [ ] **Step 4: Commit the implementation**
 
 ```bash
-git add terramind-web/src/app/work-with-us/page.tsx \
-  terramind-web/src/components/BookingCTA.tsx \
-  terramind-web/src/app/animations.css \
-  terramind-web/src/app/base.css \
-  terramind-web/test/work-with-us-layout.test.mjs
+git add harvora-web/src/app/work-with-us/page.tsx \
+  harvora-web/src/components/BookingCTA.tsx \
+  harvora-web/src/app/animations.css \
+  harvora-web/src/app/base.css \
+  harvora-web/test/work-with-us-layout.test.mjs
 git commit -m "feat: integrate booking CTA into work-with-us page"
 ```

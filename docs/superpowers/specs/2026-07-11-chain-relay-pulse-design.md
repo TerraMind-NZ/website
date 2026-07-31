@@ -1,7 +1,7 @@
 # Chain relay-pulse animation — design
 
 **Date:** 2026-07-11
-**Scope:** `terramind-web/src/components/ChainSteps.tsx`, `terramind-web/src/app/globals.css`
+**Scope:** `harvora-web/src/components/ChainSteps.tsx`, `harvora-web/src/app/globals.css`
 
 ## Goal
 

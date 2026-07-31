@@ -22,7 +22,7 @@ Make the complete Work With Us experience visible in the initial desktop viewpor
 
 ## Booking Behavior
 
-- The inline booking pill opens the existing custom TerraMind booking modal.
+- The inline booking pill opens the existing custom Harvora booking modal.
 - Keep the existing animated signal, sheen, hover response, partner email, modal copy, and Cal.com embed behavior.
 - There must be only one booking trigger and one modal instance.
 

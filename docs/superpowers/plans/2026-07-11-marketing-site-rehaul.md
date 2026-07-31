@@ -2,7 +2,7 @@
 
 > **For agentic workers:** REQUIRED SUB-SKILL: Use superpowers:subagent-driven-development (recommended) or superpowers:executing-plans to implement this plan task-by-task. Steps use checkbox (`- [ ]`) syntax for tracking.
 
-**Goal:** Rebuild the TerraMind marketing site (`terramind-web/`) to the approved design spec: app-matched design system (chrome/paper/leaf palette, Fraunces/Manrope/Space Mono), new section lineup (Hero with vineyard canvas, Platform rows, Statement band, AI-layer section, Metrics band, Footer, Request-access modal).
+**Goal:** Rebuild the Harvora marketing site (`harvora-web/`) to the approved design spec: app-matched design system (chrome/paper/leaf palette, Fraunces/Manrope/Space Mono), new section lineup (Hero with vineyard canvas, Platform rows, Statement band, AI-layer section, Metrics band, Footer, Request-access modal).
 
 **Architecture:** Clean rebuild (Approach A). New section components in `src/components/`, composed by a server `page.tsx`. Shared modal state via a small client `ModalProvider` context. Old marketing components deleted at the end. Hooks `useScrolled`/`useReveal` kept.
 
@@ -10,7 +10,7 @@
 
 **Spec:** `docs/superpowers/specs/2026-07-11-marketing-site-rehaul-design.md`
 
-**Verification loop (no unit-test suite in this repo):** after each task run `npx tsc --noEmit` from `terramind-web/`, and visually check http://localhost:3002 (dev server already running, hot-reloads). Final task runs lint + full browser pass.
+**Verification loop (no unit-test suite in this repo):** after each task run `npx tsc --noEmit` from `harvora-web/`, and visually check http://localhost:3002 (dev server already running, hot-reloads). Final task runs lint + full browser pass.
 
 **Note:** The repo sits in iCloud-synced `~/Desktop`; if the dev server or tools hang on file access, `node_modules` may have been evicted — fix is `rm -rf node_modules && npm install`.
 
@@ -19,15 +19,15 @@
 ### Task 1: Design tokens, fonts, base CSS
 
 **Files:**
-- Modify: `terramind-web/src/app/globals.css` (full rewrite)
-- Modify: `terramind-web/src/app/layout.tsx` (add Space Mono, new metadata)
+- Modify: `harvora-web/src/app/globals.css` (full rewrite)
+- Modify: `harvora-web/src/app/layout.tsx` (add Space Mono, new metadata)
 
-- [ ] **Step 1: Rewrite `globals.css`** with app-matched tokens (from `~/terramind/web/app/globals.css`), grain overlay, reveal animation, and base styles:
+- [ ] **Step 1: Rewrite `globals.css`** with app-matched tokens (from `~/harvora/web/app/globals.css`), grain overlay, reveal animation, and base styles:
 
 ```css
 @import "tailwindcss";
 
-/* ── Design tokens — matched to the TerraMind app ── */
+/* ── Design tokens — matched to the Harvora app ── */
 @theme inline {
   --font-serif: var(--font-fraunces), 'Times New Roman', serif;
   --font-sans: var(--font-manrope), system-ui, sans-serif;
@@ -167,9 +167,9 @@ const spaceMono = Space_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "TerraMind — Decision-economics for horticulture",
+  title: "Harvora — Decision-economics for horticulture",
   description:
-    "TerraMind converts weather and agronomic predictions into block-level, dollar-denominated recommendations for New Zealand growers — calibrated probabilities, not dashboard noise.",
+    "Harvora converts weather and agronomic predictions into block-level, dollar-denominated recommendations for New Zealand growers — calibrated probabilities, not dashboard noise.",
 };
 
 export default function RootLayout({
@@ -197,7 +197,7 @@ export default function RootLayout({
 ### Task 2: ModalProvider context
 
 **Files:**
-- Create: `terramind-web/src/components/ModalProvider.tsx`
+- Create: `harvora-web/src/components/ModalProvider.tsx`
 
 - [ ] **Step 1: Create the provider** (client component; shares open/close between Nav, Hero, Footer, Modal):
 
@@ -245,7 +245,7 @@ export function useModal(): ModalState {
 ### Task 3: Nav
 
 **Files:**
-- Modify (full rewrite): `terramind-web/src/components/Nav.tsx`
+- Modify (full rewrite): `harvora-web/src/components/Nav.tsx`
 
 - [ ] **Step 1: Rewrite Nav.tsx**:
 
@@ -275,7 +275,7 @@ export default function Nav() {
     >
       <div className="flex flex-col gap-0.5">
         <span className="text-[17px] font-bold tracking-tight text-ink">
-          TerraMind
+          Harvora
         </span>
         <span className="font-mono text-[10px] uppercase tracking-[0.18em] text-ink-mute">
           Central Otago · NZ
@@ -318,8 +318,8 @@ export default function Nav() {
 ### Task 4: Hero + HeroCanvas
 
 **Files:**
-- Create: `terramind-web/src/components/HeroCanvas.tsx`
-- Modify (full rewrite): `terramind-web/src/components/Hero.tsx`
+- Create: `harvora-web/src/components/HeroCanvas.tsx`
+- Modify (full rewrite): `harvora-web/src/components/Hero.tsx`
 
 - [ ] **Step 1: Create HeroCanvas.tsx** — vineyard perspective animation ported from the reference HTML, palette remapped to app tokens, RAF cleanup + reduced-motion support:
 
@@ -542,7 +542,7 @@ export default function Hero() {
           <br />a <em className="font-serif italic text-leaf">dollar decision</em>
         </h1>
         <p className="mx-auto mb-10 max-w-xl text-[17px] leading-relaxed text-ink-mute">
-          TerraMind converts weather and agronomic predictions into block-level,
+          Harvora converts weather and agronomic predictions into block-level,
           dollar-denominated recommendations for New Zealand growers — calibrated
           probabilities, not dashboard noise.
         </p>
@@ -573,8 +573,8 @@ export default function Hero() {
 ### Task 5: PlatformRows + StatementBand
 
 **Files:**
-- Create: `terramind-web/src/components/PlatformRows.tsx`
-- Create: `terramind-web/src/components/StatementBand.tsx`
+- Create: `harvora-web/src/components/PlatformRows.tsx`
+- Create: `harvora-web/src/components/StatementBand.tsx`
 
 - [ ] **Step 1: Create PlatformRows.tsx**:
 
@@ -682,7 +682,7 @@ export default function StatementBand() {
           <br />A <em className="italic text-accent">decision-economics</em> platform.
         </h2>
         <p className="text-[17px] leading-relaxed text-white/65">
-          Every TerraMind prediction is a calibrated probability distribution —
+          Every Harvora prediction is a calibrated probability distribution —
           and a finance layer prices each one into action, in dollars, per block.
           Forecasts you can take to the bank, literally.
         </p>
@@ -699,8 +699,8 @@ export default function StatementBand() {
 ### Task 6: AILayerSection + MetricsBand
 
 **Files:**
-- Create: `terramind-web/src/components/AILayerSection.tsx`
-- Create: `terramind-web/src/components/MetricsBand.tsx`
+- Create: `harvora-web/src/components/AILayerSection.tsx`
+- Create: `harvora-web/src/components/MetricsBand.tsx`
 
 - [ ] **Step 1: Create AILayerSection.tsx**:
 
@@ -723,7 +723,7 @@ const FEATURES = [
     desc: "An overnight scan of every block surfaces patterns no single alert would catch — trajectory shifts, accumulating risks, quiet anomalies.",
   },
   {
-    name: "Ask TerraMind",
+    name: "Ask Harvora",
     desc: "Ask anything about your operation. Answers grounded in your blocks, your history, your numbers — never a generic chatbot.",
   },
 ];
@@ -737,7 +737,7 @@ export default function AILayerSection() {
       ref={ref}
       className="reveal mx-auto max-w-[1100px] px-6 py-24 md:px-10"
     >
-      <div className="eyebrow mb-12">TerraMind Intelligence</div>
+      <div className="eyebrow mb-12">Harvora Intelligence</div>
       <div className="grid grid-cols-1 items-start gap-12 md:grid-cols-2 md:gap-20">
         <div>
           <h2 className="mb-4.5 font-serif text-[clamp(28px,3.5vw,46px)] font-semibold leading-[1.1] tracking-tight text-ink">
@@ -746,7 +746,7 @@ export default function AILayerSection() {
             <em className="italic text-leaf">works your season</em>
           </h2>
           <p className="text-base leading-relaxed text-ink-mute">
-            TerraMind doesn&apos;t stop at predicting. It plans your season,
+            Harvora doesn&apos;t stop at predicting. It plans your season,
             briefs you each morning, and watches every block overnight —
             reasoning across weather, agronomy and economics so the right
             information surfaces at the right moment. Grounded in your own
@@ -804,7 +804,7 @@ export default function MetricsBand() {
             Every prediction.
           </h2>
           <p className="text-base leading-relaxed text-ink-mute">
-            When TerraMind says 30%, it happens about 30% of the time — and we
+            When Harvora says 30%, it happens about 30% of the time — and we
             publish the reliability data to prove it. Calibrated probabilities
             are trust infrastructure, not a footnote: the foundation growers,
             lenders and insurers can build decisions on.
@@ -838,8 +838,8 @@ export default function MetricsBand() {
 ### Task 7: Footer + RequestAccessModal
 
 **Files:**
-- Modify (full rewrite): `terramind-web/src/components/Footer.tsx`
-- Create: `terramind-web/src/components/RequestAccessModal.tsx`
+- Modify (full rewrite): `harvora-web/src/components/Footer.tsx`
+- Create: `harvora-web/src/components/RequestAccessModal.tsx`
 
 - [ ] **Step 1: Rewrite Footer.tsx**:
 
@@ -857,7 +857,7 @@ export default function Footer() {
       <div className="mx-auto mb-12 grid max-w-[1100px] grid-cols-2 gap-10 md:grid-cols-[1.5fr_1fr_1fr_1fr] md:gap-12">
         <div className="col-span-2 md:col-span-1">
           <div className="mb-2 text-base font-bold tracking-tight text-white">
-            TerraMind
+            Harvora
           </div>
           <div className="font-mono text-xs tracking-wider text-white/50">
             Christchurch · New Zealand
@@ -901,7 +901,7 @@ export default function Footer() {
         </div>
       </div>
       <div className="mx-auto flex max-w-[1100px] items-center justify-between border-t border-white/10 pt-6 text-xs text-white/40">
-        <span>© 2026 TerraMind Ltd.</span>
+        <span>© 2026 Harvora Ltd.</span>
         <span>Central Otago pilot season</span>
       </div>
     </footer>
@@ -987,7 +987,7 @@ export default function RequestAccessModal() {
               Get in touch
             </h3>
             <p className="mb-8 text-sm leading-normal text-ink-mute">
-              Request early access to the TerraMind pilot or ask us anything.
+              Request early access to the Harvora pilot or ask us anything.
             </p>
             <input
               type="text"
@@ -1094,10 +1094,10 @@ export default function RequestAccessModal() {
 ### Task 8: Compose page, delete old components, re-theme legal pages
 
 **Files:**
-- Modify (full rewrite): `terramind-web/src/app/page.tsx`
-- Delete: `terramind-web/src/components/{Atmosphere,HeroArtwork,AgentCard,VisionSection,TeamSection,WhoForSection,MarqueeStrip,CTASection,HeroHeadline,PlatformSection}.tsx`
-- Check/Modify: `terramind-web/src/components/LegalPage.tsx`, `LegalNav.tsx` (re-theme to new token names if they reference removed vars like `--green`, `--navy`, `--gold`)
-- Check: `terramind-web/src/hooks/useParallax.ts` — delete if no remaining consumer
+- Modify (full rewrite): `harvora-web/src/app/page.tsx`
+- Delete: `harvora-web/src/components/{Atmosphere,HeroArtwork,AgentCard,VisionSection,TeamSection,WhoForSection,MarqueeStrip,CTASection,HeroHeadline,PlatformSection}.tsx`
+- Check/Modify: `harvora-web/src/components/LegalPage.tsx`, `LegalNav.tsx` (re-theme to new token names if they reference removed vars like `--green`, `--navy`, `--gold`)
+- Check: `harvora-web/src/hooks/useParallax.ts` — delete if no remaining consumer
 
 - [ ] **Step 1: Rewrite page.tsx**:
 

@@ -1,4 +1,4 @@
-# TerraMind Marketing Site Rehaul Implementation Plan
+# Harvora Marketing Site Rehaul Implementation Plan
 
 > **For agentic workers:** REQUIRED SUB-SKILL: Use superpowers:subagent-driven-development (recommended) or superpowers:executing-plans to implement this plan task-by-task. Steps use checkbox (`- [ ]`) syntax for tracking.
 
@@ -8,7 +8,7 @@
 
 **Tech Stack:** Next.js 16, React 19, TypeScript 5, Tailwind CSS v4. No unit-test infrastructure exists in this repo (marketing site) — each task verifies with `npx tsc --noEmit`, and the final task does lint + full browser verification. Spec (including **claim guardrails** that copy must obey): `docs/superpowers/specs/2026-07-11-marketing-rehaul-design.md`.
 
-**Working directory for all commands:** `terramind-web/`
+**Working directory for all commands:** `harvora-web/`
 
 **IMPORTANT — pre-existing dirty files:** `Hero.tsx`, `Nav.tsx`, `Footer.tsx`, `HeroCanvas.tsx`, `StatementBand.tsx`, `globals.css`, `.claude/launch.json` have uncommitted user changes. `git add` only the files each task names — never `git add -A`.
 
@@ -17,7 +17,7 @@
 ### Task 1: Nav — route-aware links
 
 **Files:**
-- Modify: `terramind-web/src/components/Nav.tsx`
+- Modify: `harvora-web/src/components/Nav.tsx`
 
 - [ ] **Step 1: Update links and logo href**
 
@@ -49,7 +49,7 @@ git commit -m "feat: nav tabs for intelligence and proof pages"
 ### Task 2: Hero — arc copy + stat strip
 
 **Files:**
-- Modify: `terramind-web/src/components/Hero.tsx`
+- Modify: `harvora-web/src/components/Hero.tsx`
 
 - [ ] **Step 1: Update subheadline and add stat strip**
 
@@ -57,7 +57,7 @@ Replace the `<p>` subheadline (lines 24–28) with:
 
 ```tsx
         <p className="mx-auto mb-10 max-w-xl text-[17px] leading-relaxed text-white/70">
-          TerraMind&apos;s prediction engine turns calibrated weather and
+          Harvora&apos;s prediction engine turns calibrated weather and
           agronomic probabilities into block-level, dollar-denominated
           decisions — with an AI reasoning layer that plans your season,
           briefs your mornings, and learns every block.
@@ -96,8 +96,8 @@ git commit -m "feat: hero arc copy and proof stat strip"
 ### Task 3: Decision Pipeline section (new)
 
 **Files:**
-- Create: `terramind-web/src/components/DecisionPipeline.tsx`
-- Modify: `terramind-web/src/app/page.tsx`
+- Create: `harvora-web/src/components/DecisionPipeline.tsx`
+- Modify: `harvora-web/src/app/page.tsx`
 
 - [ ] **Step 1: Create the component**
 
@@ -138,7 +138,7 @@ export default function DecisionPipeline() {
       ref={ref}
       className="reveal mx-auto max-w-[1100px] px-6 py-24 md:px-10"
     >
-      <div className="eyebrow mb-12">How TerraMind thinks</div>
+      <div className="eyebrow mb-12">How Harvora thinks</div>
       <h2 className="mb-14 max-w-2xl font-serif text-[clamp(28px,3.5vw,46px)] font-semibold leading-[1.1] tracking-tight text-ink">
         From probability to profit,{" "}
         <em className="italic text-leaf">in four moves</em>
@@ -186,7 +186,7 @@ git commit -m "feat: decision pipeline section (predict, price, decide, learn)"
 ### Task 4: Platform rows — tightened stat tags
 
 **Files:**
-- Modify: `terramind-web/src/components/PlatformRows.tsx`
+- Modify: `harvora-web/src/components/PlatformRows.tsx`
 
 - [ ] **Step 1: Update tags and one description**
 
@@ -219,7 +219,7 @@ git commit -m "feat: measured accuracy tags on platform rows"
 ### Task 5: Intelligence section — 14-feature reframe
 
 **Files:**
-- Modify: `terramind-web/src/components/AILayerSection.tsx`
+- Modify: `harvora-web/src/components/AILayerSection.tsx`
 
 - [ ] **Step 1: Replace the component**
 
@@ -245,7 +245,7 @@ const FEATURES = [
     desc: "An overnight scan of every block surfaces patterns no single alert would catch — trajectory shifts, accumulating risks, quiet anomalies.",
   },
   {
-    name: "Ask TerraMind",
+    name: "Ask Harvora",
     desc: "An agentic assistant with retrieval-augmented answers grounded in your blocks, your history, your numbers — never a generic chatbot.",
   },
 ];
@@ -270,7 +270,7 @@ export default function AILayerSection() {
       ref={ref}
       className="reveal mx-auto max-w-[1100px] px-6 py-24 md:px-10"
     >
-      <div className="eyebrow mb-12">TerraMind Intelligence</div>
+      <div className="eyebrow mb-12">Harvora Intelligence</div>
       <div className="grid grid-cols-1 items-start gap-12 md:grid-cols-2 md:gap-20">
         <div>
           <h2 className="mb-4.5 font-serif text-[clamp(28px,3.5vw,46px)] font-semibold leading-[1.1] tracking-tight text-ink">
@@ -278,7 +278,7 @@ export default function AILayerSection() {
             <em className="italic text-leaf">not a chatbot</em>
           </h2>
           <p className="mb-6 text-base leading-relaxed text-ink-mute">
-            Every AI feature exists because of a TerraMind prediction. The
+            Every AI feature exists because of a Harvora prediction. The
             discipline is grounding-before-generation: deterministic engines
             find the signal, the AI puts it into words, and a structured
             fallback ships if it can&apos;t. Agentic tool-calling,
@@ -342,7 +342,7 @@ git commit -m "feat: expand intelligence section to 14-feature reasoning layer"
 ### Task 6: Proof band — 8 stats + link
 
 **Files:**
-- Modify: `terramind-web/src/components/MetricsBand.tsx`
+- Modify: `harvora-web/src/components/MetricsBand.tsx`
 
 - [ ] **Step 1: Replace the component**
 
@@ -383,7 +383,7 @@ export default function MetricsBand() {
             Every prediction.
           </h2>
           <p className="mb-6 text-base leading-relaxed text-ink-mute">
-            When TerraMind says 30%, it happens about 30% of the time — and we
+            When Harvora says 30%, it happens about 30% of the time — and we
             publish the reliability data to prove it. Every surface ships with
             a measured accuracy stat on real New Zealand data. Calibrated
             probabilities are trust infrastructure: the foundation growers,
@@ -433,8 +433,8 @@ git commit -m "feat: expand proof band to eight measured stats with proof link"
 ### Task 7: Economics band (new)
 
 **Files:**
-- Create: `terramind-web/src/components/EconomicsBand.tsx`
-- Modify: `terramind-web/src/app/page.tsx`
+- Create: `harvora-web/src/components/EconomicsBand.tsx`
+- Modify: `harvora-web/src/app/page.tsx`
 
 - [ ] **Step 1: Create the component**
 
@@ -452,7 +452,7 @@ const FIGURES = [
     label: "Damaging frost nights per season, average NZ location",
   },
   { value: "66%", label: "Of frost nights missed by climatology tools" },
-  { value: "94%", label: "Caught by TerraMind at the economic setting" },
+  { value: "94%", label: "Caught by Harvora at the economic setting" },
 ];
 
 export default function EconomicsBand() {
@@ -481,7 +481,7 @@ export default function EconomicsBand() {
           hectare, per season.
         </h2>
         <p className="mb-14 max-w-2xl text-[17px] leading-relaxed text-white/65">
-          Exposure runs to tens of thousands of dollars a hectare. TerraMind
+          Exposure runs to tens of thousands of dollars a hectare. Harvora
           prices every risk night in dollars and tells you when protection
           pays for itself — before you start the wind machine, not after.
         </p>
@@ -532,8 +532,8 @@ git commit -m "feat: economics band with frost exposure figures"
 ### Task 8: `/intelligence` page
 
 **Files:**
-- Create: `terramind-web/src/components/IntelligenceSections.tsx`
-- Create: `terramind-web/src/app/intelligence/page.tsx`
+- Create: `harvora-web/src/components/IntelligenceSections.tsx`
+- Create: `harvora-web/src/app/intelligence/page.tsx`
 
 - [ ] **Step 1: Create the sections component**
 
@@ -592,14 +592,14 @@ export default function IntelligenceSections() {
         />
         <div className="relative z-1 mx-auto max-w-[1100px]">
           <div className="mb-8 font-mono text-[11px] uppercase tracking-[0.2em] text-white/50">
-            TerraMind Intelligence
+            Harvora Intelligence
           </div>
           <h1 className="mb-6 max-w-3xl font-serif text-[clamp(36px,5vw,64px)] font-semibold leading-[1.05] tracking-tight text-white">
             A decision-intelligence layer,{" "}
             <em className="italic text-accent">not a chatbot</em>
           </h1>
           <p className="max-w-2xl text-[17px] leading-relaxed text-white/70">
-            Fourteen AI features, and every one exists because of a TerraMind
+            Fourteen AI features, and every one exists because of a Harvora
             prediction. The findings are deterministic — the AI puts them into
             words. Grounded, auditable, and always yours to confirm.
           </p>
@@ -685,7 +685,7 @@ export default function IntelligenceSections() {
       >
         <div className="eyebrow mb-12">The showpiece</div>
         <h2 className="mb-5 max-w-2xl font-serif text-[clamp(28px,3.5vw,46px)] font-semibold leading-[1.1] tracking-tight text-ink">
-          Ask TerraMind —{" "}
+          Ask Harvora —{" "}
           <em className="italic text-leaf">an agent that knows your orchard</em>
         </h2>
         <p className="mb-14 max-w-2xl text-base leading-relaxed text-ink-mute">
@@ -727,7 +727,7 @@ export default function IntelligenceSections() {
             <em className="italic text-accent">You decide.</em>
           </h2>
           <p className="mx-auto mb-10 max-w-xl text-[17px] leading-relaxed text-white/65">
-            TerraMind&apos;s AI suggests, schedules, and generates — but nothing
+            Harvora&apos;s AI suggests, schedules, and generates — but nothing
             writes to your operation without your explicit confirmation. Human
             judgment stays exactly where it belongs.
           </p>
@@ -757,9 +757,9 @@ import RequestAccessModal from "@/components/RequestAccessModal";
 import { ModalProvider } from "@/components/ModalProvider";
 
 export const metadata: Metadata = {
-  title: "TerraMind Intelligence — A 14-feature AI reasoning layer",
+  title: "Harvora Intelligence — A 14-feature AI reasoning layer",
   description:
-    "Grounding-before-generation, nightly insight scans, an agentic assistant with retrieval-augmented answers — every AI feature exists because of a TerraMind prediction.",
+    "Grounding-before-generation, nightly insight scans, an agentic assistant with retrieval-augmented answers — every AI feature exists because of a Harvora prediction.",
 };
 
 export default function IntelligencePage() {
@@ -792,8 +792,8 @@ git commit -m "feat: intelligence page - AI reasoning layer in depth"
 ### Task 9: `/proof` page
 
 **Files:**
-- Create: `terramind-web/src/components/ProofSections.tsx`
-- Create: `terramind-web/src/app/proof/page.tsx`
+- Create: `harvora-web/src/components/ProofSections.tsx`
+- Create: `harvora-web/src/app/proof/page.tsx`
 
 - [ ] **Step 1: Create the sections component**
 
@@ -824,7 +824,7 @@ const SURFACES = [
     impact:
       "Calibrated probabilities are what lenders and insurers can actually price on — trust infrastructure, not a footnote.",
     accuracy:
-      "When TerraMind says 30%, it happens about 30% of the time. ECE 0.007, CRPS skill 0.306, and the 90% interval holds about 90% of the time — verified on 2,278 held-out nights.",
+      "When Harvora says 30%, it happens about 30% of the time. ECE 0.007, CRPS skill 0.306, and the 90% interval holds about 90% of the time — verified on 2,278 held-out nights.",
   },
   {
     name: "Irrigation",
@@ -916,7 +916,7 @@ export default function ProofSections() {
             Proof, <em className="italic text-accent">not promises</em>
           </h1>
           <p className="max-w-2xl text-[17px] leading-relaxed text-white/70">
-            Every TerraMind surface ships with a measured accuracy stat on real
+            Every Harvora surface ships with a measured accuracy stat on real
             New Zealand data — benchmarked July 2026, provenance documented,
             caveats stated up front. This page is our technical brief, in the
             open.
@@ -1032,9 +1032,9 @@ import RequestAccessModal from "@/components/RequestAccessModal";
 import { ModalProvider } from "@/components/ModalProvider";
 
 export const metadata: Metadata = {
-  title: "TerraMind Proof — Measured accuracy, every surface",
+  title: "Harvora Proof — Measured accuracy, every surface",
   description:
-    "94% of frost nights caught, ECE 0.007 calibration, r = 0.87 irrigation across 6 NZ regions — every TerraMind surface ships with a measured accuracy stat on real New Zealand data.",
+    "94% of frost nights caught, ECE 0.007 calibration, r = 0.87 irrigation across 6 NZ regions — every Harvora surface ships with a measured accuracy stat on real New Zealand data.",
 };
 
 export default function ProofPage() {

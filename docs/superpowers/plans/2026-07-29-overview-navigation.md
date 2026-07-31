@@ -13,13 +13,13 @@
 ### Task 1: Overview navigation and deep links
 
 **Files:**
-- Create: `terramind-web/test/overview-navigation.test.mjs`
-- Modify: `terramind-web/src/components/Nav.tsx`
-- Modify: `terramind-web/src/components/Hero.tsx`
-- Modify: `terramind-web/src/components/PlatformRows.tsx`
-- Modify: `terramind-web/src/components/EconomicsBand.tsx`
-- Modify: `terramind-web/src/components/HardwareSection.tsx`
-- Modify: `terramind-web/src/components/Footer.tsx`
+- Create: `harvora-web/test/overview-navigation.test.mjs`
+- Modify: `harvora-web/src/components/Nav.tsx`
+- Modify: `harvora-web/src/components/Hero.tsx`
+- Modify: `harvora-web/src/components/PlatformRows.tsx`
+- Modify: `harvora-web/src/components/EconomicsBand.tsx`
+- Modify: `harvora-web/src/components/HardwareSection.tsx`
+- Modify: `harvora-web/src/components/Footer.tsx`
 
 - [ ] **Step 1: Write the failing regression test**
 
@@ -46,7 +46,7 @@ assert.match(footerSource, /href="\/#soil-scouter"[\s\S]*Soil Scouter/);
 Run:
 
 ```bash
-cd terramind-web
+cd harvora-web
 node --test test/overview-navigation.test.mjs
 ```
 

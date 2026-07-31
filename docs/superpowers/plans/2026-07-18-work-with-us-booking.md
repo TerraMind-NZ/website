@@ -2,9 +2,9 @@
 
 > **For agentic workers:** REQUIRED SUB-SKILL: Use superpowers:subagent-driven-development (recommended) or superpowers:executing-plans to implement this plan task-by-task. Steps use checkbox (`- [ ]`) syntax for tracking.
 
-**Goal:** Center the Work With Us experience on the viewport and make booking immediately available through an animated TerraMind booking modal.
+**Goal:** Center the Work With Us experience on the viewport and make booking immediately available through an animated Harvora booking modal.
 
-**Architecture:** A reusable client-side `BookingCTA` renders the hero control and portals an accessible TerraMind-styled modal containing the booking context and `CalEmbed`. A shared CSS shell anchors each major page region to the viewport center, while the duplicate lower booking section is removed.
+**Architecture:** A reusable client-side `BookingCTA` renders the hero control and portals an accessible Harvora-styled modal containing the booking context and `CalEmbed`. A shared CSS shell anchors each major page region to the viewport center, while the duplicate lower booking section is removed.
 
 **Tech Stack:** Next.js 16, React 19, TypeScript, Tailwind CSS 4, Cal.com embed loader, Node test runner.
 
@@ -13,7 +13,7 @@
 ### Task 1: Regression coverage
 
 **Files:**
-- Modify: `terramind-web/test/work-with-us-layout.test.mjs`
+- Modify: `harvora-web/test/work-with-us-layout.test.mjs`
 
 - [ ] Assert that the page renders `BookingCTA`, uses the viewport-centered shell three times, and retains only the slight `pt-28` upward adjustment.
 - [ ] Assert that `BookingCTA` contains `data-cal-link`, `data-cal-namespace`, and modal configuration.
@@ -23,9 +23,9 @@
 ### Task 2: Booking modal trigger
 
 **Files:**
-- Create: `terramind-web/src/components/BookingCTA.tsx`
-- Modify: `terramind-web/src/components/CalEmbed.tsx`
-- Modify: `terramind-web/src/app/work-with-us/page.tsx`
+- Create: `harvora-web/src/components/BookingCTA.tsx`
+- Modify: `harvora-web/src/components/CalEmbed.tsx`
+- Modify: `harvora-web/src/app/work-with-us/page.tsx`
 
 - [ ] Create a semantic booking button with the Cal.com element-click attributes and concise booking context.
 - [ ] Export and reuse the Cal link and namespace rather than duplicating them.
@@ -36,8 +36,8 @@
 ### Task 3: Centering and motion
 
 **Files:**
-- Modify: `terramind-web/src/app/base.css`
-- Modify: `terramind-web/src/app/animations.css`
+- Modify: `harvora-web/src/app/base.css`
+- Modify: `harvora-web/src/app/animations.css`
 
 - [ ] Define a viewport-width shell centered with `left: 50%` and `translateX(-50%)`, bounded to 1100px.
 - [ ] Add halo, sheen, and arrow animations matching the existing green-on-dark visual language.

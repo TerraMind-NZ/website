@@ -2,7 +2,7 @@
 
 ## Goal
 
-Replace the misleading `Platform` top-level category with an `Overview` category that accurately represents the whole homepage: the problem, TerraMind's answer, onboarding, decision pipeline, prediction areas, economics, and hardware.
+Replace the misleading `Platform` top-level category with an `Overview` category that accurately represents the whole homepage: the problem, Harvora's answer, onboarding, decision pipeline, prediction areas, economics, and hardware.
 
 ## Navigation
 

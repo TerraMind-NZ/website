@@ -2,13 +2,13 @@
   "version": "0.0.1",
   "configurations": [
     {
-      "name": "terramind-web",
+      "name": "harvora-web",
       "runtimeExecutable": "npx",
       "runtimeArgs": [
         "next",
         "dev"
       ],
-      "cwd": "terramind-web",
+      "cwd": "harvora-web",
       "port": 3002,
       "autoPort": true
     }
