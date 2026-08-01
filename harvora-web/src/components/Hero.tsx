@@ -26,10 +26,10 @@ export default function Hero() {
           </span>
         </div>
         <h1
-          className="hero-in mb-8 font-serif text-[clamp(42px,6.4vw,84px)] font-semibold leading-[0.96] tracking-tight text-white"
+          className="hero-in mb-8 font-serif text-[clamp(36px,5.2vw,68px)] font-semibold leading-[1.15] tracking-tight text-white"
           style={{ "--hd": "0.1s" } as CSSProperties}
         >
-          <span className="inline-block">Intelligent predictions,</span>
+          <span className="inline-block">Intelligent predictions</span>
           <br />
           <em className="shimmer-text inline-block font-serif italic">
             informed decisions
@@ -46,18 +46,18 @@ export default function Hero() {
           className="hero-in flex flex-wrap items-center justify-center gap-3.5"
           style={{ "--hd": "0.45s" } as CSSProperties}
         >
-          <Link
-            href="/work-with-us"
-            className="link-arrow inline-flex cursor-pointer items-center gap-2 rounded-full bg-leaf px-7 py-4 text-[15px] font-semibold text-white transition-all hover:-translate-y-px hover:bg-leaf-deep hover:shadow-[0_14px_36px_-12px_rgba(67,213,133,0.55)]"
-          >
-            Work with us <span className="arrow">↗</span>
-          </Link>
           <a
             href="#problem"
             className="link-arrow inline-flex items-center gap-2 rounded-full border border-white/30 px-6.5 py-4 text-[15px] text-white transition-all hover:-translate-y-px hover:border-white/60 hover:bg-white/5"
           >
             See how it works <span className="arrow">→</span>
           </a>
+          <Link
+            href="/work-with-us"
+            className="link-arrow inline-flex cursor-pointer items-center gap-2 rounded-full bg-leaf px-7 py-4 text-[15px] font-semibold text-white transition-all hover:-translate-y-px hover:bg-leaf-deep hover:shadow-[0_14px_36px_-12px_rgba(67,213,133,0.55)]"
+          >
+            Work with us <span className="arrow">↗</span>
+          </Link>
         </div>
       </div>
     </section>
