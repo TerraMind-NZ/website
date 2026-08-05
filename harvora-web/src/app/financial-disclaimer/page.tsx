@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import LegalPage from "@/components/LegalPage";
 
 export const metadata: Metadata = {
-  title: "Financial Disclaimer — Harvora",
+  title: "Financial Disclaimer | Harvora",
   description: "Important disclosures regarding Harvora's financial intelligence features.",
 };
 
@@ -69,7 +69,7 @@ export default function FinancialDisclaimerPage() {
         "73% probability of frost tonight," it means our models estimate frost will occur in
         roughly 73 out of 100 similar scenarios. The other 27% of the time, frost will not
         occur. Acting on a 73% probability and experiencing the 27% outcome is not a
-        prediction failure — it is how probability works.
+        prediction failure. It is how probability works.
       </p>
 
       <h3>Models have known limitations</h3>
@@ -91,7 +91,7 @@ export default function FinancialDisclaimerPage() {
       <h3>AI-mediated reasoning is exploratory</h3>
       <p>
         The "Ask Harvora" feature uses large language model technology. Its outputs are
-        clearly labelled as "AI reasoning — answers may be unreliable" and are visually
+        clearly labelled as "AI reasoning: answers may be unreliable" and are visually
         distinct from calibrated structured-model predictions. Do not rely on AI-mediated
         outputs for consequential decisions without independent verification.
       </p>

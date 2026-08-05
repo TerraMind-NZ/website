@@ -3,7 +3,7 @@
 import { useEffect, useRef } from "react";
 import { CAL_LINK, CAL_NAMESPACE } from "./calConfig";
 
-/* Official Cal.com embed loader — queues calls until embed.js arrives. */
+/* Official Cal.com embed loader: queues calls until embed.js arrives. */
 /* eslint-disable @typescript-eslint/no-explicit-any */
 function getCal(): any {
   const w = window as any;

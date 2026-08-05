@@ -6,7 +6,7 @@ import SectionArt from "@/components/SectionArt";
 import BookingCTA from "@/components/BookingCTA";
 
 export const metadata: Metadata = {
-  title: "Work with us — Harvora",
+  title: "Work with us | Harvora",
   description:
     "We're recruiting growers for the Harvora pilot. Book a call and join us in transforming horticulture.",
 };
@@ -37,7 +37,7 @@ export default function WorkWithUsPage() {
                 </h1>
                 <p className="mx-auto mb-4 max-w-2xl text-[17px] leading-relaxed text-white/80">
                   Harvora is a fundamental reimagining of how horticultural
-                  decisions get made — the AI-powered platform growers have
+                  decisions get made, the AI-powered platform growers have
                   been waiting for: one that saves time, prevents losses, and
                   puts the economics of every decision in plain sight, with the
                   confidence interval attached.
@@ -45,7 +45,7 @@ export default function WorkWithUsPage() {
                 <p className="mx-auto max-w-2xl text-[17px] leading-relaxed text-white/80">
                   For growers tired of making six-figure calls without the tools
                   to back them up. For an industry ready to move from signal to
-                  decision — choose Harvora, configured to the way your
+                  decision. Choose Harvora, configured to the way your
                   orchard already works.
                 </p>
               </div>

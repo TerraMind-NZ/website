@@ -3,7 +3,7 @@
 @import "./animations.css";
 @import "./legal.css";
 
-/* ── Tailwind theme — utilities reference the design tokens in base.css ── */
+/* ── Tailwind theme: utilities reference the design tokens in base.css ── */
 @theme inline {
   --font-serif: var(--serif);
   --font-sans: var(--sans);

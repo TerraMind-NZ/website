@@ -20,7 +20,7 @@ function subscribeReducedMotion(onChange: () => void) {
 const STEPS = [
   {
     title: "Highlight your blocks",
-    desc: "Trace them on the map — or let Harvora auto-detect them from your address.",
+    desc: "Trace them on the map, or let Harvora auto-detect them from your address.",
     ms: 3200,
   },
   {
@@ -30,19 +30,19 @@ const STEPS = [
   },
   {
     title: "Set your costs",
-    desc: "Enter your cost assumptions — or connect Xero read-only and use your real numbers.",
+    desc: "Enter your cost assumptions, or connect Xero read-only and use your real numbers.",
     ms: 3200,
   },
   {
     title: "We pull the data",
-    desc: "Weather ensembles, soil maps, satellite imagery — the engine takes it from there and gets to predicting.",
+    desc: "Weather ensembles, soil maps, satellite imagery: the engine takes it from there and gets to predicting.",
     ms: 5400,
   },
 ];
 
 /**
  * Compressed onboarding story for the platform section: a step rail that
- * auto-advances while the orchard panel builds up layer by layer — blocks
+ * auto-advances while the orchard panel builds up layer by layer: blocks
  * trace in, crop labels land, costs sync, data flows, predictions start.
  */
 export default function SetupFlow() {
@@ -59,7 +59,7 @@ export default function SetupFlow() {
   );
   const auto = !userDriven && !reducedMotion;
 
-  // Advances on a fixed clock, independent of hover/touch — pausing on
+  // Advances on a fixed clock, independent of hover/touch. Pausing on
   // interaction restarted the full duration on resume, which read as a
   // random multi-second freeze. A manual tap (below) is the only thing
   // that stops it.
@@ -119,7 +119,7 @@ export default function SetupFlow() {
       </div>
 
       <div className="grid grid-cols-1 gap-6 lg:grid-cols-[340px_1fr] lg:gap-10">
-        {/* Step rail — horizontal scroll on mobile, column on desktop */}
+        {/* Step rail: horizontal scroll on mobile, column on desktop */}
         <div
           ref={railRef}
           className="-mx-6 flex snap-x snap-mandatory gap-2 overflow-x-auto px-6 pb-2 [mask-image:linear-gradient(to_right,black_calc(100%-24px),transparent)] lg:mx-0 lg:flex-col lg:overflow-visible lg:px-0 lg:pb-0 lg:[mask-image:none]"
@@ -174,7 +174,7 @@ export default function SetupFlow() {
           ))}
         </div>
 
-        {/* Orchard panel — layers accumulate as the steps advance */}
+        {/* Orchard panel: layers accumulate as the steps advance */}
         <div className="relative overflow-hidden rounded-xl border border-line bg-white/60">
           <svg
             viewBox="0 0 560 380"
@@ -189,7 +189,7 @@ export default function SetupFlow() {
             </defs>
             <rect width="560" height="380" fill="url(#sf-grid)" />
 
-            {/* Step 1 — block polygons trace themselves in */}
+            {/* Step 1: block polygons trace themselves in */}
             <path
               pathLength={1}
               strokeDasharray={1}
@@ -221,7 +221,7 @@ export default function SetupFlow() {
               strokeWidth="1.5"
             />
 
-            {/* Step 2 — crop labels land on the blocks */}
+            {/* Step 2: crop labels land on the blocks */}
             <g style={{ "--sd": 0 } as CSSProperties} className={cls(1, "sf-layer")}>
               <rect x="98" y="128" width="130" height="22" rx="5" fill="rgba(255,255,255,0.9)" stroke="var(--line)" />
               <text x="163" y="142.5" textAnchor="middle" className="font-mono" fontSize="9" letterSpacing="1.2" fill="var(--leaf)">
@@ -241,7 +241,7 @@ export default function SetupFlow() {
               </text>
             </g>
 
-            {/* Step 3 — cost assumptions land / Xero syncs */}
+            {/* Step 3: cost assumptions land / Xero syncs */}
             <g style={{ "--sd": 0 } as CSSProperties} className={cls(2, "sf-layer")}>
               <rect x="312" y="262" width="212" height="52" rx="8" fill="rgba(255,255,255,0.92)" stroke="var(--line)" />
               <circle cx="334" cy="288" r="8" fill="none" stroke="var(--leaf)" strokeWidth="1.3" />
@@ -254,7 +254,7 @@ export default function SetupFlow() {
               </text>
             </g>
 
-            {/* Step 4 — data streams in, the engine starts predicting */}
+            {/* Step 4: data streams in, the engine starts predicting */}
             <g className={cls(3, "sf-layer")}>
               <text x="96" y="26" textAnchor="middle" className="font-mono" fontSize="8" letterSpacing="1.4" fill="var(--ink-mute)">WEATHER</text>
               <text x="280" y="26" textAnchor="middle" className="font-mono" fontSize="8" letterSpacing="1.4" fill="var(--ink-mute)">SOIL</text>

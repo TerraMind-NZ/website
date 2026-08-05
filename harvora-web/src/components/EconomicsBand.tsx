@@ -39,15 +39,15 @@ export default function EconomicsBand() {
         </div>
         <h2 className="mb-5 max-w-3xl font-serif text-[clamp(30px,4vw,52px)] font-semibold leading-[1.08] tracking-tight text-white">
           Frost alone is a{" "}
-          <em className="shimmer-text italic">five-figure decision</em> — per
+          <em className="shimmer-text italic">five-figure decision</em>, per
           hectare, per season.
         </h2>
         <p className="mb-14 max-w-2xl text-[17px] leading-relaxed text-white/80">
           Exposure runs to tens of thousands of dollars a hectare. Harvora
           prices every risk night in dollars and tells you when protection
-          pays for itself — before you start the wind machine, not after. And
+          pays for itself, before you start the wind machine, not after. And
           with read-only Xero integration, the AI reasons with your actual
-          costs and returns — your dollars, not industry averages.
+          costs and returns: your dollars, not industry averages.
         </p>
         <div className="stagger mb-14 grid grid-cols-1 gap-4 sm:grid-cols-3">
           {FIGURES.map((f, i) => (

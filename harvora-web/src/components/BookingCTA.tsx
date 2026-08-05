@@ -97,7 +97,7 @@ export default function BookingCTA() {
                 <p className="booking-modal-copy">
                   Thirty minutes with the people building it. We&apos;ll
                   discuss your blocks, your risks, and what the pilot would
-                  look like on your operation. No deck, no pressure — pick a
+                  look like on your operation. No deck, no pressure. Pick a
                   time below.
                 </p>
               </div>

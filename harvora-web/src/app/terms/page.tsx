@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import LegalPage from "@/components/LegalPage";
 
 export const metadata: Metadata = {
-  title: "Terms of Service — Harvora",
+  title: "Terms of Service | Harvora",
   description: "Terms governing use of Harvora's platform and services.",
 };
 
@@ -142,7 +142,7 @@ export default function TermsPage() {
       <p>
         The "Ask Harvora" feature uses large language model technology. Outputs from this
         feature are exploratory and may be unreliable. They are visually distinguished from
-        calibrated structured-model predictions and carry persistent "AI reasoning — answers
+        calibrated structured-model predictions and carry persistent "AI reasoning: answers
         may be unreliable" framing.
       </p>
 

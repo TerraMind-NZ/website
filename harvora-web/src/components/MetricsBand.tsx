@@ -36,7 +36,7 @@ export default function MetricsBand() {
             Every prediction.
           </h2>
           <p className="mb-6 text-base leading-relaxed text-ink-mute">
-            When Harvora says 30%, it happens about 30% of the time — and we
+            When Harvora says 30%, it happens about 30% of the time, and we
             publish the reliability data to prove it. Every surface ships with
             a measured accuracy stat on real New Zealand data. Calibrated
             probabilities are trust infrastructure: the foundation growers,

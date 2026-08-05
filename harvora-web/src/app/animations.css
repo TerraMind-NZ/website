@@ -1,4 +1,4 @@
-/* ── Motion & effect classes — every animated primitive on the site ── */
+/* ── Motion & effect classes: every animated primitive on the site ── */
 
 /* ── Scroll reveal (pairs with useReveal hook adding .in) ──
    Initial hidden states live behind @media (scripting: enabled) so a
@@ -28,7 +28,7 @@
   animation-delay: calc(var(--d, 0) * 70ms);
 }
 
-/* ── Card sheen — light streak sweeps across on hover ── */
+/* ── Card sheen: light streak sweeps across on hover ── */
 .card-lift, .card-lift-dark { position: relative; }
 .card-lift::before, .card-lift-dark::before {
   content: '';
@@ -65,7 +65,7 @@
   to { background-position: -30% 0; }
 }
 
-/* ── Card hover — lift, tint, shadow ── */
+/* ── Card hover: lift, tint, shadow ── */
 .card-lift {
   transition:
     transform 0.35s cubic-bezier(0.22, 1, 0.36, 1),
@@ -458,7 +458,7 @@
 }
 .reveal.in .eyebrow::after { transform: scaleX(1); }
 
-/* ── Shimmer text — slow gradient slide across accent phrases ── */
+/* ── Shimmer text: slow gradient slide across accent phrases ── */
 .shimmer-text {
   background: linear-gradient(
     100deg,
@@ -496,14 +496,14 @@
 }
 .glow-breathe { animation: glow-breathe 9s ease-in-out infinite; }
 
-/* ── Arrow link — arrow nudges right on hover ── */
+/* ── Arrow link: arrow nudges right on hover ── */
 .link-arrow .arrow {
   display: inline-block;
   transition: transform 0.3s cubic-bezier(0.22, 1, 0.36, 1);
 }
 .link-arrow:hover .arrow { transform: translateX(5px); }
 
-/* ── 3D tilt — cursor-tracking perspective + glare (pairs with TiltCard) ── */
+/* ── 3D tilt: cursor-tracking perspective + glare (pairs with TiltCard) ── */
 .tilt {
   transform: perspective(900px) rotateX(var(--rx, 0deg)) rotateY(var(--ry, 0deg));
   transition: transform 0.18s ease-out;
@@ -524,7 +524,7 @@
   transition: opacity 0.25s ease;
 }
 
-/* ── Index rows — hairlines draw in, mint wash sweeps on hover ── */
+/* ── Index rows: hairlines draw in, mint wash sweeps on hover ── */
 .row-hairline {
   transform-origin: left;
   transition: transform 1.1s cubic-bezier(0.22, 1, 0.36, 1) calc(var(--d, 0) * 110ms);
@@ -534,7 +534,7 @@
 }
 .reveal.in .row-hairline { transform: scaleX(1); }
 
-/* ── Masked text reveal — line rises out of a clipped box ── */
+/* ── Masked text reveal: line rises out of a clipped box ── */
 .mask-reveal { display: block; overflow: hidden; }
 .mask-reveal > span {
   display: inline-block;
@@ -546,7 +546,7 @@
 }
 .reveal.in .mask-reveal > span { transform: none; }
 
-/* ── Radar scan — a soft beam sweeps down the platform index ── */
+/* ── Radar scan: a soft beam sweeps down the platform index ── */
 .scan-beam {
   position: absolute;
   left: -24px;
@@ -579,7 +579,7 @@
   100% { top: 100%; opacity: 0; }
 }
 
-/* ── Platform node spine — beam and node flares share one 7.5s clock ── */
+/* ── Platform node spine: beam and node flares share one 7.5s clock ── */
 .spine-rail {
   position: absolute;
   left: 3.5px;
@@ -618,7 +618,7 @@
   16%, 100% { color: var(--ink); }
 }
 
-/* ── Learning bars — model depth fills in sequence (compounding cards) ── */
+/* ── Learning bars: model depth fills in sequence (compounding cards) ── */
 .learn-bar {
   transform-origin: left;
   background: linear-gradient(to right, var(--leaf), var(--accent));
@@ -636,7 +636,7 @@
   70%, 100% { transform: scaleX(1); opacity: 0.2; }
 }
 
-/* ── Honesty ledger — items flare in sequence after rising in ── */
+/* ── Honesty ledger: items flare in sequence after rising in ── */
 .reveal.in .stagger > .claim-item {
   animation:
     rise 0.7s cubic-bezier(0.22, 1, 0.36, 1) both,
@@ -653,7 +653,7 @@
   22%, 100% { border-color: var(--line); background-color: rgba(255, 255, 255, 0.6); }
 }
 
-/* ── Setup flow — orchard panel layers build as the steps advance ── */
+/* ── Setup flow: orchard panel layers build as the steps advance ── */
 .sf-poly {
   transition:
     stroke-dashoffset 1s cubic-bezier(0.22, 1, 0.36, 1) calc(var(--sd, 0) * 0.25s),

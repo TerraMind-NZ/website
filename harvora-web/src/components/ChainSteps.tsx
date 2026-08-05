@@ -28,7 +28,7 @@ export default function ChainSteps({ steps }: { steps: ChainStep[] }) {
       <div className="relative flex items-center justify-between gap-4 border-b border-line-soft px-7 py-4">
         <div className="flex items-center gap-2.5 font-mono text-[10px] uppercase tracking-[0.22em] text-leaf">
           <span className="pulse-dot h-1.5 w-1.5 rounded-full bg-accent-strong" />
-          Decision pipeline — running
+          Decision pipeline · running
         </div>
         <div className="hidden font-mono text-[10px] tracking-[0.18em] text-ink-mute/70 sm:block">
           01 → {steps[steps.length - 1].n} · every block · every day

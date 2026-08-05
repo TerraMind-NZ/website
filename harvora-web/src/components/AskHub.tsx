@@ -105,7 +105,7 @@ export default function AskHub({ items }: { items: AskCapability[] }) {
 
   return (
     <div ref={containerRef} className="relative">
-      {/* Wires — drawn between measured card edges, desktop only */}
+      {/* Wires: drawn between measured card edges, desktop only */}
       <svg
         className="pointer-events-none absolute inset-0 h-full w-full overflow-visible"
         aria-hidden
@@ -136,7 +136,7 @@ export default function AskHub({ items }: { items: AskCapability[] }) {
       </svg>
 
       <div className="stagger grid grid-cols-1 items-center gap-4 lg:grid-cols-[1fr_minmax(300px,340px)_1fr] lg:gap-x-14">
-        {/* Hub — first on mobile, centre on desktop */}
+        {/* Hub: first on mobile, centre on desktop */}
         <div
           style={{ "--d": 0 } as CSSProperties}
           className="order-first lg:order-none lg:col-start-2 lg:row-start-1"
@@ -162,7 +162,7 @@ export default function AskHub({ items }: { items: AskCapability[] }) {
               </div>
               <div className="mb-6 rounded-lg border border-white/10 bg-white/5 px-4 py-3 text-left font-mono text-[11.5px] leading-relaxed text-white/75">
                 <span className="text-accent">→ </span>
-                Will frost hit Block 7 tonight — is the wind machine worth
+                Will frost hit Block 7 tonight, and is the wind machine worth
                 running?
                 <span className="caret text-accent"> ▍</span>
               </div>
@@ -180,7 +180,7 @@ export default function AskHub({ items }: { items: AskCapability[] }) {
                 ))}
               </div>
               <p className="border-t border-white/10 pt-4 text-[12px] leading-relaxed text-white/60">
-                Drafts, answers and proposes — never acts without you.
+                Drafts, answers and proposes; never acts without you.
               </p>
             </div>
           </div>

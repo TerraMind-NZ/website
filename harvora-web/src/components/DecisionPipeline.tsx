@@ -7,17 +7,17 @@ const STEPS = [
   {
     n: "01",
     name: "Predict",
-    desc: "A 1000-sample Monte Carlo engine fuses physics models with machine learning across every block — emitting calibrated probability distributions, not point guesses. Deterministic, auditable, millisecond-fast.",
+    desc: "A 1000-sample Monte Carlo engine fuses physics models with machine learning across every block, emitting calibrated probability distributions, not point guesses. Deterministic, auditable, millisecond-fast.",
   },
   {
     n: "02",
     name: "Price",
-    desc: "The AI-powered finance layer converts each probability into expected value — dollars per block, per decision — in the language growers, lenders and insurers actually use.",
+    desc: "The AI-powered finance layer converts each probability into expected value (dollars per block, per decision) in the language growers, lenders and insurers actually use.",
   },
   {
     n: "03",
     name: "Decide",
-    desc: "Expected-value thresholds and three-tier decision confidence turn priced risk into a clear call: protect or don't, irrigate or wait — AI reasoning shown, drivers attributed.",
+    desc: "Expected-value thresholds and three-tier decision confidence turn priced risk into a clear call: protect or don't, irrigate or wait, with AI reasoning shown, drivers attributed.",
   },
   {
     n: "04",

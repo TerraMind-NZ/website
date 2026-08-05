@@ -11,12 +11,12 @@ const PIPELINE = [
   {
     n: "01",
     name: "Query",
-    desc: "Every relevant prediction, observation and dollar figure — including actual costs synced read-only from Xero — is retrieved from your blocks' database first.",
+    desc: "Every relevant prediction, observation and dollar figure (including actual costs synced read-only from Xero) is retrieved from your blocks' database first.",
   },
   {
     n: "02",
     name: "Bundle",
-    desc: "Assembled into a structured context bundle — the AI only ever sees verified figures.",
+    desc: "Assembled into a structured context bundle. The AI only ever sees verified figures.",
   },
   {
     n: "03",
@@ -42,7 +42,7 @@ const DETECTORS = [
   },
   {
     name: "Cross-prediction correlation",
-    desc: "Agronomist-reviewed rules across surfaces — e.g. sustained disease risk while yield softens.",
+    desc: "Agronomist-reviewed rules across surfaces, e.g. sustained disease risk while yield softens.",
   },
   {
     name: "Historical anomaly",
@@ -65,7 +65,7 @@ const ASK = [
   },
   {
     name: "Agentic tool-calling",
-    desc: "A bounded agent loop over read tools, a scenario runner and tiered action tools — hard budgets, one repair retry, deterministic fallback.",
+    desc: "A bounded agent loop over read tools, a scenario runner and tiered action tools: hard budgets, one repair retry, deterministic fallback.",
   },
   {
     name: "Grounded retrieval (RAG)",
@@ -77,7 +77,7 @@ const ASK = [
   },
   {
     name: "Voice",
-    desc: "Hands-free in the orchard — questions spoken, answers streamed back sentence by sentence.",
+    desc: "Hands-free in the orchard: questions spoken, answers streamed back sentence by sentence.",
   },
   {
     name: "Partner MCP",
@@ -107,7 +107,7 @@ const ALERT_DIGESTS = [
 const HARDENING = [
   {
     name: "Injection-safe by design",
-    desc: "Facts the model reads from a chat, an image or a retrieved document never auto-write to your profile — they queue as confirm/reject suggestions, so a hidden instruction can't quietly poison every future answer.",
+    desc: "Facts the model reads from a chat, an image or a retrieved document never auto-write to your profile; they queue as confirm/reject suggestions, so a hidden instruction can't quietly poison every future answer.",
   },
   {
     name: "Honest when it can't finish",
@@ -115,7 +115,7 @@ const HARDENING = [
   },
   {
     name: "Consensus on the big calls",
-    desc: "High-stakes answers are generated multiple times and the response you see is the one the runs agree on — judged by what the answers mean, not how they're worded.",
+    desc: "High-stakes answers are generated multiple times and the response you see is the one the runs agree on, judged by what the answers mean, not how they're worded.",
   },
   {
     name: "Budgeted and bounded",
@@ -130,19 +130,19 @@ const HARDENING = [
 const COMPOUNDING = [
   {
     name: "Microclimate corrections",
-    desc: "Observed temperature and humidity are compared to the regional forecast under each synoptic pattern — clear nights, advection fog, nor'west flow — and the block's systematic deviation becomes a correction the frost model applies.",
+    desc: "Observed temperature and humidity are compared to the regional forecast under each synoptic pattern (clear nights, advection fog, nor'west flow), and the block's systematic deviation becomes a correction the frost model applies.",
   },
   {
     name: "Disease pressure antecedents",
-    desc: "Which lagged weather conditions precede elevated Psa pressure on this block — learned per block, because aspect and shelter change leaf wetness independently of the region.",
+    desc: "Which lagged weather conditions precede elevated Psa pressure on this block: learned per block, because aspect and shelter change leaf wetness independently of the region.",
   },
   {
     name: "Yield-weather response",
-    desc: "How this block's yield responds to weather at each phenological stage, calibrated against your confirmed harvests. It needs two seasons of confirmed yields — the regional model carries it until then.",
+    desc: "How this block's yield responds to weather at each phenological stage, calibrated against your confirmed harvests. It needs two seasons of confirmed yields; the regional model carries it until then.",
   },
   {
     name: "Irrigation response",
-    desc: "The actual soil-moisture evolution of this block under rain and evapotranspiration — correcting FAO-56 for soil properties and drainage the map can't see.",
+    desc: "The actual soil-moisture evolution of this block under rain and evapotranspiration, correcting FAO-56 for soil properties and drainage the map can't see.",
   },
 ];
 
@@ -180,7 +180,7 @@ export default function IntelligenceSections() {
           </h1>
           <p className="max-w-2xl text-[17px] leading-relaxed text-white/80">
             Twenty-four AI features, and every one exists because of a Harvora
-            prediction. The findings are deterministic — the AI puts them into
+            prediction. The findings are deterministic; the AI puts them into
             words. Grounded, auditable, and always yours to confirm.
           </p>
         </div>
@@ -197,7 +197,7 @@ export default function IntelligenceSections() {
         </h2>
         <p className="mb-14 max-w-2xl text-base leading-relaxed text-ink-mute">
           Every AI-generated report, briefing, insight and answer runs the same
-          five-step discipline. Hallucinated figures aren&apos;t rare —
+          five-step discipline. Hallucinated figures aren&apos;t rare;
           they&apos;re architecturally impossible.
         </p>
         <ChainSteps steps={PIPELINE} />
@@ -217,7 +217,7 @@ export default function IntelligenceSections() {
             <p className="text-base leading-relaxed text-ink-mute">
               At 2:30 am the nightly scan runs deterministic detectors over
               each block&apos;s prediction history. Only genuine findings
-              surface — deduplicated against alerts you&apos;ve already seen,
+              surface, deduplicated against alerts you&apos;ve already seen,
               narrated in plain language by morning. It also plans: the AI
               Season Planner reschedules frost, irrigation, harvest and
               scouting events on every forecast update; your 5 am Daily
@@ -262,7 +262,7 @@ export default function IntelligenceSections() {
       >
         <div className="eyebrow mb-8">AI Alert Digests</div>
         <h2 className="mb-4.5 max-w-2xl font-serif text-[clamp(28px,3.5vw,46px)] font-semibold leading-[1.1] tracking-tight text-ink">
-          The urgent calls, delivered once —{" "}
+          The urgent calls, delivered once,{" "}
           <em className="italic text-leaf">while there is time to act</em>
         </h2>
         <p className="mb-12 max-w-2xl text-base leading-relaxed text-ink-mute">
@@ -296,16 +296,16 @@ export default function IntelligenceSections() {
         <div className="mx-auto max-w-[1100px]">
           <div className="eyebrow mb-12">The showpiece</div>
           <h2 className="mb-5 max-w-2xl font-serif text-[clamp(28px,3.5vw,46px)] font-semibold leading-[1.1] tracking-tight text-ink">
-            Ask Harvora —{" "}
+            Ask Harvora:{" "}
             <em className="italic text-leaf">
               an agent that knows your growing operation
             </em>
           </h2>
           <p className="mb-5 max-w-2xl text-base leading-relaxed text-ink-mute">
             Ask anything about your operation and get an answer grounded in your
-            blocks, your history, your numbers — right down to actual costs
+            blocks, your history, your numbers, right down to actual costs
             synced read-only from Xero. Under the hood it&apos;s a
-            bounded agentic loop — powerful enough to run what-if scenarios,
+            bounded agentic loop, powerful enough to run what-if scenarios,
             disciplined enough to never act without you.
           </p>
           <p className="mb-14 max-w-2xl text-sm leading-relaxed text-ink-mute">
@@ -342,7 +342,7 @@ export default function IntelligenceSections() {
           </h2>
           <p className="mb-14 max-w-2xl text-base leading-relaxed text-white/75">
             An end-to-end adversarial audit hardened every reliability edge of
-            the AI layer — the part that keeps it trustworthy under load, bad
+            the AI layer, the part that keeps it trustworthy under load, bad
             input and provider failure. Each item below shipped with tests, and
             the model-facing ones with a passing evaluation.
           </p>
@@ -388,11 +388,11 @@ export default function IntelligenceSections() {
           </h2>
           <p className="mb-14 max-w-2xl text-base leading-relaxed text-ink-mute">
             Every season you grow with Harvora, four learned models deepen
-            for each block. Each carries an explicit insufficient-data status —
+            for each block. Each carries an explicit insufficient-data status;
             nothing is fabricated on a young block. What they learn flows back
             through the whole engine: forecast corrections, expectation bands,
             risk thresholds and briefings, all tuned to how each block actually
-            behaves — predictions that keep getting sharper, built on a track
+            behaves: predictions that keep getting sharper, built on a track
             record no competitor can replicate without watching your blocks
             through the same seasons.
           </p>
@@ -441,7 +441,7 @@ export default function IntelligenceSections() {
             <em className="italic text-accent">You decide.</em>
           </h2>
           <p className="mx-auto mb-10 max-w-xl text-[17px] leading-relaxed text-white/80">
-            Harvora&apos;s AI suggests, schedules, and generates — but nothing
+            Harvora&apos;s AI suggests, schedules, and generates, but nothing
             writes to your operation without your explicit confirmation. Human
             judgment stays exactly where it belongs.
           </p>

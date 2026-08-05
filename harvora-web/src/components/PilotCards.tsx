@@ -10,7 +10,7 @@ const CARDS = [
   },
   {
     title: "Your blocks, your data",
-    body: "Block-level predictions calibrated to your orchard from day one — and every byte of your data stays yours, under grower data sovereignty.",
+    body: "Block-level predictions calibrated to your orchard from day one, and every byte of your data stays yours, under grower data sovereignty.",
   },
   {
     title: "Direct line to the builders",

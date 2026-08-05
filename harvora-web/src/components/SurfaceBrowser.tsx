@@ -46,7 +46,7 @@ export default function SurfaceBrowser({ surfaces }: { surfaces: Surface[] }) {
   );
   const auto = !userDriven && !reducedMotion;
 
-  // Advances on a fixed clock, independent of hover/touch — pausing on
+  // Advances on a fixed clock, independent of hover/touch. Pausing on
   // interaction restarted the full duration on resume, which read as a
   // random multi-second freeze. A manual tap (below) is the only thing
   // that stops it.
@@ -93,7 +93,7 @@ export default function SurfaceBrowser({ surfaces }: { surfaces: Surface[] }) {
       ref={rootRef}
       className="grid grid-cols-1 gap-6 lg:grid-cols-[300px_1fr] lg:gap-8"
     >
-      {/* Surface rail — horizontal scroll on mobile, column on desktop */}
+      {/* Surface rail: horizontal scroll on mobile, column on desktop */}
       <div
         ref={railRef}
         className="-mx-6 flex snap-x snap-mandatory gap-1.5 overflow-x-auto px-6 pb-2 [mask-image:linear-gradient(to_right,black_calc(100%-24px),transparent)] lg:mx-0 lg:flex-col lg:overflow-visible lg:px-0 lg:pb-0 lg:[mask-image:none]"
@@ -133,7 +133,7 @@ export default function SurfaceBrowser({ surfaces }: { surfaces: Surface[] }) {
         ))}
       </div>
 
-      {/* Detail panel — re-keyed so it rises in on every switch */}
+      {/* Detail panel: re-keyed so it rises in on every switch */}
       <div className="relative overflow-hidden rounded-xl border border-line bg-white/60">
         {auto && (
           <div

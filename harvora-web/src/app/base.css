@@ -54,7 +54,7 @@ body::before {
   opacity: 0.3;
 }
 
-/* ── Ambient aurora — drifting tinted blobs behind light sections ── */
+/* ── Ambient aurora: drifting tinted blobs behind light sections ── */
 body::after {
   content: '';
   position: fixed;

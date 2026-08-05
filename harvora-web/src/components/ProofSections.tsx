@@ -21,16 +21,16 @@ const SURFACES = [
     stat: "0.007",
     statLabel: "expected calibration error",
     impact:
-      "Calibrated probabilities are what lenders and insurers can actually price on — trust infrastructure, not a footnote.",
+      "Calibrated probabilities are what lenders and insurers can actually price on: trust infrastructure, not a footnote.",
     accuracy:
-      "When Harvora says 30%, it happens about 30% of the time. ECE 0.007, CRPS skill 0.306, and the 90% interval holds about 90% of the time — verified on 2,278 held-out nights.",
+      "When Harvora says 30%, it happens about 30% of the time. ECE 0.007, CRPS skill 0.306, and the 90% interval holds about 90% of the time, verified on 2,278 held-out nights.",
   },
   {
     name: "Irrigation",
     stat: "r = 0.81",
     statLabel: "vs ERA5-Land · 6 regions",
     impact:
-      "Water is the next-biggest input cost after frost protection — and over- or under-watering both cost real money.",
+      "Water is the next-biggest input cost after frost protection, and over- or under-watering both cost real money.",
     accuracy:
       "The production two-layer FAO-56 balance tracks independent ERA5-Land reanalysis at root-zone r = 0.805 and topsoil r = 0.872 across 6 NZ regions × 5 summers, direction right on 74% of meaningful days, bounded by real S-Map soil data.",
   },
@@ -39,7 +39,7 @@ const SURFACES = [
     stat: "92%",
     statLabel: "flyable-hour accuracy",
     impact:
-      "Only 34–45% of bloom-window daylight hours are bee-flyable — and it swings 30% year to year. Poor bloom weather is lost fruit set.",
+      "Only 34–45% of bloom-window daylight hours are bee-flyable, and it swings 30% year to year. Poor bloom weather is lost fruit set.",
     accuracy:
       "1-day-ahead bee-flyable-hour forecasts: 92% classification accuracy with 86% recall and precision, measured over 2,544 spring daylight hours.",
   },
@@ -48,25 +48,25 @@ const SURFACES = [
     stat: "97%",
     statLabel: "of damaging-wind days caught",
     impact:
-      "Damaging gusts drop and scar fruit — roughly 58 damaging-gust days a season for kiwifruit, with peaks over 100 km/h.",
+      "Damaging gusts drop and scar fruit: roughly 58 damaging-gust days a season for kiwifruit, with peaks over 100 km/h.",
     accuracy:
-      "Day-ahead forecasts catch 97% of damaging-wind days at a 50 km/h watch trigger; gust forecast RMSE 10.4 km/h. A day's warning to deploy protection or bring a pick forward. Gusts are spiky, so hour-exact recall is 50% — but damage is a day-level event, and at the day level a watch trigger catches 97%.",
+      "Day-ahead forecasts catch 97% of damaging-wind days at a 50 km/h watch trigger; gust forecast RMSE 10.4 km/h. A day's warning to deploy protection or bring a pick forward. Gusts are spiky, so hour-exact recall is 50%, but damage is a day-level event, and at the day level a watch trigger catches 97%.",
   },
   {
     name: "Spray window",
     stat: "96.7%",
     statLabel: "of promised windows stay rain-free",
     impact:
-      "A mistimed spray is wasted product, a re-spray cost, and — for agrichemicals — a compliance and residue risk. The value of the surface is the reliability of its promise that a window stays sprayable.",
+      "A mistimed spray is wasted product, a re-spray cost, and, for agrichemicals, a compliance and residue risk. The value of the surface is the reliability of its promise that a window stays sprayable.",
     accuracy:
-      "Of 335 windows the production model promised across 6 NZ regions × 2 spring seasons, 100% still met the wind, gust and temperature rules in truth and 96.7% stayed genuinely rain-free — the ~3% gap is honest 1-day rain-forecast uncertainty, not model error. It is also highly selective: 335 windows from 13,576 naive dry-daylight hours (2.5%).",
+      "Of 335 windows the production model promised across 6 NZ regions × 2 spring seasons, 100% still met the wind, gust and temperature rules in truth and 96.7% stayed genuinely rain-free; the ~3% gap is honest 1-day rain-forecast uncertainty, not model error. It is also highly selective: 335 windows from 13,576 naive dry-daylight hours (2.5%).",
   },
   {
     name: "Harvest & phenology",
     stat: "±2 days",
     statLabel: "harvest-timing accuracy",
     impact:
-      "A wrong harvest date mis-books labour, packhouse slots and market windows — costs that land whether or not the fruit is perfect.",
+      "A wrong harvest date mis-books labour, packhouse slots and market windows: costs that land whether or not the fruit is perfect.",
     accuracy:
       "Growing-degree-day projections from forecast temperature track days-to-target within ±2 days (7.1% cumulative-season error). A separate leave-one-year-out backtest over 6 regions × 10 seasons lands within a 3.5-day median error at 30 days out, with 95% interval coverage.",
   },
@@ -77,7 +77,7 @@ const SURFACES = [
     impact:
       "The bacterial disease behind the 2010–11 outbreak that cost NZ kiwifruit hundreds of millions and forced Gold replanting.",
     accuracy:
-      "Built on the published Plant & Food Research risk curve — explainable to growers and industry. It rates the Bay of Plenty (kiwifruit heartland) 6.6× higher-risk than Central Otago: the correct geographic separation.",
+      "Built on the published Plant & Food Research risk curve, explainable to growers and industry. It rates the Bay of Plenty (kiwifruit heartland) 6.6× higher-risk than Central Otago: the correct geographic separation.",
   },
 ];
 
@@ -87,34 +87,34 @@ const HAZARD_SURFACES = [
     stat: "~25×",
     statLabel: "better than chance at flagging hail days",
     impact:
-      "Hail can wipe out a season's fruit in minutes — and no forecast anywhere can call it block by block. Knowing when the atmosphere is primed is the edge that matters.",
+      "Hail can wipe out a season's fruit in minutes, and no forecast anywhere can call it block by block. Knowing when the atmosphere is primed is the edge that matters.",
     accuracy:
-      "Machine-learned models read the convective environment (CAPE, lifted index) up to 7 days out, beating the raw forecast at every lead across a 58,526-row corpus spanning 13 regions. On the days it flags, real convective events occur ~25× more often than chance — with fully calibrated probabilities (Brier 0.0095, ECE 0.008).",
+      "Machine-learned models read the convective environment (CAPE, lifted index) up to 7 days out, beating the raw forecast at every lead across a 58,526-row corpus spanning 13 regions. On the days it flags, real convective events occur ~25× more often than chance, with fully calibrated probabilities (Brier 0.0095, ECE 0.008).",
   },
   {
     name: "Sunburn",
     stat: "37%",
     statLabel: "sharper heat forecast than raw",
     impact:
-      "Radiative heat scalds fruit surfaces on clear, still, high-sun days — a quality downgrade waiting at the packhouse.",
+      "Radiative heat scalds fruit surfaces on clear, still, high-sun days: a quality downgrade waiting at the packhouse.",
     accuracy:
-      "A fruit-surface-temperature model — air temperature plus radiation, attenuated by wind — predicted up to 7 days out. Beats the raw forecast at every lead (1.66 vs 2.62 °C at 24 h) with calibrated probabilities (Brier 0.0103), so a high-risk day is flagged days before the sun does the damage.",
+      "A fruit-surface-temperature model (air temperature plus radiation, attenuated by wind) predicted up to 7 days out. Beats the raw forecast at every lead (1.66 vs 2.62 °C at 24 h) with calibrated probabilities (Brier 0.0103), so a high-risk day is flagged days before the sun does the damage.",
   },
   {
     name: "Splitting rain",
     stat: "40%",
     statLabel: "sharper than climatology",
     impact:
-      "Rain on ripe fruit splits it — a direct loss landing in the narrow pre-harvest window when the crop's value is highest.",
+      "Rain on ripe fruit splits it: a direct loss landing in the narrow pre-harvest window when the crop's value is highest.",
     accuracy:
-      "Probability of a ≥5 mm rain day, targeted to each crop's ripeness window and built on rain-specific statistics rather than one-size-fits-all assumptions. Trained on a 58,591-row corpus with probabilities 40% sharper than climatology (Brier 0.098 vs 0.165) and the full catch/false-alarm curve published — and it's the second surface with decision economics: rain covers, calcium spray and helicopter drying are priced against the revenue actually at risk, so your own costs pick the operating point.",
+      "Probability of a ≥5 mm rain day, targeted to each crop's ripeness window and built on rain-specific statistics rather than one-size-fits-all assumptions. Trained on a 58,591-row corpus with probabilities 40% sharper than climatology (Brier 0.098 vs 0.165) and the full catch/false-alarm curve published, and it's the second surface with decision economics: rain covers, calcium spray and helicopter drying are priced against the revenue actually at risk, so your own costs pick the operating point.",
   },
   {
     name: "Fire weather",
     stat: "31%",
     statLabel: "sharper index than raw forecast",
     impact:
-      "Severe fire-weather days threaten shelterbelts, structures and crews — and govern when hot work can safely happen.",
+      "Severe fire-weather days threaten shelterbelts, structures and crews, and govern when hot work can safely happen.",
     accuracy:
       "The Fosberg fire-weather index, bias-corrected per lead and tuned to what actually counts as severe in New Zealand's maritime climate. Beats the raw forecast at every lead (RMSE 4.2 vs 6.1 at 24 h) and climatology on calibration (Brier 0.0269 vs 0.0316).",
   },
@@ -123,18 +123,18 @@ const HAZARD_SURFACES = [
     stat: "90%",
     statLabel: "heat-stress days caught",
     impact:
-      "Heat stress is a worker-safety risk with real liability — and a missed heat day costs far more than a cautious one.",
+      "Heat stress is a worker-safety risk with real liability, and a missed heat day costs far more than a cautious one.",
     accuracy:
-      "A wet-bulb-globe heat-stress index, bias-corrected per lead and alarmed at the same economic operating point as frost — because a missed day risks a worker. Catches 90% of heat-stress days at a 5.8% false-alarm rate, calibrated to ECE 0.0035.",
+      "A wet-bulb-globe heat-stress index, bias-corrected per lead and alarmed at the same economic operating point as frost, because a missed day risks a worker. Catches 90% of heat-stress days at a 5.8% false-alarm rate, calibrated to ECE 0.0035.",
   },
   {
     name: "Seasonal dryness",
     stat: "41 yrs",
     statLabel: "of rainfall history behind every read",
     impact:
-      "Whether the season ahead tilts wet or dry shapes water budgets, storage decisions and cashflow — months before any daily forecast can help.",
+      "Whether the season ahead tilts wet or dry shapes water budgets, storage decisions and cashflow, months before any daily forecast can help.",
     accuracy:
-      "41 years of rainfall history, cut by El Niño / La Niña state, gives every region its own season-ahead tilt. The current El Niño reads the classic east/west split — Hawke's Bay tilting dry, the West Coast wet — clearly presented as historical odds, so it informs planning without pretending to be a daily forecast.",
+      "41 years of rainfall history, cut by El Niño / La Niña state, gives every region its own season-ahead tilt. The current El Niño reads the classic east/west split (Hawke's Bay tilting dry, the West Coast wet), clearly presented as historical odds, so it informs planning without pretending to be a daily forecast.",
   },
   {
     name: "Field access",
@@ -143,7 +143,7 @@ const HAZARD_SURFACES = [
     impact:
       "Can machinery get on the block without bogging or rutting? A go/no-go that governs spraying, mowing and harvest logistics.",
     accuracy:
-      "A transparent agronomic model: five days of decaying rain accumulation weighed against the block's own soil drainage class from S-Map, with Monte Carlo over measured rain-forecast error. Every input is inspectable — a grower can see exactly why the model says wait.",
+      "A transparent agronomic model: five days of decaying rain accumulation weighed against the block's own soil drainage class from S-Map, with Monte Carlo over measured rain-forecast error. Every input is inspectable: a grower can see exactly why the model says wait.",
   },
 ];
 
@@ -180,7 +180,7 @@ const ANNUAL_CROP_SURFACES = [
 const ENGINE = [
   { value: "1,000", label: "Monte Carlo samples per prediction" },
   { value: "~1.5 ms", label: "Per full simulation" },
-  { value: "Bit-identical", label: "Same seed, same result — auditable" },
+  { value: "Bit-identical", label: "Same seed, same result, auditable" },
   { value: "OOD-guarded", label: "Refuses to extrapolate beyond NZ" },
   { value: "1.075 °C", label: "Forecast meta-model MAE · 13 regions" },
   { value: "24,217", label: "Frost nights benchmarked · 20 NZ sites" },
@@ -193,9 +193,9 @@ const ENGINE = [
 ];
 
 const NOT_CLAIMED = [
-  "Our disease classifiers (AUC 0.91–0.98) faithfully reproduce published agronomic risk formulas — that is reproduction fidelity, not field-validated infection prediction. Real validation lands as grower-confirmed outcomes accumulate.",
-  "Yield-from-satellite (NDVI) is not field-validated for any crop yet. Five of nine crop models are flagged as self-referential in their own metadata — in capitals. Tested honestly against 658 real Sentinel-2 observations, the trajectory lands at climatology (MAE 0.066 vs 0.068) — no added skill yet on two blocks.",
-  "A runoff model scoring a 92% improvement sits unshipped in our codebase, held at deployable:false — it learned to mimic physics labels, so the score isn't real-world skill. We'd rather hold it back than dress it up.",
+  "Our disease classifiers (AUC 0.91–0.98) faithfully reproduce published agronomic risk formulas; that is reproduction fidelity, not field-validated infection prediction. Real validation lands as grower-confirmed outcomes accumulate.",
+  "Yield-from-satellite (NDVI) is not field-validated for any crop yet. Five of nine crop models are flagged as self-referential in their own metadata, in capitals. Tested honestly against 658 real Sentinel-2 observations, the trajectory lands at climatology (MAE 0.066 vs 0.068), no added skill yet on two blocks.",
+  "A runoff model scoring a 92% improvement sits unshipped in our codebase, held at deployable:false; it learned to mimic physics labels, so the score isn't real-world skill. We'd rather hold it back than dress it up.",
   "No named-competitor benchmark yet. When we publish one, it will be run the same way as everything on this page: real data, stated provenance.",
 ];
 
@@ -230,7 +230,7 @@ export default function ProofSections() {
           </h1>
           <p className="max-w-2xl text-[17px] leading-relaxed text-white/80">
             Every Harvora surface ships with a measured accuracy stat on real
-            New Zealand data — benchmarked July 2026, provenance documented,
+            New Zealand data: benchmarked July 2026, provenance documented,
             caveats stated up front. This page is our technical brief, in the
             open.
           </p>
@@ -279,7 +279,7 @@ export default function ProofSections() {
           </h2>
           <p className="mb-12 max-w-2xl text-base leading-relaxed text-ink-mute">
             Hail, sunburn, splitting rain, fire weather, crew heat safety,
-            seasonal dryness and field access — the perils that arrive with
+            seasonal dryness and field access: the perils that arrive with
             heat, ripe fruit and harvest machinery. Each one beats the raw
             forecast or climatology on held-out data, and each card states
             exactly what was measured.
@@ -335,7 +335,7 @@ export default function ProofSections() {
         </h2>
         <p className="mb-14 max-w-2xl text-base leading-relaxed text-ink-mute">
           Everything above is measured against real, independent data. A few
-          things aren&apos;t provable yet — and rather than blur the line, we
+          things aren&apos;t provable yet, and rather than blur the line, we
           publish it. This discipline is the product.
         </p>
         <ul className="stagger grid grid-cols-1 gap-4 md:grid-cols-2">

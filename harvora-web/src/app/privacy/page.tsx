@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import LegalPage from "@/components/LegalPage";
 
 export const metadata: Metadata = {
-  title: "Privacy Policy — Harvora",
+  title: "Privacy Policy | Harvora",
   description: "How Harvora collects, uses, and protects your data.",
 };
 
@@ -87,23 +87,23 @@ export default function PrivacyPage() {
       <p>We use your information to:</p>
       <ul>
         <li>
-          <strong>Provide the Harvora service</strong> — generate predictions, financial
+          <strong>Provide the Harvora service</strong>: generate predictions, financial
           projections, and recommendations for your orchard
         </li>
         <li>
-          <strong>Send alerts</strong> — SMS and email notifications when prediction
+          <strong>Send alerts</strong>: SMS and email notifications when prediction
           thresholds are breached or decisions are recommended
         </li>
         <li>
-          <strong>Improve our models</strong> — use de-identified, aggregated data across all
+          <strong>Improve our models</strong>: use de-identified, aggregated data across all
           users to improve prediction accuracy and calibration
         </li>
         <li>
-          <strong>Communicate with you</strong> — service updates, onboarding guidance, and
+          <strong>Communicate with you</strong>: service updates, onboarding guidance, and
           support
         </li>
         <li>
-          <strong>Maintain security</strong> — detect and prevent unauthorised access or abuse
+          <strong>Maintain security</strong>: detect and prevent unauthorised access or abuse
         </li>
       </ul>
       <p>
@@ -229,20 +229,20 @@ export default function PrivacyPage() {
       <p>Under the Privacy Act 2020, you have the right to:</p>
       <ul>
         <li>
-          <strong>Access</strong> your personal information — request a copy of all data we
+          <strong>Access</strong> your personal information: request a copy of all data we
           hold about you
         </li>
         <li>
-          <strong>Correct</strong> inaccurate information — update your details at any time
+          <strong>Correct</strong> inaccurate information: update your details at any time
           through the account settings or by contacting us
         </li>
         <li>
-          <strong>Export</strong> your data — use the data export feature in your account to
+          <strong>Export</strong> your data: use the data export feature in your account to
           download your orchard profile, blocks, management actions, predictions, and
           financial data in JSON format
         </li>
         <li>
-          <strong>Delete</strong> your account — contact us to request account deletion; we
+          <strong>Delete</strong> your account: contact us to request account deletion; we
           will delete your identifiable data within 30 days
         </li>
       </ul>

@@ -8,7 +8,7 @@ const SEASONS = [
   {
     label: "Season one",
     title: "It learns your land",
-    desc: "Every confirmed frost call, every irrigation, every harvest teaches Harvora how each block actually behaves — where cold air pools, how your soils drain and dry, how heat accumulates row by row.",
+    desc: "Every confirmed frost call, every irrigation, every harvest teaches Harvora how each block actually behaves: where cold air pools, how your soils drain and dry, how heat accumulates row by row.",
   },
   {
     label: "Season two",
@@ -18,7 +18,7 @@ const SEASONS = [
   {
     label: "Every season after",
     title: "It compounds",
-    desc: "A track record banked in dollars. A memory of every outcome. Models retrained on your ground truth. The intelligence you build never leaves the orchard — it deepens with it.",
+    desc: "A track record banked in dollars. A memory of every outcome. Models retrained on your ground truth. The intelligence you build never leaves the orchard; it deepens with it.",
   },
 ];
 
@@ -48,7 +48,7 @@ export default function CompoundingSection() {
         </h2>
         <p className="mb-14 max-w-2xl text-[17px] leading-relaxed text-white/80">
           Most software is the same on day one thousand as it was on day one.
-          Harvora isn&apos;t. Every season you farm with it, it remembers —
+          Harvora isn&apos;t. Every season you farm with it, it remembers,
           and what it remembers, it turns into sharper predictions, quieter
           alerts, and advice that sounds less like a tool and more like someone
           who has walked your rows for years.

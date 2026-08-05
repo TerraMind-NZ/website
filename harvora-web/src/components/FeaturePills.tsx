@@ -14,7 +14,7 @@ function Entry({ item, index }: { item: PillItem; index: number }) {
       <span className="text-[15px] font-semibold tracking-tight text-ink">
         {item.name}
       </span>
-      <span className="mx-2 text-[14px] text-ink-mute/60">—</span>
+      <span className="mx-2 text-[14px] text-ink-mute/60">·</span>
       <span className="text-[14px] text-ink-mute">{item.desc}</span>
       <span aria-hidden className="mx-7 text-[9px] text-leaf/50">
         ✦

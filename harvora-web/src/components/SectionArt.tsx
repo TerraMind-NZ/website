@@ -2,9 +2,9 @@
 
 import { useEffect, useRef } from "react";
 
-// Animated rendition of the hero canvas scene — horizon glow, twinkling
+// Animated rendition of the hero canvas scene: horizon glow, twinkling
 // stars, layered ridgelines terraced with vine rows, drifting mist and
-// fireflies — for the full-width dark sections. Same playbook as HeroCanvas:
+// fireflies, for the full-width dark sections. Same playbook as HeroCanvas:
 // only animates while on screen, draws a single static frame under
 // prefers-reduced-motion. `seed` varies the landscape so no two sections
 // show the same hills.
@@ -159,8 +159,8 @@ export default function SectionArt({ seed = 0 }: { seed?: number }) {
       });
 
       // On tall canvases (e.g. a whole page sharing one scene) the ridge band
-      // only covers the bottom, so spread the ambient life — mist and
-      // fireflies — across the full height instead of pinning it to the hills.
+      // only covers the bottom, so spread the ambient life (mist and
+      // fireflies) across the full height instead of pinning it to the hills.
       const spread = H > 1100;
       const mistCount = spread ? MIST.length : 8;
       const flyCount = spread

@@ -7,12 +7,12 @@ const PRODUCTS = [
   {
     name: "Frost",
     tag: "Flagship · 94% of frost nights",
-    desc: "Catches 94% of frost nights. Block-level frost probability converted to expected-value thresholds — protect or don't, priced against crop-loss risk. Not a temperature chart, a decision engine.",
+    desc: "Catches 94% of frost nights. Block-level frost probability converted to expected-value thresholds: protect or don't, priced against crop-loss risk. Not a temperature chart, a decision engine.",
   },
   {
     name: "Water & Irrigation",
     tag: "r = 0.81 · ERA5-Land, 6 NZ regions",
-    desc: "FAO-56 evapotranspiration bounded by real S-Map soil data. Deficit trajectory tracks independent ERA5-Land reanalysis across 6 NZ regions (root-zone r = 0.805) — irrigation scheduled when your soil actually needs it.",
+    desc: "FAO-56 evapotranspiration bounded by real S-Map soil data. Deficit trajectory tracks independent ERA5-Land reanalysis across 6 NZ regions (root-zone r = 0.805), so irrigation is scheduled when your soil actually needs it.",
   },
   {
     name: "Disease Risk",
@@ -22,7 +22,7 @@ const PRODUCTS = [
   {
     name: "Harvest & Phenology",
     tag: "±2-day harvest timing",
-    desc: "Growing-degree-day projections anchored to observed heat accumulation. Harvest windows accurate to ±2 days — labour, packhouse slots, and market timing planned from evidence.",
+    desc: "Growing-degree-day projections anchored to observed heat accumulation. Harvest windows accurate to ±2 days, so labour, packhouse slots, and market timing planned from evidence.",
   },
   {
     name: "Annual Crop Intelligence",
@@ -37,17 +37,17 @@ const PRODUCTS = [
   {
     name: "Pollination & Wind",
     tag: "92% bloom · 97% wind days",
-    desc: "Bee-flyable-hour forecasts (92% accuracy) for bloom and day-ahead warnings that catch 97% of damaging-wind days — notice enough to supplement hives or bring a pick forward.",
+    desc: "Bee-flyable-hour forecasts (92% accuracy) for bloom and day-ahead warnings that catch 97% of damaging-wind days: notice enough to supplement hives or bring a pick forward.",
   },
   {
     name: "Spray Window",
     tag: "96.7% rain-free · dry-guarantee",
-    desc: "Finds windows that hold: wind, gust, temperature and a dry margin before and after, checked on the 1-day forecast. Of 335 promised windows across 6 NZ regions, 96.7% stayed genuinely rain-free — a defensible go/no-go on product, labour and compliance.",
+    desc: "Finds windows that hold: wind, gust, temperature and a dry margin before and after, checked on the 1-day forecast. Of 335 promised windows across 6 NZ regions, 96.7% stayed genuinely rain-free: a defensible go/no-go on product, labour and compliance.",
   },
   {
     name: "Soil Scouter",
     tag: "Hardware · Ground truth",
-    desc: "Proprietary in-field soil moisture and temperature sensing feeding the prediction engine with block-level ground truth — closing the loop between forecast and soil reality.",
+    desc: "Proprietary in-field soil moisture and temperature sensing feeding the prediction engine with block-level ground truth, closing the loop between forecast and soil reality.",
   },
 ];
 
@@ -73,7 +73,7 @@ export default function PlatformRows() {
               style={{ "--d": i, "--i": i } as CSSProperties}
               className="group relative grid cursor-default grid-cols-1 items-start gap-4 py-9 md:grid-cols-[88px_1fr_1.15fr] md:gap-8"
             >
-              {/* Spine node — flares as the scan beam passes */}
+              {/* Spine node: flares as the scan beam passes */}
               <span
                 aria-hidden
                 className="spine-node top-[46px] -left-7 md:-left-9"

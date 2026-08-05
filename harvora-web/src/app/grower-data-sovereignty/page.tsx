@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import LegalPage from "@/components/LegalPage";
 
 export const metadata: Metadata = {
-  title: "Grower Data Sovereignty — Harvora",
+  title: "Grower Data Sovereignty | Harvora",
   description: "Harvora's commitments to grower ownership and control of farm data.",
 };
 
@@ -53,8 +53,8 @@ export default function GrowerDataSovereigntyPage() {
       <h3>Export at any time</h3>
       <p>
         Your account includes a complete data export feature. One click downloads your full
-        orchard dataset — profile, blocks, management actions, predictions, observations,
-        outcomes, alerts, and financial data — in a standard JSON format.
+        orchard dataset (profile, blocks, management actions, predictions, observations,
+        outcomes, alerts, and financial data) in a standard JSON format.
       </p>
       <p>
         You do not need to provide a reason. You do not need our permission. The export

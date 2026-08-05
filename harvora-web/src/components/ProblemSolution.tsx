@@ -7,8 +7,8 @@ import { useReveal } from "@/hooks/useReveal";
 
 // Sits directly under the hero, and deliberately breaks the page's rhythm:
 // where every other section explains, this one shows. The plate is the engine's
-// actual contract — a thousand futures for one block, collapsed into a
-// distribution and cut by a threshold — with the type wrapped around it.
+// actual contract: a thousand futures for one block, collapsed into a
+// distribution and cut by a threshold, with the type wrapped around it.
 
 // The gap the incumbents leave, then what we put in it. 66% missed and 94%
 // caught are the same measurement, which is the whole argument.
@@ -51,7 +51,7 @@ export default function ProblemSolution() {
             </h2>
             <p className="mb-10 max-w-sm text-[15px] leading-relaxed text-ink-mute">
               And when they do fire, they hand back a useless, unreliable risk
-              score — never a dollar figure, never a recommendation. Not one
+              score, never a dollar figure, never a recommendation. Not one
               incumbent runs an AI reasoning layer.
             </p>
             <div className="grid grid-cols-2 gap-x-6 gap-y-8">
@@ -83,7 +83,7 @@ export default function ProblemSolution() {
             </h2>
             <p className="max-w-xl text-[16px] leading-relaxed text-ink-mute">
               Harvora&apos;s prediction engine turns raw atmospheric and field
-              data into calibrated weather and agronomic probabilities — then
+              data into calibrated weather and agronomic probabilities, then
               into block-level, dollar-denominated decisions. An AI reasoning
               layer plans your season, triages what threatens it, and learns
               every block with compounding seasonal intelligence.

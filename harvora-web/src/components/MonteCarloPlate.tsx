@@ -19,7 +19,7 @@ const DURATION = 2600;
 const SWEEP_MS = 7000;
 
 const COOL = "15, 122, 65"; // leaf
-const WARM = "182, 125, 46"; // earth — only ever used below the threshold
+const WARM = "182, 125, 46"; // earth: only ever used below the threshold
 
 // Deterministic RNG so the plate is identical on server, client and reload.
 const mulberry32 = (seed: number) => () => {

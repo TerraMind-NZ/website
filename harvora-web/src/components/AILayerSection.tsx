@@ -8,19 +8,19 @@ import FeaturePills from "@/components/FeaturePills";
 const FEATURES = [
   {
     name: "AI Season Planner",
-    desc: "A prediction-driven calendar. Spray, irrigation, frost, harvest and more, planned ahead — and kept current as each new forecast sharpens the picture.",
+    desc: "A prediction-driven calendar. Spray, irrigation, frost, harvest and more, planned ahead, and kept current as each new forecast sharpens the picture.",
   },
   {
     name: "Insights Feed",
-    desc: "Every night, Harvora reads each block's trajectory and gathers what builds too slowly to trip an alarm — drifts, accumulating pressure, quiet anomalies — waiting in-app by morning.",
+    desc: "Every night, Harvora reads each block's trajectory and gathers what builds too slowly to trip an alarm: drifts, accumulating pressure, quiet anomalies, waiting in-app by morning.",
   },
   {
     name: "AI Alerts",
-    desc: "The urgent calls, pushed to your phone. The reasoning layer decides what's critical and sends it by SMS and email — AI-driven out of the box, with manual thresholds still there if you want them. Deduped, intelligently bundled and paced around quiet hours and action windows.",
+    desc: "The urgent calls, pushed to your phone. The reasoning layer decides what's critical and sends it by SMS and email, AI-driven out of the box, with manual thresholds still there if you want them. Deduped, intelligently bundled and paced around quiet hours and action windows.",
   },
   {
     name: "Ask Harvora",
-    desc: "An agentic assistant grounded in your blocks, your history, your numbers — down to actual costs synced from Xero. A bounded tool-calling loop that retrieves, reasons and runs what-ifs, powerful enough to act — disciplined enough to never act without you.",
+    desc: "An agentic assistant grounded in your blocks, your history, your numbers, down to actual costs synced from Xero. A bounded tool-calling loop that retrieves, reasons and runs what-ifs, powerful enough to act, disciplined enough to never act without you.",
   },
 ];
 
@@ -43,7 +43,7 @@ const MORE_FEATURES = [
   },
   {
     name: "Decision Optimisation",
-    desc: "A lever sweep — in-chat or overnight — ranking frost, irrigation and harvest actions by dollar outcome. Scenario search, never a forecast.",
+    desc: "A lever sweep, in-chat or overnight, ranking frost, irrigation and harvest actions by dollar outcome. Scenario search, never a forecast.",
   },
   {
     name: "Pre-Decision Checklists",
@@ -71,7 +71,7 @@ const MORE_FEATURES = [
   },
   {
     name: "Ledger Analysis",
-    desc: "Ask reads your synced Xero ledger — summaries, P&L and period comparisons, orchard-scoped.",
+    desc: "Ask reads your synced Xero ledger: summaries, P&L and period comparisons, orchard-scoped.",
   },
   {
     name: "Account Mapping",
@@ -79,7 +79,7 @@ const MORE_FEATURES = [
   },
   {
     name: "Conversation Memory",
-    desc: "Ask remembers your operation across sessions — “as you mentioned last week.”",
+    desc: "Ask remembers your operation across sessions: “as you mentioned last week.”",
   },
   {
     name: "Grower-Learning Synthesis",
@@ -95,11 +95,11 @@ const MORE_FEATURES = [
   },
   {
     name: "SMS & WhatsApp",
-    desc: "The full agent, reachable from any phone — identity-gated and keyword-routed.",
+    desc: "The full agent, reachable from any phone, identity-gated and keyword-routed.",
   },
   {
     name: "Reliability Hardening",
-    desc: "An audited layer beneath all 24 features — every answer budgeted, validated and safe against bad input.",
+    desc: "An audited layer beneath all 24 features: every answer budgeted, validated and safe against bad input.",
   },
 ];
 
@@ -115,7 +115,7 @@ export default function AILayerSection() {
       <div className="eyebrow mb-12">Harvora Intelligence</div>
       <div className="mb-14 grid grid-cols-1 items-end gap-8 md:grid-cols-2 md:gap-20">
         <h2 className="font-serif text-[clamp(28px,3.5vw,46px)] font-semibold leading-[1.1] tracking-tight text-ink">
-          A 24-feature AI reasoning layer —{" "}
+          A 24-feature AI reasoning layer,{" "}
           <em className="shimmer-text on-light italic">built for horticulture</em>
         </h2>
         <div>
@@ -125,7 +125,7 @@ export default function AILayerSection() {
             find the signal, the AI puts it into words, and a structured
             fallback ships if it can&apos;t. Agentic tool-calling,
             retrieval-augmented answers, cross-checked responses on
-            high-stakes questions — all sitting on an audited
+            high-stakes questions, all sitting on an audited
             reliability layer, with you making every call.
           </p>
           <Link
